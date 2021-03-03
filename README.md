@@ -17,8 +17,8 @@
 便利商品の情報が知りたい時や紹介したい時
 
 ## 設計書
-[ER図]https://app.diagrams.net/#Hcouplee%2Fcake%2Fmain%2F%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.drawio
-[テーブル定義書]https://docs.google.com/spreadsheets/d/1scz83bFQcKkUUlAmRocficoJqmC6uZUIkUd_teMzENE/edit#gid=708687357
+[ER図]https://app.diagrams.net/#Hcouplee%2Fcake%2Fmain%2F%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.drawio  
+[テーブル定義書]https://docs.google.com/spreadsheets/d/1scz83bFQcKkUUlAmRocficoJqmC6uZUIkUd_teMzENE/edit#gid=708687357  
 [アプリケーション詳細設計書]https://docs.google.com/spreadsheets/d/1JUSkSZ1CwgtoZYJT8Kcl3rCzTJU9Ga3VIkFMEVpXLh8/edit#gid=0
 
 ## [機能一覧はこちら](https://docs.google.com/spreadsheets/d/1QrwdTC9v8cvQZskshNr8ujW201cEfJe9HA6zmzXJ8bg/edit#gid=0)
