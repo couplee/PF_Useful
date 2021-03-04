@@ -1,24 +1,32 @@
-# README
+# Useful
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+便利商品の情報交換(紹介、捜索、提案)サイト
 
-Things you may want to cover:
+### サイトテーマ
+世の中の便利商品の情報を交換し合おう
 
-* Ruby version
+### テーマを選んだ理由
+私自身便利な物が好きな上、日常生活でこういう便利グッズがあったらいいなと思うときが多々あるため、便利グッズの情報を交換できたらいいなと思いテーマにしました。
 
-* System dependencies
+### ターゲットユーザ
+・便利商品が好きな一般ユーザー  
+・便利商品を重宝してる一般ユーザー
 
-* Configuration
+### 主な利用シーン
+便利商品の情報が知りたい時や紹介したい時
 
-* Database creation
+## 設計書
+[ER図]https://app.diagrams.net/#Hcouplee%2Fcake%2Fmain%2F%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.drawio  
+[テーブル定義書]https://docs.google.com/spreadsheets/d/1scz83bFQcKkUUlAmRocficoJqmC6uZUIkUd_teMzENE/edit#gid=708687357  
+[アプリケーション詳細設計書]https://docs.google.com/spreadsheets/d/1JUSkSZ1CwgtoZYJT8Kcl3rCzTJU9Ga3VIkFMEVpXLh8/edit#gid=0
 
-* Database initialization
+## [機能一覧はこちら](https://docs.google.com/spreadsheets/d/1QrwdTC9v8cvQZskshNr8ujW201cEfJe9HA6zmzXJ8bg/edit#gid=0)
 
-* How to run the test suite
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
