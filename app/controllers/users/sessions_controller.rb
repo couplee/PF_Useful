@@ -1,4 +1,4 @@
-class Users::SessionsController < Devise::SessionsController
+class Users::SessionsController < Devise::SessionsController           #ゲストユーザー実装2/4
   def new_guest
     user = User.guest
     sign_in user

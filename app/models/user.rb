@@ -6,7 +6,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
 
-  def self.guest
+  def self.guest       #ゲストユーザー実装3/4
     find_or_create_by(email: 'guest@example.com') do |user|
       user.password = SecureRandom.urlsafe_base64
     end
