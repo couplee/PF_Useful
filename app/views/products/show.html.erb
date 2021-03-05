@@ -1,0 +1,71 @@
+<h1>Products#show</h1>
+<p>Find me in app/views/products/show.html.erb</p>
+
+<div>タイトル</div>
+<%= @product.title %>
+
+<div>商品説明</div>
+<%= simple_format @product.body %>              <!-- simple_formatは改行を反映させる-->
+
+<% if @product.photos.present? %>
+  <% @product.photos.each do |photo| %>
+    <%= attachment_image_tag photo, :image, size: '200x200' %>
+  <% end %>
+<% else %>
+    <%= image_tag 'no_image.png', size: '200x200' %>
+<% end %>
+
+<div>購入先/販売店</div>
+<%= @product.seller %>
+
+<div>コスト</div>
+<%= @product.cost %>
+
+<div>使用開始年月</div>
+<%= @product.since_when %>
+
+ <% if @product.liked_by?(current_user) %>
+      <p><%= link_to product_likes_path(@product), method: :delete do %>
+      ❤<%= @product.likes.count %>いいね
+      <% end %></p>
+    <% else %>
+      <p><%= link_to product_likes_path(@product), method: :post do %>
+      ♡︎<%= @product.likes.count %>いいね
+      <% end %></p>
+    <% end %>
+
+<% if @product.user.id == current_user.id %>
+  <%= link_to '商品編集', edit_product_path(@product) %>
+<% end %>
+
+<div>
+<%= @product.user.name %>
+</div>
+
+<div>
+<%= @product.user.profile %>
+</div>
+
+<div>
+<%= link_to user_path(@product.user) do %>
+  <%= @product.user.name %>さんのプロフィールへ
+<% end %>
+</div>
+
+  <p>コメント件数:<%= @product.post_comments.count %></p>
+  <% @product.post_comments.each do |post_comment| %>
+  <%= post_comment.user.name %>
+  <%= post_comment.created_at.strftime("%Y/%m/%d") %>
+  <%= post_comment.comment %>
+    <% if post_comment.user == current_user %>
+    <%= link_to "削除", product_post_comment_path(post_comment.product, post_comment), method: :delete %>
+    <% end %>
+
+  <% end %>
+
+
+
+  <%= form_with(model:[@product, @post_comment], local: true) do |f| %>
+    <%= f.text_area :comment, rows:'10', placeholder: "コメントをここに" %>
+    <%= f.submit "送信する" %>
+  <% end %>

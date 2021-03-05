@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  title: MyString
+  body: MyText
+  seller: MyText
+  cost: 1
+  since_when: 2021-03-05
+
+two:
+  user_id: 1
+  title: MyString
+  body: MyText
+  seller: MyText
+  cost: 1
+  since_when: 2021-03-05

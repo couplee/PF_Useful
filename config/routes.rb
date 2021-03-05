@@ -6,4 +6,8 @@ Rails.application.routes.draw do
     post '/users/guest_sign_in' => 'users/sessions#new_guest'
   end
   resources :users
+  resources :products do
+    resources :post_comments, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
+  end
 end

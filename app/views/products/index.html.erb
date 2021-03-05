@@ -1,0 +1,23 @@
+<h1>Products#index</h1>
+<p>Find me in app/views/products/index.html.erb</p>
+
+
+<% @products.each do |product| %>
+
+<%= link_to product_path(product) do %>
+<!--商品の画像-->
+<% end %>
+
+<%= link_to "#{product.post_comments.count} コメント", product_path(product) %>
+
+<%= link_to user_path(product.user.id) do %>
+<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png' %>
+<% end %>
+
+<%= link_to product.user.name, user_path(product.user.id) %>
+
+<%= product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
+
+<% end %>
+
+<%= paginate @products %>

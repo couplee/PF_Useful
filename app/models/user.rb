@@ -3,8 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  has_many :products, dependent: :destroy
+  has_many :post_comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   attachment :profile_image
+  
+  validates :name, presence: 
 
   def self.guest       #ゲストユーザー実装3/4
     find_or_create_by(email: 'guest@example.com') do |user|

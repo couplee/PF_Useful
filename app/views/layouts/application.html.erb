@@ -17,16 +17,19 @@
       <% end %>
 
       <% if user_signed_in? %>
+          <%= link_to "商品一覧", products_path, class: 'nav-link text-dark' %>
+          <%= link_to "新規投稿", new_product_path, class: 'nav-link text-dark' %>
           <i class="fas fa-cat"></i><%= link_to "ユーザー一覧", users_path, class: 'nav-link text-dark' %>
           <%= link_to "About", home_about_path, class: 'nav-link text-dark' %>
+          <%= link_to "マイページ", user_path(current_user), class: 'nav-link text-dark' %>
           <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link text-dark' %>
       <% else %>
+          <%= link_to "商品一覧", products_path, class: 'nav-link text-dark' %>
           <%= link_to "ユーザー一覧", users_path, class: 'nav-link text-dark' %>
           <%= link_to "About", home_about_path, class: 'nav-link text-dark' %>
           <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
           <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link text-dark' %>
-          <!--↑ゲストユーザー実装4/4-->
+          <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link text-dark' %>          <!--ゲストユーザー実装4/4-->
       <% end %>
     </header>
 
