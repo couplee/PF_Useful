@@ -1,0 +1,9 @@
+<% if product.liked_by?(current_user) %>            <!--非同期通信2/5-->
+      <p><%= link_to product_likes_path(product), method: :delete, remote: true do %>
+      ❤<%= product.likes.count %>いいね
+      <% end %></p>
+    <% else %>
+      <p><%= link_to product_likes_path(product), method: :post, remote: true do %>
+      ♡︎<%= product.likes.count %>いいね
+      <% end %></p>
+    <% end %>

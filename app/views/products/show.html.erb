@@ -24,15 +24,9 @@
 <div>使用開始年月</div>
 <%= @product.since_when %>
 
- <% if @product.liked_by?(current_user) %>
-      <p><%= link_to product_likes_path(@product), method: :delete do %>
-      ❤<%= @product.likes.count %>いいね
-      <% end %></p>
-    <% else %>
-      <p><%= link_to product_likes_path(@product), method: :post do %>
-      ♡︎<%= @product.likes.count %>いいね
-      <% end %></p>
-    <% end %>
+<div id= "likes_buttons_<%= @product.id %>">            <!--非同期通信1/5-->
+  <%= render partial: 'likes/like', locals: { product: @product} %>
+</div>
 
 <% if @product.user.id == current_user.id %>
   <%= link_to '商品編集', edit_product_path(@product) %>
