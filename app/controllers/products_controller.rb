@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.page(params[:page]).per(6)
+    @search = Product.ransack(params[:q])        #検索機能1/2
+    @search_products = @search.result            #検索機能1/2
   end
 
   def show

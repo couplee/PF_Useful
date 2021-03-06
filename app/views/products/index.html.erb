@@ -1,6 +1,33 @@
 <h1>Products#index</h1>
 <p>Find me in app/views/products/index.html.erb</p>
 
+<!--#検索機能2/2ここから-->
+<%= search_form_for @search, url: products_path do |f| %>
+  <%= f.label :tilte, 'タイトル' %>
+  <%= f.search_field :title_cont %>
+  <%= f.label :body, '本文' %>
+  <%= f.search_field :body_cont %>
+  <%= f.submit '検索' %>
+<% end %>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@search, :title) -%></th>
+      <th><%= sort_link(@search, :body) -%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_products.each do |sp| %>
+    <tr>
+      <td><%= sp.title -%></td>
+      <td><%= sp.body -%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--#検索機能2/2ここまで-->
+
 
 <% @products.each do |product| %>
 
