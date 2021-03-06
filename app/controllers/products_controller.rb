@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.photos.build
+    @product.photos.new
+    @product.merits.build
   end
 
   def create
@@ -34,7 +35,15 @@ class ProductsController < ApplicationController
   
   def update
     @product = Product.find(params[:id])
-    if @product.update(product_params)
+    if @product.update(edit_product_params)
+      #pp product_params[:photos_images]
+      product_params[:photos_images].each do | img |
+        if img != "[]"
+          pp img.tempfile
+          @product.photos.new(image: File.open(img.tempfile))
+          @product.save
+        end
+      end
       redirect_to product_path(@product), notice: '更新に成功しました'
     else
       render :edit
@@ -46,9 +55,18 @@ class ProductsController < ApplicationController
     product.destroy
     redirect_to products_path
   end
+  
+  def destroy_photo
+    Photo.find(params[:id]).destroy
+    redirect_back(fallback_location: root_path)
+  end
 
   private
   def product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, photos_images: [])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, photos_images: [], merits_attributes: [:id, :product_id, :advantage, :_destroy])
+  end
+  
+  def edit_product_params
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, merits_attributes: [:id, :product_id, :advantage, :_destroy])
   end
 end

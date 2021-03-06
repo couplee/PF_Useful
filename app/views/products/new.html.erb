@@ -20,6 +20,15 @@
 <%= f.label :本文 %>
 <%= f.text_area :body %>
 
+<div class='merits'>
+  <%= f.fields_for :merits do |merit| %>
+  <%= render 'merit_fields', f: merit %>
+  <% end %>
+  <div class='links'>
+  <%= link_to_add_association 'フォーム追加', f, :merits %>
+  </div>
+</div>
+
 <%= f.label :商品画像 %>
 <%= f.attachment_field :photos_images, multiple: true %>
 

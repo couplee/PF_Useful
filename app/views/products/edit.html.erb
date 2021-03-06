@@ -20,6 +20,24 @@
 <%= f.label :本文 %>
 <%= f.text_area :body %>
 
+<div class='merits'>
+  <%= f.fields_for :merits do |merit| %>
+  <%= render 'merit_fields', f: merit %>
+  <% end %>
+  <div class='links'>
+  <%= link_to_add_association 'フォーム追加', f, :merits %>
+  </div>
+</div>
+
+<% @product.photos.each do |photo| %>
+<%= image_tag attachment_url(photo, :image, :fill, 80, 80) %>
+<p><%= link_to '削除', photo_destroy_path(photo), method: :delete, data: { confirm: "写真を削除します"} %></p>
+<% end %>
+
+<%= f.label :商品画像 %>
+<%= f.attachment_field :photos_images, multiple: true %>
+<%# f.file_field :photo_images, multiple: true, name: "photo_images[image][]" %>
+
 <%= f.label :購入先／販売店 %>
 <%= f.text_field :seller %>
 

@@ -4,6 +4,8 @@ class Product < ApplicationRecord
   accepts_attachments_for :photos, attachment: :image
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :merits
+  accepts_nested_attributes_for :merits, allow_destroy: true
   
   with_options presence: true do     #空白投稿禁止1/2
     validates :title

@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require cocoon
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
@@ -17,3 +18,25 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+// スムーススクロール機能3/3 ここから
+$(function() {
+    var topBtn = $('#page-top');    
+    topBtn.hide();
+    //スクロールが100に達したらボタン表示
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 100) {
+            topBtn.fadeIn();
+        } else {
+            topBtn.fadeOut();
+        }
+    });
+    //スクロールしてトップ
+    topBtn.click(function () {
+        $('body,html').animate({
+            scrollTop: 0
+        }, 500);
+        return false;
+    });
+});
+// スムーススクロール機能3/3 ここまで
