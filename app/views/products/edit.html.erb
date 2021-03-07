@@ -29,6 +29,18 @@
   </div>
 </div>
 
+<div class='demerits'>
+  <%= f.fields_for :demerits do |demerit| %>
+  <%= render 'demerit_fields', f: demerit %>
+  <% end %>
+  <div class='links'>
+  <%= link_to_add_association 'フォーム追加', f, :demerits %>
+  </div>
+</div>
+
+<%= f.label :タグ %>
+<%= f.text_field :tag_list, value: @product.tag_list.join(',') %>
+
 <% @product.photos.each do |photo| %>
 <%= image_tag attachment_url(photo, :image, :fill, 80, 80) %>
 <p><%= link_to '削除', photo_destroy_path(photo), method: :delete, data: { confirm: "写真を削除します"} %></p>

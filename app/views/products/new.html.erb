@@ -29,6 +29,18 @@
   </div>
 </div>
 
+<div class='demerits'>
+  <%= f.fields_for :demerits do |demerit| %>
+  <%= render 'demerit_fields', f: demerit %>
+  <% end %>
+  <div class='links'>
+  <%= link_to_add_association 'フォーム追加', f, :demerits %>
+  </div>
+</div>
+
+<%= f.label :タグ %>
+<%= f.text_field :tag_list, value: @product.tag_list.join(',') %>
+
 <%= f.label :商品画像 %>
 <%= f.attachment_field :photos_images, multiple: true %>
 

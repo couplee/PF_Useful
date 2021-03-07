@@ -6,6 +6,9 @@ class Product < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :merits
   accepts_nested_attributes_for :merits, allow_destroy: true
+  has_many :demerits
+  accepts_nested_attributes_for :demerits, allow_destroy: true
+  acts_as_taggable
   
   with_options presence: true do     #空白投稿禁止1/2
     validates :title

@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
     @products = Product.page(params[:page]).per(6)
     @search = Product.ransack(params[:q])        #検索機能1/2
     @search_products = @search.result            #検索機能1/2
+    # if params[:tag_name]
+    #   @products = Product.tagged_with("#{params[:tag_name]}")
+    # end
   end
 
   def show
@@ -16,6 +19,7 @@ class ProductsController < ApplicationController
     @product = Product.new
     @product.photos.new
     @product.merits.build
+    @product.demerits.build
   end
 
   def create
@@ -65,10 +69,10 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, photos_images: [], merits_attributes: [:id, :product_id, :advantage, :_destroy])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :tag_list, photos_images: [], merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
   end
   
   def edit_product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, merits_attributes: [:id, :product_id, :advantage, :_destroy])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :tag_list, merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
   end
 end

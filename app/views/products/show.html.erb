@@ -13,6 +13,16 @@
 <% end %>
 </div>
 
+<div>デメリット
+<% @product.demerits.each do |demerit| %>
+<%= demerit.disadvantage %>
+<% end %>
+</div>
+
+<div>
+<%= render 'tag_list', tag_list: @product.tag_list %>
+</div>
+
 <% if @product.photos.present? %>
   <% @product.photos.each do |photo| %>
     <%= attachment_image_tag photo, :image, size: '200x200' %>

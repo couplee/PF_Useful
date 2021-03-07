@@ -2,14 +2,13 @@
 <p>Find me in app/views/products/index.html.erb</p>
 
 <!--#検索機能2/2ここから-->
-<%= search_form_for @search, url: products_path do |f| %>
-  <%= f.label :tilte, 'タイトル' %>
-  <%= f.search_field :title_cont %>
-  <%= f.label :body, '本文' %>
-  <%= f.search_field :body_cont %>
+<%= search_form_for @search do |f| %>      <!--, url: products_path-->
+  <%= f.label :tilte, 'タイトルor本文' %>
+  <%= f.search_field :title_or_body_cont %>
   <%= f.submit '検索' %>
 <% end %>
 
+<%#if params[:q][:title_or_body_cont].present? %>
 <table>
   <thead>
     <tr>
@@ -26,14 +25,17 @@
     <% end %>
   </tbody>
 </table>
+<%#end %>
 <!--#検索機能2/2ここまで-->
 
-
+<div>
 <% @products.each do |product| %>
 
 <%= link_to product_path(product) do %>
 <!--商品の画像-->
 <% end %>
+
+<%= render 'tag_list', tag_list: product.tag_list %>
 
 <%= link_to "#{product.post_comments.count} コメント", product_path(product) %>
 
@@ -46,5 +48,6 @@
 <%= product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
 
 <% end %>
+</div>
 
 <%= paginate @products %>

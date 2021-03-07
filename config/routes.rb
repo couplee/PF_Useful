@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'bookmarks/index'
   devise_for :users
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
@@ -11,4 +12,5 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
   delete 'products/delete_image/:id' => 'products#destroy_photo', as: 'photo_destroy'
+  get 'likes' => 'bookmarks#index'
 end
