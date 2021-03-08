@@ -3,20 +3,46 @@
 
 <%= attachment_image_tag @user, :profile_image, fallback: 'no_image.png', size: '100x100' %>
 
+<div>お名前
 <%= @user.name %>
+</div>
 
+<div>プロフィール
 <%= @user.profile %>
+</div>
 
+<div>メールアドレス
 <% if @user.id == current_user.id %>
-  <%= @user.email %>
-  <%= link_to "プロフィール編集", edit_user_path(@user), class: 'button is-primary' %>
+  <%= @user.email %><br>
+  <%= link_to "編集", edit_user_path(@user), class: 'button is-primary' %>
 <% end %>
+</div>
+
+<div>
+<%= @user.name %>さんの投稿商品一覧
+</div>
+
+<div>
+
 
 <% @user.products.each do |product| %>
+  <% if product.photos.present? %>
+  <% product.photos.each do |photo| %>
+    <%= attachment_image_tag photo, :image, size: '80x80' %>
+  <% end %>
+<% else %>
+    <%= image_tag 'no_image.png', size: '200x200' %>
+<% end %>
+<p>タイトル:<%= product.title %></p>
+<p>商品説明：<%= product.body %></p>
+<p>コスト：<%= product.cost %></p>
+  <p>更新日：<%= product.updated_at.strftime("%Y/%m/%d") %></p>
   <%= link_to "商品詳細", product_path(product) %>
+  <p>
     <% if @user.id == current_user.id %>
     <%= link_to "商品編集", edit_product_path(product) %>
     <%= link_to "商品削除", product_path(product), method: :delete, "data-confirm" => "本当に消しますか？" %>
     <% end %>
-  <%= product.updated_at.strftime("%Y/%m/%d") %>アップデート
+    </p>
 <% end %>
+</div>

@@ -17,7 +17,9 @@
 //= require activestorage
 //= require turbolinks
 //= require cocoon
+//= require bxslider
 //= require_tree .
+
 
 // スムーススクロール機能3/3 ここから
 $(function() {

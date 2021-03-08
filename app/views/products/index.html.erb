@@ -28,24 +28,62 @@
 <%#end %>
 <!--#検索機能2/2ここまで-->
 
+
+
 <div>
 <% @products.each do |product| %>
 
+  <!--<div class='slider'>-->
 <%= link_to product_path(product) do %>
-<!--商品の画像-->
+
+<% if product.photos.present? %>
+
+  <% product.photos.each do |photo| %>
+
+  <%= attachment_image_tag photo, :image, size: '80x80' %>
+
+  <% end %>
+
+<% else %>
+    <%= image_tag 'no_image.png', size: '80x80' %>
 <% end %>
 
-<%= render 'tag_list', tag_list: product.tag_list %>
+<% end %>
+<!--</div>-->
 
+<p>タイトル</p>
+<%= link_to product.title, product_path(product) %>
+
+<p>商品説明</p>
+<%= link_to product.body, product_path(product) %>
+
+<div>
+  <%= product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
+</div>
+
+<div>
 <%= link_to "#{product.post_comments.count} コメント", product_path(product) %>
+</div>
 
+<div>
+<%= render 'tag_list', tag_list: product.tag_list %>
+</div>
+
+
+
+
+
+<div>
 <%= link_to user_path(product.user.id) do %>
-<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png' %>
+<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png', size: '80x80' %>
 <% end %>
+</div>
 
+<div>
 <%= link_to product.user.name, user_path(product.user.id) %>
+</div>
 
-<%= product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
+
 
 <% end %>
 </div>
