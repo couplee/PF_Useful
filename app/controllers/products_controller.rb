@@ -3,8 +3,16 @@ class ProductsController < ApplicationController
 
   def index
     @products = Product.page(params[:page]).per(6)
-    @search = Product.ransack(params[:q])        #検索機能1/2
-    @search_products = @search.result            #検索機能1/2
+    #検索機能1/3ここから
+    @search = Product.ransack(params[:q])
+    @search_products = @search.result
+    if params[:q].present?
+      render 'result'
+    else
+      render 'index'
+    end
+    #検索機能1/3ここまで
+    
     # if params[:tag_name]
     #   @products = Product.tagged_with("#{params[:tag_name]}")
     # end
@@ -18,8 +26,8 @@ class ProductsController < ApplicationController
   def new
     @product = Product.new
     @product.photos.new
-    @product.merits.build
-    @product.demerits.build
+    @product.merits.build                    #cocoonで'メリット'機能実装3/6
+    @product.demerits.build                    #cocoonで'デメリット'機能実装3/6
   end
 
   def create
@@ -76,3 +84,7 @@ class ProductsController < ApplicationController
     params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :tag_list, merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
   end
 end
+
+# ストロングパラメーター内
+# merits_attributes: [:id, :product_id, :advantage, :_destroy]                    #cocoonで'メリット'機能実装4/6
+# demerits_attributes: [:id, :product_id, :disadvantage, :_destroy]                    #cocoonで'デメリット'機能実装4/6

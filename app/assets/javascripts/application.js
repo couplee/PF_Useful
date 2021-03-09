@@ -15,7 +15,6 @@
 //= require bootstrap-sprockets
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require cocoon
 //= require bxslider
 //= require_tree .
@@ -23,7 +22,7 @@
 
 // スムーススクロール機能3/3 ここから
 $(function() {
-    var topBtn = $('#page-top');    
+    var topBtn = $('#page-top');
     topBtn.hide();
     //スクロールが100に達したらボタン表示
     $(window).scroll(function () {
@@ -42,3 +41,45 @@ $(function() {
     });
 });
 // スムーススクロール機能3/3 ここまで
+
+$(function() {
+  $('.slider').slick();
+});
+
+
+//   var Swiper = new Swiper('.swiper-container', {
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   }
+// })
+// var Swiper = new Swiper('.swiper-container', {
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   }
+// })
+
+// var swiper = new Swiper('.swiper-container', {
+//   pagination: '.swiper-pagination',
+//   paginationClickable: true,
+//   parallax: true,
+//   speed: 600,
+//   autoplay: 4000,
+//   loop: true,
+// });
+
+// var Swiper = new Swiper('.swiper-container', {
+//   loop: true,
+//   pagination: {
+//     el: '.swiper-pagination',
+//   },
+//   navigation: {
+//     nextEl: '.swiper-button-next',
+//     prevEl: '.swiper-button-prev',
+//   },
+//   scrollbar: {
+//     el: '.swiper-scrollbar',
+//   },
+// })
+

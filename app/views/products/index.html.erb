@@ -1,55 +1,43 @@
 <h1>Products#index</h1>
 <p>Find me in app/views/products/index.html.erb</p>
 
-<!--#検索機能2/2ここから-->
+<!--#検索機能2/3ここから-->
 <%= search_form_for @search do |f| %>      <!--, url: products_path-->
   <%= f.label :tilte, 'タイトルor本文' %>
   <%= f.search_field :title_or_body_cont %>
   <%= f.submit '検索' %>
 <% end %>
-
-<%#if params[:q][:title_or_body_cont].present? %>
-<table>
-  <thead>
-    <tr>
-      <th><%= sort_link(@search, :title) -%></th>
-      <th><%= sort_link(@search, :body) -%></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @search_products.each do |sp| %>
-    <tr>
-      <td><%= sp.title -%></td>
-      <td><%= sp.body -%></td>
-    </tr>
-    <% end %>
-  </tbody>
-</table>
-<%#end %>
-<!--#検索機能2/2ここまで-->
+<!--#検索機能2/3ここまで-->
 
 
 
 <div>
 <% @products.each do |product| %>
-
+  <!-- <div class="previews">-->
   <!--<div class='slider'>-->
-<%= link_to product_path(product) do %>
 
-<% if product.photos.present? %>
 
-  <% product.photos.each do |photo| %>
-
-  <%= attachment_image_tag photo, :image, size: '80x80' %>
-
-  <% end %>
-
-<% else %>
-    <%= image_tag 'no_image.png', size: '80x80' %>
-<% end %>
-
-<% end %>
-<!--</div>-->
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% if product.photos.present? %>
+        <% product.photos.each do |photo| %>
+          <div class="swiper-slide">
+            <%= link_to product_path(product) do %>
+              <%= attachment_image_tag photo, :image, size: '80x80' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <!--<div class="swiper-slide">-->
+          <%= link_to product_path(product) do %>
+            <%= image_tag 'no_image.png', size: '80x80' %>
+          <% end %>
+        <!--</div>-->
+      <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
 
 <p>タイトル</p>
 <%= link_to product.title, product_path(product) %>
@@ -88,4 +76,7 @@
 <% end %>
 </div>
 
+
 <%= paginate @products %>
+
+

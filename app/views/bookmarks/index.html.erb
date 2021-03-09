@@ -1,6 +1,47 @@
 <h1>Bookmarks#index</h1>
 <p>Find me in app/views/bookmarks/index.html.erb</p>
 
-<% @bookmarks.each do |bookmarks| %>
-<%= bookmarks.likes
+<% @likes.each do |like| %>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% if like.product.photos.present? %>
+        <% like.product.photos.each do |photo| %>
+          <div class="swiper-slide">
+            <%= link_to product_path(like) do %>
+              <%= attachment_image_tag photo, :image, size: '80x80' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <!--<div class="swiper-slide">-->
+          <%= link_to product_path(like) do %>
+            <%= image_tag 'no_image.png', size: '80x80' %>
+          <% end %>
+        <!--</div>-->
+      <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <p>タイトル</p>
+<%= link_to like.product.title, product_path(like) %>
+
+<p>商品説明</p>
+<%= link_to like.product.body, product_path(like) %>
+
+<div>
+  <%= like.product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
+</div>
+
+<div>
+<%= link_to "#{like.product.post_comments.count} コメント", product_path(like) %>
+</div>
+
+<div>
+<%= render 'products/tag_list', tag_list: like.product.tag_list %>
+</div>
 <% end %>
+
+

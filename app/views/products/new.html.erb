@@ -20,7 +20,7 @@
 <%= f.label :本文 %>
 <%= f.text_area :body %>
 
-<div class='merits'>
+<div class='merits'>              <!--cocoonで'メリット'機能実装5/6-->
   <%= f.fields_for :merits do |merit| %>
   <%= render 'merit_fields', f: merit %>
   <% end %>
@@ -29,7 +29,7 @@
   </div>
 </div>
 
-<div class='demerits'>
+<div class='demerits'>              <!--cocoonで'デメリット'機能実装5/6-->
   <%= f.fields_for :demerits do |demerit| %>
   <%= render 'demerit_fields', f: demerit %>
   <% end %>

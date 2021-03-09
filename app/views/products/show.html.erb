@@ -23,13 +23,21 @@
 <%= render 'tag_list', tag_list: @product.tag_list %>
 </div>
 
-<% if @product.photos.present? %>
-  <% @product.photos.each do |photo| %>
-    <%= attachment_image_tag photo, :image, size: '200x200' %>
-  <% end %>
-<% else %>
-    <%= image_tag 'no_image.png', size: '200x200' %>
-<% end %>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% if @product.photos.present? %>
+          <% @product.photos.each do |photo| %>
+            <div class="swiper-slide">
+              <%= attachment_image_tag photo, :image, size: '200x200' %>
+            </div>
+          <% end %>
+        <% else %>
+          <%= image_tag 'no_image.png', size: '200x200' %>
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
 
 <div>購入先/販売店</div>
 <%= @product.seller %>
@@ -46,6 +54,7 @@
 
 <% if @product.user.id == current_user.id %>
   <%= link_to '商品編集', edit_product_path(@product) %>
+  <%= link_to '商品削除', product_path(@product), method: :delete, "data-confirm" => "本当に消しますか？" %>
 <% end %>
 
 <div>

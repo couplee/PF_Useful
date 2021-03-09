@@ -12,5 +12,5 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
   delete 'products/delete_image/:id' => 'products#destroy_photo', as: 'photo_destroy'
-  get 'likes' => 'bookmarks#index'
+  get 'bookmarks' => 'bookmarks#index'
 end

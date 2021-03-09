@@ -1,0 +1,19 @@
+<h1>検索結果</h1>
+<!--#検索機能3/3ここから-->
+<table>
+  <thead>
+    <tr>
+      <th><%= sort_link(@search, :title) -%></th>
+      <th><%= sort_link(@search, :body) -%></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @search_products.each do |sp| %>
+    <tr>
+      <td><%= sp.title -%></td>
+      <td><%= sp.body -%></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--#検索機能3/3ここまで-->
