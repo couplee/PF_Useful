@@ -1,5 +1,4 @@
-<h1>Products#show</h1>
-<p>Find me in app/views/products/show.html.erb</p>
+<h1>商品詳細</h1>
 
 <div>タイトル</div>
 <%= @product.title %>
@@ -20,7 +19,7 @@
 </div>
 
 <div>
-<%= render 'tag_list', tag_list: @product.tag_list %>
+<%= render 'tag_list', tag_list: @product.tag_list %>                                                       <!--タグ機能4*2/7?-->
 </div>
 
     <div class="swiper-container">

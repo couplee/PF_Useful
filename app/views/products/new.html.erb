@@ -1,5 +1,4 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>新規投稿</h1>
 
 <% if @product.errors.any? %>
 <!--<div id="error_explanation">-->
@@ -17,8 +16,8 @@
 <%= f.label :タイトル %>
 <%= f.text_field :title %>
 
-<%= f.label :本文 %>
-<%= f.text_area :body %>
+<%= f.label :本文(購入の決め手／) %>
+<%= f.text_area :body, placeholder %>
 
 <div class='merits'>              <!--cocoonで'メリット'機能実装5/6-->
   <%= f.fields_for :merits do |merit| %>
@@ -38,7 +37,7 @@
   </div>
 </div>
 
-<%= f.label :タグ %>
+<%= f.label :タグ %>                                                                                 <!--タグ機能3*2/7?-->
 <%= f.text_field :tag_list, value: @product.tag_list.join(',') %>
 
 <%= f.label :商品画像 %>

@@ -1,5 +1,4 @@
-<h1>Products#edit</h1>
-<p>Find me in app/views/products/edit.html.erb</p>
+<h1>商品編集</h1>
 
 <% if @product.errors.any? %>
 <!--<div id="error_explanation">-->
@@ -38,7 +37,7 @@
   </div>
 </div>
 
-<%= f.label :タグ %>
+<%= f.label :タグ %>                                                                                 <!--タグ機能3*2/7?-->
 <%= f.text_field :tag_list, value: @product.tag_list.join(',') %>
 
 <% @product.photos.each do |photo| %>

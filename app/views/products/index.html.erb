@@ -1,5 +1,4 @@
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<h1>商品一覧</h1>
 
 <!--#検索機能2/3ここから-->
 <%= search_form_for @search do |f| %>      <!--, url: products_path-->
@@ -11,33 +10,32 @@
 
 
 
-<div>
-<% @products.each do |product| %>
-  <!-- <div class="previews">-->
-  <!--<div class='slider'>-->
+<div class='container'>
+  <div class='row'>
 
-
-  <div class="swiper-container">
-    <div class="swiper-wrapper">
-      <% if product.photos.present? %>
-        <% product.photos.each do |photo| %>
-          <div class="swiper-slide">
-            <%= link_to product_path(product) do %>
-              <%= attachment_image_tag photo, :image, size: '80x80' %>
-            <% end %>
-          </div>
-        <% end %>
-      <% else %>
-        <!--<div class="swiper-slide">-->
-          <%= link_to product_path(product) do %>
-            <%= image_tag 'no_image.png', size: '80x80' %>
+  <% @products.each do |product| %>
+      <div class='col-3'>
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% if product.photos.present? %>
+          <% product.photos.each do |photo| %>
+            <div class="swiper-slide">
+              <%= link_to product_path(product) do %>
+                <%= attachment_image_tag photo, :image, size: '200x200' %>
+              <% end %>
+            </div>
           <% end %>
-        <!--</div>-->
-      <% end %>
+        <% else %>
+          <!--<div class="swiper-slide">-->
+            <%= link_to product_path(product) do %>
+              <%= image_tag 'no_image.png', size: '200x200' %>
+            <% end %>
+          <!--</div>-->
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
     </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
 
 <p>タイトル</p>
 <%= link_to product.title, product_path(product) %>
@@ -46,7 +44,7 @@
 <%= link_to product.body, product_path(product) %>
 
 <div>
-  <%= product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
+  <%= product.created_at.strftime("%Y/%m/%d") %>投稿                                     <!--日本時間に設定1/2(strftime)-->
 </div>
 
 <div>
@@ -54,7 +52,7 @@
 </div>
 
 <div>
-<%= render 'tag_list', tag_list: product.tag_list %>
+<%= render 'tag_list', tag_list: product.tag_list %>                                                       <!--タグ機能4*2/7?-->
 </div>
 
 
@@ -72,9 +70,171 @@
 </div>
 
 
-
-<% end %>
 </div>
+<% end %>
+
+</div>
+</div>
+
+<div class="container">
+<div class="card-deck">                                               <!--カード間に隙間-->
+<div class="card" style="width:15rem;">
+  <img class="card-img-top" src="../image/100x60.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle text-muted">Subtitle</h6>
+    <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
+    <a href="#" class="card-link">Card link</a>
+  </div>
+</div>
+<div class="card" style="width:15rem;">
+  <img class="card-img-top" src="../image/100x60.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle text-muted">Subtitle</h6>
+    <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
+    <a href="#" class="card-link">Card link</a>
+  </div>
+</div>
+<div class="card" style="width:15rem;">
+  <img class="card-img-top" src="../image/100x60.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle text-muted">Subtitle</h6>
+    <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
+    <a href="#" class="card-link">Card link</a>
+  </div>
+</div>
+<div class="card" style="width:15rem;">
+  <img class="card-img-top" src="../image/100x60.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <h6 class="card-subtitle text-muted">Subtitle</h6>
+    <p class="card-text">A card is a flexible and extensible content container. It includes ...</p>
+    <a href="#" class="card-link">Card link</a>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="container">
+      <div class="card-deck">
+  <div class="row">
+
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+<div class="card" style="width: 18rem;">
+  <svg class="bd-placeholder-img card-img-top" width="100%" height="180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image cap"><title>Placeholder</title><rect fill="#868e96" width="100%" height="100%"/><text fill="#dee2e6" dy=".3em" x="50%" y="50%">Image cap</text></svg>
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+  <div class="card-body">
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="card-deck">
+	<div class="row">
+
+		<div class="col-sm-4">
+			<div class="card h-100">
+				<img class="card-img-top" src="/media/images/img1.jpg" alt="ダミーテキスト">
+				<div class="card-body">
+					<h2 class="card-title">タイトル1</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card h-100">
+				<img class="card-img-top" src="/media/images/img2.jpg" alt="ダミーテキスト">
+				<div class="card-body">
+					<h2 class="card-title">タイトル2</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-4">
+			<div class="card h-100">
+				<img class="card-img-top" src="/media/images/img3.jpg" alt="ダミーテキスト">
+				<div class="card-body">
+					<h2 class="card-title">タイトル3</h2>
+					<p class="card-text">ダミーテキストダミーテキストダミーテキストダミーテキストダミーテキストダミーテキスト</p>
+					<p class="card-text bu"><a href="#">リンクテキスト</a></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
 
 
 <%= paginate @products %>

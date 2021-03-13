@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_guest, only: [:update]         #ゲストユーザーは編集できない1/2
+  before_action :check_guest, only: [:update]                                       #ゲストユーザーは編集できない1/2
   before_action :authenticate_user!, except: [:index]
 
   def index
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :profile, :profile_image)
   end
 
-  def check_guest          #ゲストユーザーは編集できない2/2
+  def check_guest                                                                  #ゲストユーザーは編集できない2/2
     if current_user.email == 'guest@example.com'
       redirect_to root_path, alert: 'ゲストユーザーの編集はできません'
     end

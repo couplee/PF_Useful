@@ -19,11 +19,36 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
+html {
+    background-color: #C3C4C9;
+}
+
+// * {
+//     background-color: #C3C4C9;
+// }
+
 
 .profile_image {
     border-radius: 30%;
 }
 
+.navbar {
+    background-color: #FEF7EB;
+}
+
+// .nav-item {
+//     color: #1D3A5E;
+// }
+
+.nav-link {
+    color: #F28D8D;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+footer {
+    background-color: #FEF7EB;
+}
 
 // スムーススクロール機能2/3 ここから
 #page-top {

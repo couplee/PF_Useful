@@ -1,5 +1,5 @@
-<% tag_list.each do |tag| %>
-  <%# link_to tag, products_path(tag_name: tag) do %>
+<% tag_list.each do |tag| %>                                                       <!--タグ機能5/7?-->
+  <%= link_to products_path(tag_name: tag) do %>
   <div class="btn btn-success mr-1 p-2"><%= tag %></div>
-  <%#end %>
+  <% end %>
 <% end %>
