@@ -15,8 +15,8 @@ jobs:
         USER_NAME: ${{ secrets.USER_NAME }}
         HOST_NAME: ${{ secrets.HOST_NAME }}
       run: |
-        cat $PRIVATE_KEY
         echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+        cat private_key
         ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOST_NAME} 'cd PF_Useful &&
         git pull origin main &&
         ~/.rbenv/shims/bundle install &&
