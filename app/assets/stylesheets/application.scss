@@ -46,6 +46,17 @@ html {
     font-weight: bold;
 }
 
+.card {
+    margin: 30px;
+}
+
+.line-clamp {                       /*テキスト省略*/
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
 footer {
     background-color: #FEF7EB;
 }

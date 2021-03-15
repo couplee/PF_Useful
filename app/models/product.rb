@@ -11,7 +11,7 @@ class Product < ApplicationRecord
   acts_as_taggable                                                         #タグ機能1/7?
   
   with_options presence: true do     #空白投稿禁止1/2
-    validates :title
+    validates :title, length: { maximum: 30 }
     validates :body
   end
   
