@@ -19,14 +19,17 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-html {
-    background-color: #C3C4C9;
-}
+// body {
+//     background-color: #C3C4C9;
+// }
 
 // * {
 //     background-color: #C3C4C9;
 // }
 
+.link-color {
+    color: #C7433C;
+}
 
 .profile_image {
     border-radius: 30%;
@@ -43,11 +46,44 @@ html {
 .nav-link {
     color: #F28D8D;
     font-size: 30px;
-    font-weight: bold;
+    font-weight: normal;
 }
+
+.navbar-toggler {                               /*ハンバーガーメニュー枠線*/
+    // border-color: rgba(242,141,141,.4);
+    border-color: #FEF7EB;
+    border-width: 5px;
+}
+
+.navbar-toggler{                               /*ハンバーガーメニュー背景色*/
+  background-color: #F28D8D;
+}
+
+.navbar-toggler .navbar-toggler-icon {                               /*ハンバーガーメニュー三本線*/
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,2,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: rgba(242,141,141,.6);
+    // color: #F28D8D;
+}
+.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
+    color: rgba(242,141,141,.8);
+}
+
+.top-btn {
+    background-color: #E5E5E5;
+    border-radius: 30px;
+    margin-top: 5px;
+}
+
 
 .card {
     margin: 30px;
+}
+
+.card-group {
+    background-color: #FBF8F8;
 }
 
 .line-clamp {                       /*テキスト省略*/
@@ -56,6 +92,36 @@ html {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
+
+.card-img-top {                         /*cardの画像*/
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+// .field {
+//     border-top: 1px solid #C3C4C9;
+//     width: 50%;
+// }
+
+.text-form {
+    width: 100%;
+}
+
+.middle-text-form {
+    width: 70%;
+}
+
+.small-text-form {
+    width: 40%;
+}
+
+// #textarea {                                                 改行でフォームを大きくする、、(htmlとjsにも記入してる)
+// //   width: 500px;
+// //   max-height: 200px;
+//   padding: 8px;
+//   line-height: 20px;
+// }
 
 footer {
     background-color: #FEF7EB;

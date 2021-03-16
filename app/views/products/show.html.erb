@@ -42,7 +42,7 @@
 <%= @product.seller %>
 
 <div>コスト</div>
-<%= @product.cost %>
+￥<%= @product.cost %>                                            <!--.to_s(:delimited)で3桁で区切ってる
 
 <div>使用開始年月</div>
 <%= @product.since_when %>

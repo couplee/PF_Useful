@@ -1,16 +1,50 @@
-<h1>top</h1>
+<div class="container">
+  <div class="justify-content-center">                  <!--centerにするため(d-flex align-items-center消したら横幅が指定できるようになった、、)-->
+  <div class="row">
+    <div class="col-12">
 
-    <%= link_to root_path, class: 'nav-link text-dark' do %>
-      <h1 class='title is-4' style='font-family: cursive;'><i class="fas fa-paw"></i>USEFUL</h1>
+    <%= link_to root_path, class: 'nav-link' do %>
+      <h1 class='title is-4 text-center' style='font-family: cursive;'><i class="fas fa-paw"></i>USEFUL</h1>
     <% end %>
 
-    <%= link_to "新規登録", new_user_registration_path, class: 'nav-link text-dark' %>
-    <%= link_to "ログイン", new_user_session_path, class: 'nav-link text-dark' %>
-    <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link text-dark' %>
-
-    <div class="previews">
-      <div class="slider">
-        <%= image_tag 'friends' %>
-        <%= image_tag 'succulents' %>
+    <%= link_to "新規登録", new_user_registration_path, class: 'nav-link top-btn text-center' %>
+    <%= link_to "ログイン", new_user_session_path, class: 'nav-link top-btn text-center' %>
+    <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link top-btn text-center' %>
+    
+    
+    </div>
+    
+    <div class='col-12 mt-5'>
+      <h3>新着便利商品</h3>
       </div>
+      
+    <% @products.each do |product| %>
+    <div class="col-3 mt-5">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% if product.photos.present? %>
+          <% product.photos.each do |photo| %>
+            <div class="swiper-slide">
+              <%= link_to product_path(product) do %>
+                <%= attachment_image_tag photo, :image, size: '200x200', class: 'card-img-top2' %>
+              <% end %>
+            </div>
+          <% end %>
+        <% else %>
+          <!--<div class="swiper-slide">-->
+            <%= link_to product_path(product) do %>
+              <%= image_tag 'no_image.png', size: '200x200' %>
+            <% end %>
+          <!--</div>-->
+        <% end %>
+      </div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+    
+    <%= product.title %>
+    </div>
+    <% end %>
+    </div>
+    </div>
     </div>
