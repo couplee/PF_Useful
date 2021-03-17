@@ -1,48 +1,95 @@
-<h1>ユーザー詳細画面</h1>
-
-<%= attachment_image_tag @user, :profile_image, fallback: 'no_image.png', size: '100x100' %>
-
-<div>お名前
-<%= @user.name %>
-</div>
-
-<div>プロフィール
-  <%= @user.profile %>
-</div>
-
-<div>メールアドレス
-<% if @user.id == current_user.id %>
-  <%= @user.email %><br>
-  <%= link_to 'いいね一覧へ', bookmarks_path %><br>
-  <%= link_to "編集", edit_user_path(@user), class: 'button is-primary' %>
-<% end %>
-</div>
-
-<div>
-<%= @user.name %>さんの投稿商品一覧
-</div>
-
-<div>
 
 
-<% @user.products.each do |product| %>
-  <% if product.photos.present? %>
-  <% product.photos.each do |photo| %>
-    <%= attachment_image_tag photo, :image, size: '80x80' %>
-  <% end %>
-<% else %>
-    <%= image_tag 'no_image.png', size: '200x200' %>
-<% end %>
-<p>タイトル:<%= product.title %></p>
-<p>商品説明：<%= product.body %></p>
-<p>コスト：<%= product.cost %></p>
-  <p>更新日：<%= product.updated_at.strftime("%Y/%m/%d") %></p>
-  <%= link_to "商品詳細", product_path(product) %>
-  <p>
+
+  <h3 class="page-center"><%= @user.name %>さんのプロフィール</h3>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="card text-center">
+  <div class="card-header card-group">
+    <%= @user.name %>さんのプロフィール
+  </div>
+  <div class="card-body">
+    <%= attachment_image_tag @user, :profile_image, fallback: 'no_image.png', size: '100x100' %>
+    <p class="card-text"><%= @user.profile %></p>
     <% if @user.id == current_user.id %>
-    <%= link_to "商品編集", edit_product_path(product) %>
-    <%= link_to "商品削除", product_path(product), method: :delete, "data-confirm" => "本当に消しますか？" %>
-    <% end %>
-    </p>
+  メールアドレス：<%= @user.email %><br>
+  <div class="mt-2">
+  <%= link_to "プロフィール編集", edit_user_path(@user) %>
+  </div>
 <% end %>
+  </div>
+  <div class="card-footer text-muted  card-group">
+    <% if @user.id == current_user.id %>
+  <%= link_to 'いいね一覧へ', bookmarks_path %><br>
+<% end %>
+  </div>
+</div>
+    </div>
+  </div>
+</div>
+
+
+<h3 class="page-center">
+<%= @user.name %>さんの投稿商品一覧
+</h3>
+
+<div class="container">
+  <div class="row">
+    <% @user.products.each do |product| %>
+    <div class="card-group" style="width:23rem">
+      <div class="card" >
+        <div class="card-body">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <% if product.photos.present? %>
+                <% product.photos.each do |photo| %>
+                <div class="swiper-slide">
+                  <%= link_to product_path(product) do %>
+                  <%= attachment_image_tag photo, :image, class: 'card-img-top' %>
+                  <% end %>
+                </div>
+                <% end %>
+              <% else %>
+                <div class="swiper-slide">
+                  <%= link_to product_path(product) do %>
+                    <%= image_tag 'no_image.png', class: 'card-img-top' %>
+                  <% end %>
+                </div>
+              <% end %>
+            </div>
+            <div class="swiper-button-prev swiper-button-white"></div>
+            <div class="swiper-button-next swiper-button-white"></div>
+            <div class="swiper-pagination swiper-pagination-white"></div>
+          </div>
+    
+          <h5 class="card-title">タイトル：<%= link_to product.title, product_path(product) %></h5>
+          <p class="card-text line-clamp">本文：<%= link_to product.body, product_path(product) %></p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">更新日：<%= product.updated_at.strftime("%Y/%m/%d") %></li>                                     <!--日本時間に設定1/2(strftime)-->
+          <li class="list-group-item">
+            コスト：￥<%= product.cost.to_i.to_s(:delimited) %>
+          </li>
+          <li class="list-group-item">
+            <%= "#{product.post_comments.count} コメント" %>
+            <%= product.likes.count %>いいね
+          </li>
+          <li class="list-group-item"><%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
+        </ul>
+        <div class="card-body">
+          <%= link_to "商品詳細", product_path(product) %>
+          <% if @user.id == current_user.id %>
+          <%= link_to "商品編集", edit_product_path(product) %>
+          <%= link_to "商品削除", product_path(product), method: :delete, "data-confirm" => "本当に消しますか？" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </div>
+  <div class="page-center mt-3">
+    
+<%= paginate @products %>
+</div>
 </div>

@@ -10,8 +10,10 @@
 <!--#検索機能2/3ここまで-->
 
 </div>
-<h1>便利商品一覧</h1>
+
 </div>
+
+<h3 class="page-center">便利商品一覧</h3>
 <div class='container'>
     <!--<div class="card-deck">-->
 
@@ -60,7 +62,7 @@
     <li class="list-group-item">投稿日：<%= product.created_at.strftime("%Y/%m/%d") %></li>                                     <!--日本時間に設定1/2(strftime)-->
     <li class="list-group-item">
       <%= link_to "#{product.post_comments.count} コメント", product_path(product) %>
-      コスト：￥<%= link_to product.cost.to_i.to_s(:delimited) %>
+      コスト：￥<%= product.cost.to_i.to_s(:delimited) %>
     </li>
     <li class="list-group-item"><%= render 'tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
   </ul>

@@ -37,11 +37,7 @@ a:hover {
 //     background-color: #C3C4C9;
 // }
 
-.fa-asterisk:after {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: '\f069';
-}
+
 
 .fa-users:before {
     font-family: "Font Awesome 5 Free";
@@ -91,6 +87,11 @@ a:hover {
     content: '\f044';
 }
 
+.fa-republican:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f75e';
+}
 // .fa-signature:before {
 //     font-family: "Font Awesome 5 Free";
 //     font-weight: 900;
@@ -114,7 +115,6 @@ a:hover {
 .navbar {
     background-color: #FEF7EB;
 }
-
 // .nav-item {
 //     color: #1D3A5E;
 // }
@@ -126,18 +126,16 @@ a:hover {
 }
 
 .navbar-toggler {                               /*ハンバーガーメニュー枠線*/
-    // border-color: rgba(242,141,141,.4);
-    border-color: blue;
-    border-width: 5px;
-    background-color: gray;
+    border-color: #F28D8D;
+    border-width: 3px;
 }
 
-// .navbar-toggler{                               /*ハンバーガーメニュー背景色*/
-//   background-color: red;
-// }
+.navbar-toggler{                               /*ハンバーガーメニュー背景色*/
+  background-color: #FEF7EB;
+}
 
 .navbar-toggler .navbar-toggler-icon {                               /*ハンバーガーメニュー三本線*/
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,2,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(242,141,141)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-light .navbar-nav .nav-link {
@@ -150,6 +148,14 @@ a:hover {
 
 .application_name {
     font-size: 60px;
+    // font-family: 'Caveat', cursive;
+// font-family: 'Kalam', cursive;
+}
+
+.page-center {
+    display: block;
+    text-align: center;
+    margin: 20px 0;
 }
 
 .top-btn {
@@ -166,10 +172,29 @@ a:hover {
     background-color: #E5E5E5;
     display: block;
     margin: 0 auto;
-    // text-align: center;
     width: 20%;
     border-radius: 5px;
     opacity: 0.8;
+}
+
+.submit-btn {
+    border: none;                                                     /*枠線消した*/
+    color: #91B3E0;
+    padding: 8px 24px;
+    background-color: #E5E5E5;
+    display: block;
+    margin: 0 auto;
+    width: 20%;
+    border-radius: 5px;
+    opacity: 0.8;
+}
+
+.submit-btn:hover {
+    color: #5B7EA9;
+}
+
+.submit-btn:action {
+    border: blue;
 }
 
 .confirm-btn:hover {
@@ -182,6 +207,10 @@ a:hover {
 
 .card {
     margin: 30px;
+}
+
+.card-text {
+    font-size: 20px;
 }
 
 
@@ -207,15 +236,19 @@ a:hover {
 .text-form {
     width: 100%;
     border-color: #485876;
-    border-width: 5px;
+    border-width: 2px;
 }
 
 .middle-text-form {
-    width: 70%;
+    width: 50%;
+    border-color: #485876;
+    border-width: 2px;
 }
 
 .small-text-form {
-    width: 40%;
+    width: 20%;
+    border-color: #485876;
+    border-width: 2px;
 }
 
 // .tag {

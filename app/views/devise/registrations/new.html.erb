@@ -2,22 +2,22 @@
   <!--<div class="justify-content-center">-->
   <div class="row">
     <div class="col-12">
-<h2 class='text-center'>新規登録</h2>
+<h2 class='page-center'>新規登録</h2>
 
 <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field text-center mt-5">         <%# nameでログイン3/3 %>
+  <div class="field page-center">         <%# nameでログイン3/3 %>
     <%= f.label :お名前 %><br />
     <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field text-center mt-5">
+  <div class="field page-center">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field text-center mt-5">
+  <div class="field page-center">
     <%= f.label :パスワード %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> 桁以上)</em>
@@ -25,19 +25,19 @@
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
-  <div class="field text-center mt-5">
+  <div class="field page-center">
     <%= f.label :パスワード再入力 %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
-  <div class="actions text-center mt-3">
+  <div class="actions page-center">
     <%= f.submit "新規登録" %>
   </div>
 <% end %>
 
-<div class='text-center mt-5 mb-5'>
+<div class='page-center mt-5'>
   <p>会員登録済みの方は</p>
-  <div class='confirm-btn text-center'>
+  <div class='confirm-btn page-center'>
 <%= render "devise/shared/links" %>
 </div>
 </div>

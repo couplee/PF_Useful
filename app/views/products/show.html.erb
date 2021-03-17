@@ -1,11 +1,44 @@
-<h1>商品詳細</h1>
+<h3 class="page-center">商品詳細</h3>
 
-<div>タイトル</div>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+    <div class="card-group" style="width:23rem">
+      <div class="card" >
+        <div class="card-body">
+
+        <div class="swiper-container">　　　　　　　　　　　　　　　　　　　　<!--card-bodyクラス内に入れないと画像のレイアウトが崩れる、、-->
+          <div class="swiper-wrapper">
+            <% if @product.photos.present? %>
+              <% @product.photos.each do |photo| %>
+                <div class="swiper-slide">
+                  <%# link_to @product_path(@product) do %>
+                    <%= attachment_image_tag photo, :image, class: 'card-img-top' %>
+                  <%#end %>
+                </div>
+              <% end %>
+            <% else %>
+              <div class="swiper-slide">
+                <%# link_to @product_path(@product) do %>
+                  <%= image_tag 'no_image.png', class: 'card-img-top' %>
+                <%#end %>
+              </div>
+            <% end %>
+          </div>
+          <div class="swiper-button-prev swiper-button-white"></div>
+          <div class="swiper-button-next swiper-button-white"></div>
+          <div class="swiper-pagination swiper-pagination-white"></div>
+        </div>
+      
+<h5 class="card-title">タイトル：
 <%= @product.title %>
+</h5>
 
-<div>商品説明</div>
-<%= simple_format @product.body %>              <!-- simple_formatは改行を反映させる-->
+<p class="card-text">商品説明：
+<%= simple_format @product.body %></p>              <!-- simple_formatは改行を反映させる-->
+</div>
 
+<ul class="list-group list-group-flush">
 <div>メリット
 <% @product.merits.each do |merit| %>
 <%= merit.advantage %>
@@ -22,29 +55,11 @@
 <%= render 'tag_list', tag_list: @product.tag_list %>                                                       <!--タグ機能4*2/7?-->
 </div>
 
-  <div>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <% if @product.photos.present? %>
-          <% @product.photos.each do |photo| %>
-            <div class="swiper-slide">
-              <%= attachment_image_tag photo, :image, size: '200x200' %>
-            </div>
-          <% end %>
-        <% else %>
-          <%= image_tag 'no_image.png', size: '200x200' %>
-        <% end %>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-  </div>
-
 <div>購入先/販売店</div>
 <%= @product.seller %>
 
 <div>コスト</div>
-￥<%= @product.cost.to_i.to_s(:delimited) %>                                            <!--.to_s(:delimited)で3桁で区切ってる
+￥<%= @product.cost.to_i.to_s(:delimited) %>                                            <!--.to_s(:delimited)で3桁で区切ってる-->
 
 <div>使用開始年月</div>
 <%= @product.since_when %>
@@ -71,6 +86,7 @@
   <%= @product.user.name %>さんのプロフィールへ
 <% end %>
 </div>
+</ul>
 
 <div id="post_comments">     <!--コメント機能'投稿'非同期通信2/5-->
   <%= render 'post_comments/index', product: @product %>
@@ -84,3 +100,9 @@
     <%= f.text_area :comment, rows:'10', placeholder: "コメントをここに" %>
     <%= f.submit "送信する" %>
   <% end %>
+  </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

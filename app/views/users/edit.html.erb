@@ -1,4 +1,4 @@
-<h1>ユーザー編集画面</h1>
+<h3 class="page-center">プロフィール編集</h3>
 
 <% if @user.errors.any? %>
 <!--<div id="error_explanation">-->
@@ -11,21 +11,37 @@
   <!--</div>-->
 <% end %>
 
-<%= form_with model:@user, local:true do |f| %>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <%= form_with model:@user, local:true do |f| %>
 
-<%= f.label :username %>
+<div class="page-center">
+<%= f.label :お名前 %><br>
 <%= f.text_field :name %>
+</div>
 
-<%= f.label :email %>
+<div class="page-center">
+<%= f.label :email %><br>
 <%= f.text_field :email %>
+</div>
 
-<%= f.label :profile %>
-<%= f.text_area :profile %>
+<div class="page-center">
+<%= f.label :profile %><br>
+<%= f.text_area :profile, class: 'small-text-form' %>
+</div>
 
-<%= f.label :profile_image %>
+<div class="page-center">
+<%= f.label :profile_image %><br>
 <%= f.attachment_field :profile_image %>
+</div>
 
-<%= f.submit '更新' %>
+<div class="page-center mt-5">
+<%= f.submit 'プロフィール更新', class: 'submit-btn' %>
+</div>
 
 
 <% end %>
+    </div>
+  </div>
+</div>

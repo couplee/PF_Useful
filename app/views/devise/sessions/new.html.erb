@@ -1,32 +1,32 @@
 <div class="container">
   <div class="row">
     <div class="col-12">
-<h2 class="text-center">ログイン</h2>
+<h2 class="page-center">ログイン</h2>
 
 <%= form_with model: @user, url: user_session_path, local: true do |f| %>
-  <div class="field text-center mt-5">
+  <div class="field page-center">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
-  <div class="field text-center mt-5">
+  <div class="field page-center">
     <%= f.label :パスワード %><br />
     <%= f.password_field :password, autocomplete: "current-password" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
-    <div class="field text-center mt-3">
+    <div class="field page-center">
       <%= f.check_box :remember_me %>
       <%= f.label :情報を保存 %>
     </div>
   <% end %>
 
-  <div class="actions text-center mt-3">
+  <div class="actions page-center">
     <%= f.submit "ログイン" %>
   </div>
 <% end %>
 
-<div class='text-center mt-5 mb-5'>
+<div class='page-center mt-5'>
   <p>アカウントをお持ちでない方は</p>
   <!--<div class='confirm-btn text-center'>-->
 <%= render "devise/shared/links" %>

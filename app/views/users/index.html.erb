@@ -1,8 +1,8 @@
+<h3 class="page-center">ユーザー一覧</h3>
 <div class="container">
-  <h1 class="text-center">ユーザー一覧</h1>
   <div class="row">
     <% @users.each do |user| %>
-      <div class="col-3">
+      <div class="col-md-6 col-lg-3">
         <div class="card text-center">
           <div class="card-header card-group">
             お名前：<%= link_to user.name, user_path(user) %>
