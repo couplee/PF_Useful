@@ -22,6 +22,7 @@
 <%= render 'tag_list', tag_list: @product.tag_list %>                                                       <!--タグ機能4*2/7?-->
 </div>
 
+  <div>
     <div class="swiper-container">
       <div class="swiper-wrapper">
         <% if @product.photos.present? %>
@@ -37,12 +38,13 @@
       <div class="swiper-button-prev"></div>
       <div class="swiper-button-next"></div>
     </div>
+  </div>
 
 <div>購入先/販売店</div>
 <%= @product.seller %>
 
 <div>コスト</div>
-￥<%= @product.cost %>                                            <!--.to_s(:delimited)で3桁で区切ってる
+￥<%= @product.cost.to_i.to_s(:delimited) %>                                            <!--.to_s(:delimited)で3桁で区切ってる
 
 <div>使用開始年月</div>
 <%= @product.since_when %>

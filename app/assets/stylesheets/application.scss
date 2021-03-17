@@ -19,13 +19,29 @@
 @import 'font-awesome-sprockets';
 @import 'font-awesome';
 
-// body {
-//     background-color: #C3C4C9;
-// }
+body {
+    color: #485876;
+    font-family: 'Kosugi Maru', sans-serif;
+}
 
+a {
+    color: #91B3E0;
+}
+a:hover {
+    color: #5B7EA9;
+}
+// header {
+//     font-family: 'Kosugi Maru', sans-serif;
+// }
 // * {
 //     background-color: #C3C4C9;
 // }
+
+.fa-asterisk:after {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: '\f069';
+}
 
 .fa-users:before {
     font-family: "Font Awesome 5 Free";
@@ -105,30 +121,31 @@
 
 .nav-link {
     color: #F28D8D;
-    font-size: 30px;
-    font-weight: normal;
+    font-size: 20px;
+    font-weight: border;
 }
 
 .navbar-toggler {                               /*ハンバーガーメニュー枠線*/
     // border-color: rgba(242,141,141,.4);
-    border-color: #FEF7EB;
+    border-color: blue;
     border-width: 5px;
+    background-color: gray;
 }
 
-.navbar-toggler{                               /*ハンバーガーメニュー背景色*/
-  background-color: #F28D8D;
-}
+// .navbar-toggler{                               /*ハンバーガーメニュー背景色*/
+//   background-color: red;
+// }
 
 .navbar-toggler .navbar-toggler-icon {                               /*ハンバーガーメニュー三本線*/
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,255,2,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgba(242,141,141,.6);
+    color: rgb(242,141,141);
     // color: #F28D8D;
 }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: rgba(242,141,141,.8);
+    color: #5B7EA9;
 }
 
 .application_name {
@@ -136,19 +153,38 @@
 }
 
 .top-btn {
+    display: inline-block;
+    // padding: 10px 50px;
+    width: 300px;
     background-color: #E5E5E5;
     border-radius: 30px;
     margin-top: 5px;
 }
 
+.confirm-btn {
+    padding: 8px 24px;
+    background-color: #E5E5E5;
+    display: block;
+    margin: 0 auto;
+    // text-align: center;
+    width: 20%;
+    border-radius: 5px;
+    opacity: 0.8;
+}
 
-.card {
-    margin: 30px;
+.confirm-btn:hover {
+    opacity: 1;
 }
 
 .card-group {
     background-color: #FBF8F8;
 }
+
+.card {
+    margin: 30px;
+}
+
+
 
 .line-clamp {                       /*テキスト省略*/
   display: -webkit-box;
@@ -170,6 +206,8 @@
 
 .text-form {
     width: 100%;
+    border-color: #485876;
+    border-width: 5px;
 }
 
 .middle-text-form {
@@ -179,6 +217,11 @@
 .small-text-form {
     width: 40%;
 }
+
+// .tag {
+//     border: 1px solid #485876;
+//     padding: 3px;
+// }
 
 // #textarea {                                                 改行でフォームを大きくする、、(htmlとjsにも記入してる)
 // //   width: 500px;

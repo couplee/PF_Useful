@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @products = Product.page(params[:page]).per(6)
+    @products = Product.all.order(created_at: :desc).page(params[:page]).per(9)
     #検索機能1/3ここから
     @search = Product.ransack(params[:q])
     @search_products = @search.result

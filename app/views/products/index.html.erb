@@ -1,5 +1,6 @@
-<h1>商品一覧</h1>
 
+<div class="container">
+  <div class="row">
 <!--#検索機能2/3ここから-->
 <%= search_form_for @search do |f| %>      <!--, url: products_path-->
   <%= f.label :tilte, 'タイトルor本文' %>
@@ -8,24 +9,27 @@
 <% end %>
 <!--#検索機能2/3ここまで-->
 
+</div>
+<h1>便利商品一覧</h1>
+</div>
 <div class='container'>
     <!--<div class="card-deck">-->
-      
+
   <div class='row'>
     <!--<div class='col-4'>-->
-    
+
       <% @products.each do |product| %>
-      
+
       <div class="card-group" style="width:23rem">                   <!--card-groupでBootstrapのcardを横並び(これで画面縮めてもcardが縮まらない)-->
 <div class="card" >
-  
-  <!--<div class="column flex-direction:row">               cardが縦に並んでしまう-->
-  
 
-  
- 
+  <!--<div class="column flex-direction:row">               cardが縦に並んでしまう-->
+
+
+
+
   <div class="card-body">
-    
+
         <div class="swiper-container">　　　　　　　　　　　　　　　　　　　　<!--card-bodyクラス内に入れないと画像のレイアウトが崩れる、、-->
       <div class="swiper-wrapper">
         <% if product.photos.present? %>
@@ -44,106 +48,43 @@
           </div>
         <% end %>
       </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev swiper-button-white"></div>
+      <div class="swiper-button-next swiper-button-white"></div>
+      <div class="swiper-pagination swiper-pagination-white"></div>
     </div>
-  
+
     <h5 class="card-title">タイトル：<%= link_to product.title, product_path(product) %></h5>
     <p class="card-text line-clamp">本文：<%= link_to product.body, product_path(product) %></p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item"><%= product.created_at.strftime("%Y/%m/%d") %>投稿</li>
-    <li class="list-group-item"><%= link_to "#{product.post_comments.count} コメント", product_path(product) %></li>
-    <li class="list-group-item"><%= render 'tag_list', tag_list: product.tag_list %></li>
+    <li class="list-group-item">投稿日：<%= product.created_at.strftime("%Y/%m/%d") %></li>                                     <!--日本時間に設定1/2(strftime)-->
+    <li class="list-group-item">
+      <%= link_to "#{product.post_comments.count} コメント", product_path(product) %>
+      コスト：￥<%= link_to product.cost.to_i.to_s(:delimited) %>
+    </li>
+    <li class="list-group-item"><%= render 'tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
   </ul>
   <div class="card-body">
     <%= link_to user_path(product.user.id) do %>
-<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png', size: '80x80' %>
+<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png', size: '60x60' %>
 <% end %>
     <%= link_to product.user.name, user_path(product.user.id) %>
   </div>
-  
+
   <!--</div>-->
-  
+
 </div>
 </div>
 
   <% end %>
-  
+
   <!--</div>-->
 </div>
-
+<div class="text-center mt-3 mb-3 ">
 <%= paginate @products %>
+</div>
 <!--</div>-->
 </div>
-
-
-<div class='container'>
-  <div class='row'>
-
-  <% @products.each do |product| %>
-      <div class='col-3'>
-    <div class="swiper-container">
-      <div class="swiper-wrapper">
-        <% if product.photos.present? %>
-          <% product.photos.each do |photo| %>
-            <div class="swiper-slide">
-              <%= link_to product_path(product) do %>
-                <%= attachment_image_tag photo, :image, size: '200x200', class: 'card-img-top' %>
-              <% end %>
-            </div>
-          <% end %>
-        <% else %>
-          <!--<div class="swiper-slide">-->
-            <%= link_to product_path(product) do %>
-              <%= image_tag 'no_image.png', size: '200x200' %>
-            <% end %>
-          <!--</div>-->
-        <% end %>
-      </div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-button-next"></div>
-    </div>
-
-<p>タイトル</p>
-<%= link_to product.title, product_path(product) %>
-
-<p>商品説明</p>
-<%= link_to product.body, product_path(product) %>
-
-<div>
-  <%= product.created_at.strftime("%Y/%m/%d") %>投稿                                     <!--日本時間に設定1/2(strftime)-->
-</div>
-
-<div>
-<%= link_to "#{product.post_comments.count} コメント", product_path(product) %>
-</div>
-
-<div>
-<%= render 'tag_list', tag_list: product.tag_list %>                                                       <!--タグ機能4*2/7?-->
-</div>
-
-
-
-
-
-<div>
-<%= link_to user_path(product.user.id) do %>
-<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png', size: '80x80' %>
-<% end %>
-</div>
-
-<div>
-<%= link_to product.user.name, user_path(product.user.id) %>
-</div>
-
-
-</div>
-<% end %>
-
-</div>
-</div>
-
 
 
 
