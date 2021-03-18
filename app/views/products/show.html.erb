@@ -58,7 +58,7 @@
 </div>
 
 <div>購入先/販売店</div>
-<%= @product.seller %>
+<%= text_url_to_link(h(@product.seller)).html_safe %>
 
 <div>コスト</div>
 ￥<%= @product.cost.to_i.to_s(:delimited) %>                                            <!--.to_s(:delimited)で3桁で区切ってる-->

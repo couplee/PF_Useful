@@ -22,9 +22,13 @@
 <h3 class="page-center">便利商品一覧</h3>
 <div class='container'>
     <!--<div class="card-deck">-->
+    <div class="text-center mt-3 mb-3 ">
+<%= paginate @products %>
+</div>
 
   <div class='row'>
     <!--<div class='col-4'>-->
+    
 
       <% @products.each do |product| %>
 
@@ -87,12 +91,14 @@
 </div>
 </div>
 
+
+
   <% end %>
 
   <!--</div>-->
 </div>
 <div class="text-center mt-3 mb-3 ">
-<%= paginate @products %>
+<div class='p-top__paginate'><%= paginate @products %></div>
 </div>
 <!--</div>-->
 </div>

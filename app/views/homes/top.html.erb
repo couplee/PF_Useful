@@ -2,27 +2,25 @@
   <!--<div class="justify-content-center">                  <!--centerにするため(d-flex align-items-center消したら横幅が指定できるようになった、、)-->
   <div class="row">
     <div class="col-12 text-center">
-
-    <%= link_to root_path, class: 'nav-link' do %>
-      <h1 class='page-center application_name fas fa-republican'>USEFUL<i class="fas fa-democrat"></i></h1>
-    <% end %>
-
-    <%= link_to new_user_registration_path, class: 'nav-link top-btn page-center' do %>
-      <i class="fas fa-file-signature"></i>新規登録
-    <% end %><br>
-    <%= link_to new_user_session_path, class: 'nav-link top-btn page-center' do %>
-    <i class="fas fa-sign-in-alt"></i>ログイン
-    <% end %><br>
-    <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link top-btn page-center' do %>
-    <i class="fas fa-crown"></i>ゲストログイン
-    <% end %>
-
-
+      <%= link_to root_path, class: 'nav-link' do %>
+        <h1 class='page-center application_name fas fa-republican'>USEFUL<i class="fas fa-democrat"></i></h1>
+      <% end %>
+  
+      <%= link_to new_user_registration_path, class: 'nav-link top-btn' do %>
+        <i class="fas fa-file-signature"></i>新規登録
+      <% end %><br>
+      <%= link_to new_user_session_path, class: 'nav-link top-btn' do %>
+      <i class="fas fa-sign-in-alt"></i>ログイン
+      <% end %><br>
+      <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link top-btn' do %>
+      <i class="fas fa-crown"></i>ゲストログイン
+      <% end %>
     </div>
 
     <div class='col-12 mt-5'>
       <h3 class="fas fa-cart-arrow-down">新着便利商品</h3>
     </div>
+    
 
     <% @products.each do |product| %>
     <div class="col-md-6 col-lg-3 mt-5 mb-5">
@@ -43,9 +41,20 @@
             <% end %>
           <!--</div>-->
         <% end %>
-      </div>
-      <div class="swiper-button-prev swiper-button-black"></div>
-      <div class="swiper-button-next swiper-button-black"></div>
+              </div>
+        <!--<div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets">-->
+        <!--</div>-->
+        <!--<div class="swiper-button-next">-->
+        <!--  <div class="fa fa-angle-right fa-3x">-->
+        <!--  </div>-->
+        <!--</div>-->
+        <!--<div class="swiper-button-prev">-->
+        <!--  <div class="fa fa-angle-left fa-3x">-->
+        <!--  </div>-->
+        <!--</div>-->
+
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
       <div class="swiper-pagination swiper-pagination-white"></div>
     </div>
 

@@ -1,6 +1,7 @@
 <p class="alert"><%= alert %></p>
 <h3 class="page-center">ユーザー一覧</h3>
 <div class="container">
+  <%= paginate @users %>
   <div class="row">
     <% @users.each do |user| %>
       <div class="col-md-6 col-lg-3">
