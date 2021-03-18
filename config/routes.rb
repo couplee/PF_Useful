@@ -10,7 +10,9 @@ Rails.application.routes.draw do
   resources :products do
     resources :post_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
+    resource :bookmarks, only: [:create, :destroy]
   end
   delete 'products/delete_image/:id' => 'products#destroy_photo', as: 'photo_destroy'
-  get 'bookmarks' => 'bookmarks#index'
+  get 'bookmarks' => 'homes#bookmark'
+  get 'likes' => 'homes#like'
 end

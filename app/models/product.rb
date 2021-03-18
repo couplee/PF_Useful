@@ -4,6 +4,7 @@ class Product < ApplicationRecord
   accepts_attachments_for :photos, attachment: :image
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   has_many :merits                                                         #cocoonで'メリット'機能実装1/6┓
   accepts_nested_attributes_for :merits, allow_destroy: true               #cocoonで'メリット'機能実装1/6┛
   has_many :demerits                                                           #cocoonで'デメリット'機能実装1/6┓
@@ -17,5 +18,14 @@ class Product < ApplicationRecord
   
   def liked_by?(user)          #いいね済みかどうか
     likes.where(user_id: user.id).exists?
+  end
+  
+  def bookmarked_by?(user)
+    bookmarks.where(user_id: user.id).exists?
+  end
+  
+  ransacker :likes_count do
+    query = '(SELECT COUNT(likes.product_id) FROM likes where likes.product_id = products.id GROUP BY likes.product_id)'
+    Arel.sql(query)
   end
 end

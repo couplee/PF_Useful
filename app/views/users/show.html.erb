@@ -1,5 +1,5 @@
 
-
+<p class="notice"><%= notice %></p>
 
   <h3 class="page-center"><%= @user.name %>さんのプロフィール</h3>
 <div class="container">
@@ -21,7 +21,8 @@
   </div>
   <div class="card-footer text-muted  card-group">
     <% if @user.id == current_user.id %>
-  <%= link_to 'いいね一覧へ', bookmarks_path %><br>
+  <%= link_to 'いいね一覧へ', likes_path %><br>
+  <%= link_to 'ブックマーク一覧へ', bookmarks_path %>
 <% end %>
   </div>
 </div>
@@ -63,19 +64,19 @@
             <div class="swiper-pagination swiper-pagination-white"></div>
           </div>
     
-          <h5 class="card-title">タイトル：<%= link_to product.title, product_path(product) %></h5>
+          <h5 class="card-title mt-3">タイトル：<%= link_to product.title, product_path(product) %></h5>
           <p class="card-text line-clamp">本文：<%= link_to product.body, product_path(product) %></p>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">更新日：<%= product.updated_at.strftime("%Y/%m/%d") %></li>                                     <!--日本時間に設定1/2(strftime)-->
+          <li class="list-group-item">コスト：￥<%= product.cost.to_i.to_s(:delimited) %></li>
           <li class="list-group-item">
-            コスト：￥<%= product.cost.to_i.to_s(:delimited) %>
+            更新日：<%= product.updated_at.strftime("%Y/%m/%d") %>                                     <!--日本時間に設定1/2(strftime)-->
           </li>
           <li class="list-group-item">
-            <%= "#{product.post_comments.count} コメント" %>
-            <%= product.likes.count %>いいね
+            <%= "コメント：#{product.post_comments.count}件" %>
+            <i class="fas fa-heart ml-5"></i><%= product.likes.count %>件
           </li>
-          <li class="list-group-item"><%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
+          <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
         </ul>
         <div class="card-body">
           <%= link_to "商品詳細", product_path(product) %>

@@ -7,10 +7,11 @@ class User < ApplicationRecord
   has_many :products, dependent: :destroy
   has_many :post_comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
 
   attachment :profile_image
   
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
 
   def self.guest       #ゲストユーザー実装3/4
     find_or_create_by!(email: 'guest@example.com') do |user|

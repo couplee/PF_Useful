@@ -39,7 +39,7 @@
       </li>
 
       <li class="nav-item ml-auto">
-        <%= link_to "マイページ", user_path(current_user), class: 'nav-link far fa-user' %>
+        <%= link_to "マイページ", user_path(current_user), class: 'nav-link fas fa-user' %>
       </li>
       <li class="nav-item ml-auto">
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link fas fa-sign-out-alt' %>
@@ -69,8 +69,8 @@
 </nav>
     </header>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <p class="notice"><%# notice %></p>
+    <p class="alert"><%# alert %></p>
     <%= yield %>
 
 
@@ -104,7 +104,7 @@ var Swiper = new Swiper('.swiper-container', {
       <div class="container">
         <div class="row no-gutters">
           <div class="col-md-4">
-            <p>@couplee</p>
+            <h3 class="fas fa-carrot">couplee</h3>
           </div>
           <div class="col-md-8">
             <ul class="p-0 list-unstyled">

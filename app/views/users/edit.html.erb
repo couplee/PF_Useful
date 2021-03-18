@@ -18,21 +18,21 @@
 
 <div class="page-center">
 <%= f.label :お名前 %><br>
-<%= f.text_field :name %>
+<%= f.text_field :name, class: 'short-text-form' %>
 </div>
 
 <div class="page-center">
-<%= f.label :email %><br>
-<%= f.text_field :email %>
+<%= f.label :メールアドレス %><br>
+<%= f.text_field :email, class: 'short-text-form' %>
 </div>
 
 <div class="page-center">
-<%= f.label :profile %><br>
-<%= f.text_area :profile, class: 'small-text-form' %>
+<%= f.label :プロフィール %><br>
+<%= f.text_area :profile, rows: '3', class: 'middle-text-form' %>
 </div>
 
 <div class="page-center">
-<%= f.label :profile_image %><br>
+<%= f.label :プロフィール写真 %><br>
 <%= f.attachment_field :profile_image %>
 </div>
 

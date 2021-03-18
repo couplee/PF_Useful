@@ -1,0 +1,45 @@
+<h3 class="page-center">ブックマークした便利商品一覧</h3>
+
+<% @bookmarks.each do |bookmark| %>
+
+<div class="swiper-container">
+    <div class="swiper-wrapper">
+      <% if bookmark.product.photos.present? %>
+        <% bookmark.product.photos.each do |photo| %>
+          <div class="swiper-slide">
+            <%= link_to product_path(bookmark.product.id) do %>                       <!--いいねした商品のidを渡す-->
+              <%= attachment_image_tag photo, :image, size: '80x80' %>
+            <% end %>
+          </div>
+        <% end %>
+      <% else %>
+        <!--<div class="swiper-slide">-->
+          <%= link_to product_path(bookmark.product.id) do %>
+            <%= image_tag 'no_image.png', size: '80x80' %>
+          <% end %>
+        <!--</div>-->
+      <% end %>
+    </div>
+    <div class="swiper-button-prev"></div>
+    <div class="swiper-button-next"></div>
+  </div>
+
+  <p>タイトル</p>
+<%= link_to bookmark.product.title, product_path(bookmark.product.id) %>
+
+<p>商品説明</p>
+<%= link_to bookmark.product.body, product_path(bookmark.product.id) %>
+
+<div>
+  <%= bookmark.product.created_at.strftime("%Y/%m/%d") %>投稿       <!--日本時間に設定1/2(strftime)-->
+</div>
+
+<div>
+<%= link_to "#{bookmark.product.post_comments.count} コメント", product_path(bookmark.product.id) %>
+</div>
+
+<div>
+<%= render 'products/tag_list', tag_list: bookmark.product.tag_list %>
+</div>
+<% end %>
+

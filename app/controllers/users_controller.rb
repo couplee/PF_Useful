@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @products = @user.products.page(params[:page]).per(2)
+    @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(2)
   end
 
   def edit
@@ -34,7 +34,7 @@ class UsersController < ApplicationController
 
   def check_guest                                                                  #ゲストユーザーは編集できない2/2
     if current_user.email == 'guest@example.com'
-      redirect_to root_path, alert: 'ゲストユーザーの編集はできません'
+      redirect_to users_path, alert: 'ゲストユーザーの編集はできません'
     end
   end
 end
