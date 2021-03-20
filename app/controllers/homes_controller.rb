@@ -7,11 +7,11 @@ class HomesController < ApplicationController
   end
   
   def like
-    @likes = current_user.likes
+    @likes = current_user.likes.all.order(created_at: :desc).page(params[:page]).per(9)
   end
   
   def bookmark
-    @bookmarks = current_user.bookmarks
+    @bookmarks = current_user.bookmarks.all.order(created_at: :desc).page(params[:page]).per(9)
   end
   
 end

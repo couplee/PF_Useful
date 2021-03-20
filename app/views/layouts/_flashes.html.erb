@@ -1,0 +1,7 @@
+<% flash.each do |key, value| %>                                                  <!--flash特有の余白消す2/3-->
+  <div class="alert alert-<%= bootstrap_alert(key) %>">
+    <strong>
+      <%= value %>
+    </strong>
+  </div>
+<% end %>

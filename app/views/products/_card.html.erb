@@ -1,14 +1,15 @@
-<h5 class="card-title mt-3">タイトル：<%= link_to product.title, product_path(product) %></h5>
-<p class="card-text line-clamp">商品説明：<%= link_to product.body, product_path(product) %></p>
+<!--<div class="card-body">-->
+  <h5 class="card-title">タイトル：<%= link_to product.title, product_path(product) %></h5>
+  <p class="card-text line-clamp">商品説明：<%= link_to product.body, product_path(product) %></p>
 </div>
-  <ul class="list-group list-group-flush">
-    <li class="list-group-item">コスト：￥<%= product.cost.to_i.to_s(:delimited) %></li>
-    <li class="list-group-item">
-      更新日：<%= product.updated_at.strftime("%Y/%m/%d") %>                                     <!--日本時間に設定1/2(strftime)-->
-    </li>
-    <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
-    <li class="list-group-item">
-      <%= "コメント：#{product.post_comments.count}件" %>
-      <i class="fas fa-heart ml-5"></i><%= product.likes.count %>件
-    </li>
-  </ul>
+<ul class="list-group list-group-flush">
+  <li class="list-group-item">コスト：￥<%= product.cost.to_i.to_s(:delimited) %></li>
+  <li class="list-group-item">
+    更新日：<%= product.updated_at.strftime("%Y/%m/%d") %>                                     <!--日本時間に設定1/2(strftime)-->
+  </li>
+  <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
+  <li class="list-group-item">
+    <%= "コメント：#{product.post_comments.count}件" %>
+    <i class="fas fa-heart ml-5"></i><%= product.likes.count %>件
+  </li>
+</ul>

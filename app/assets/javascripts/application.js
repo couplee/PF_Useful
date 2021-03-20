@@ -43,7 +43,9 @@ $(function() {
 // スムーススクロール機能3/3 ここまで
 
 $(function() {
-  $('.slider').slick();
+  $('.slider').slick({
+      dots: true,
+  });
 });
 
 

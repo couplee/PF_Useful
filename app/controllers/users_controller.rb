@@ -8,7 +8,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(2)
+    @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(6)
   end
 
   def edit

@@ -1,6 +1,5 @@
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
-<div class="container">
+<%= render 'layouts/flashes' %>
+<div class="container-fluid">
   <!--<div class="justify-content-center">                  <!--centerにするため(d-flex align-items-center消したら横幅が指定できるようになった、、)-->
   <div class="row">
     <div class="col-12 text-center">
@@ -21,18 +20,18 @@
       <h3 class="fas fa-cart-arrow-down">新着便利グッズ</h3>
     </div>
     <% @products.each do |product| %>
-    <!--<div class="col-md-6 col-lg-3 mt-5 mb-5">-->
-      <div class="card-group mt-2" style="width:23rem">
-        <div class="card">
-          <div class="card-body">
+      <div class="col-md-6 col-lg-4">
+        <div class="card-group text-center h-100">
+          <div class="card">
             <%= render 'products/swiper', product: product %>
-            <%= link_to product_path(product) do %>
-              <p class="card-text mt-3">タ<%= product.title %></p>
-            <% end %>
+            <div class="card-body">
+              <%= link_to product_path(product) do %>
+                <p class="card-text mt-3">タ<%= product.title %></p>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
-    <!--</div>-->
     <% end %>
   </div>
   <!--</div>-->

@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     @products = Product.all.order(created_at: :desc).page(params[:page]).per(9)
     #検索機能1/3ここから
     @search = Product.ransack(params[:q])
-    @search_products = @search.result
+    @search_products = @search.result.all.order(created_at: :desc).page(params[:page]).per(9)
     if params[:q].present?
       render 'result'
     else
