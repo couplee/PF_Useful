@@ -73,6 +73,7 @@ gem 'ransack'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bxslider-rails'
 gem 'rails-i18n'
+gem 'devise-i18n'
 
 gem 'dotenv-rails'
 group :production do

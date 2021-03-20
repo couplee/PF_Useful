@@ -1,0 +1,7 @@
+<div class="card-body">
+    投稿者：
+    <%= link_to product.user.name, user_path(product.user.id), class: 'mr-2' %>
+    <%= link_to user_path(product.user.id) do %>
+<%= attachment_image_tag product.user, :profile_image, fallback: 'no_image.png', size: '60x60' %>
+<% end %>
+  </div>

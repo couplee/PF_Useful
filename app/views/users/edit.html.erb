@@ -17,18 +17,18 @@
       <%= form_with model:@user, local:true do |f| %>
 
 <div class="page-center">
-<%= f.label :お名前 %><br>
-<%= f.text_field :name, class: 'short-text-form' %>
+<%= f.label :お名前（最大入力文字数：16文字） %><br>
+<%= f.text_field :name, maxlength: "16", size: '32' %>
 </div>
 
 <div class="page-center">
 <%= f.label :メールアドレス %><br>
-<%= f.text_field :email, class: 'short-text-form' %>
+<%= f.text_field :email, class: 'middle-text-form' %>
 </div>
 
 <div class="page-center">
 <%= f.label :プロフィール %><br>
-<%= f.text_area :profile, rows: '3', class: 'middle-text-form' %>
+<%= f.text_area :profile, rows: '3', class: 'text-form' %>
 </div>
 
 <div class="page-center">

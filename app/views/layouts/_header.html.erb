@@ -27,13 +27,13 @@
       </li>
       <% else %>
       <li class="nav-item ml-auto">
+        <%= link_to "About", home_about_path, class: 'nav-link fas fa-info-circle' %>
+      </li>
+      <li class="nav-item ml-auto">
         <%= link_to "商品一覧", products_path, class: 'nav-link fas fa-paper-plane' %>
       </li>
       <li class="nav-item ml-auto">
         <%= link_to "ユーザー一覧", users_path, class: 'nav-link fas fa-users' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "About", home_about_path, class: 'nav-link fas fa-info-circle' %>
       </li>
       <li class="nav-item ml-auto">
         <%= link_to "新規登録", new_user_registration_path, class: 'nav-link fas fa-file-signature' %>

@@ -1,10 +1,12 @@
- <p>コメント件数:<%= product.post_comments.count %></p>     <!--コメント機能'投稿'非同期通信3/5-->
+ <p>コメント件数:<%= product.post_comments.count %>件</p>     <!--コメント機能'投稿'非同期通信3/5-->
+ 
   <% product.post_comments.each do |post_comment| %>
-  <%= post_comment.user.name %>
-  <%= post_comment.created_at.strftime("%Y/%m/%d") %>
-  <%= post_comment.comment %>
+  <div>
+  お名前：<%= post_comment.user.name %><br>
+  投稿日：<%= post_comment.created_at.strftime("%Y/%m/%d") %><br>
+  内容：<%= simple_format(h(post_comment.comment)) %><br>
     <% if post_comment.user == current_user %>
     <%= link_to "削除", product_post_comment_path(post_comment.product, post_comment), method: :delete, remote: true %>     <!--コメント機能'削除'非同期通信2/3(remote: true追記)-->
     <% end %>
-
+</div>
   <% end %>

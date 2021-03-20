@@ -8,8 +8,8 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class="field page-center">         <%# nameでログイン3/3 %>
-    <%= f.label :お名前 %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "email" %>
+    <%= f.label :お名前（最大入力文字数：16文字） %><br />
+    <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "16", size: '32' %>
   </div>
 
   <div class="field page-center">
@@ -31,7 +31,7 @@
   </div>
 
   <div class="actions page-center">
-    <%= f.submit "新規登録" %>
+    <%= f.submit "新規登録", class: 'confirm-btn' %>
   </div>
 <% end %>
 

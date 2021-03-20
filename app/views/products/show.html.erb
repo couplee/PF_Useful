@@ -4,111 +4,97 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-6">
-    <div class="card-group" style="width:23rem">
-      <div class="card" >
-        <div class="card-body">
+    <div class="col-lg-4">
+      <div class="card-group">
+        <div class="card">
+          <div class="card-body">
+            <%= render 'products/swiper', product: @product %>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">コスト：￥<%= @product.cost.to_i.to_s(:delimited) %></li>
+              <li class="list-group-item">購入先/販売店：<%= text_url_to_link(h(@product.seller)).html_safe %></li>
+              <li class="list-group-item">使用開始年月：<%= @product.since_when.strftime("%Y/%m") %></li>                                           <!--年月だけ表示-->
+              <li class="list-group-item">投稿更新日：<%= @product.updated_at.strftime("%Y/%m/%d") %></li>                                     <!--日本時間に設定1/2(strftime)-->
+              <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: @product.tag_list %></li>                                                      <!--タグ機能4*2/7?-->
+              <li class="list-group-item" id= "likes_buttons_<%= @product.id %>">
+                <%= render partial: 'likes/like', locals: { product: @product} %>
+              </li>                                  <!--非同期通信1/5-->
+              <% if @product.user.id == current_user.id %>
+                <li class="list-group-item">
+                  <%= link_to '商品編集', edit_product_path(@product) %>　　
+                  <%= link_to '商品削除', product_path(@product), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                </li>
+              <% else %>
+                <li class="list-group-item" id= "bookmarks_buttons_<%= @product.id %>">            <!--非同期通信1/5-->
+                  <%= render partial: 'bookmarks/bookmark', locals: { product: @product} %>
+                </li>
+                <%= render 'products/card_body', product: @product %>
 
-        <div class="swiper-container">　　　　　　　　　　　　　　　　　　　　<!--card-bodyクラス内に入れないと画像のレイアウトが崩れる、、-->
-          <div class="swiper-wrapper">
-            <% if @product.photos.present? %>
-              <% @product.photos.each do |photo| %>
-                <div class="swiper-slide">
-                  <%# link_to @product_path(@product) do %>
-                    <%= attachment_image_tag photo, :image, class: 'card-img-top' %>
-                  <%#end %>
-                </div>
-              <% end %>
-            <% else %>
-              <div class="swiper-slide">
-                <%# link_to @product_path(@product) do %>
-                  <%= image_tag 'no_image.png', class: 'card-img-top' %>
-                <%#end %>
-              </div>
-            <% end %>
+              </li>
+                              <% end %>
+            </ul>
           </div>
-          <div class="swiper-button-prev swiper-button-white"></div>
-          <div class="swiper-button-next swiper-button-white"></div>
-          <div class="swiper-pagination swiper-pagination-white"></div>
-        </div>
-      
-<h5 class="card-title">タイトル：
-<%= @product.title %>
-</h5>
-
-<p class="card-text">商品説明：
-<%= simple_format @product.body %></p>              <!-- simple_formatは改行を反映させる-->
-</div>
-
-<ul class="list-group list-group-flush">
-<div>メリット
-<% @product.merits.each do |merit| %>
-<%= merit.advantage %>
-<% end %>
-</div>
-
-<div>デメリット
-<% @product.demerits.each do |demerit| %>
-<%= demerit.disadvantage %>
-<% end %>
-</div>
-
-<div>
-<%= render 'tag_list', tag_list: @product.tag_list %>                                                       <!--タグ機能4*2/7?-->
-</div>
-
-<div>購入先/販売店</div>
-<%= text_url_to_link(h(@product.seller)).html_safe %>
-
-<div>コスト</div>
-￥<%= @product.cost.to_i.to_s(:delimited) %>                                            <!--.to_s(:delimited)で3桁で区切ってる-->
-
-<div>使用開始年月</div>
-<%= @product.since_when %>
-
-<div id= "likes_buttons_<%= @product.id %>">            <!--非同期通信1/5-->
-  <%= render partial: 'likes/like', locals: { product: @product} %>
-</div>
-
-<div id= "bookmarks_buttons_<%= @product.id %>">            <!--非同期通信1/5-->
-  <%= render partial: 'bookmarks/bookmark', locals: { product: @product} %>
-</div>
-
-<% if @product.user.id == current_user.id %>
-  <%= link_to '商品編集', edit_product_path(@product) %>
-  <%= link_to '商品削除', product_path(@product), method: :delete, "data-confirm" => "本当に消しますか？" %>
-<% end %>
-
-<div>
-<%= @product.user.name %>
-</div>
-
-<div>
-<%= @product.user.profile %>
-</div>
-
-<div>
-<%= link_to user_path(@product.user) do %>
-  <%= @product.user.name %>さんのプロフィールへ
-<% end %>
-</div>
-</ul>
-
-<div id="post_comments">     <!--コメント機能'投稿'非同期通信2/5-->
-  <%= render 'post_comments/index', product: @product %>
-</div>
-
-<div id="comments_error">        <!--コメント空白禁止2/5-->
-    <%= render 'layouts/errors', model: @post_comment %>
-  </div>
-
-  <%= form_with model:[@product, @post_comment] do |f| %>     <!--コメント機能'投稿'非同期通信1/5(local: true消した)-->
-    <%= f.text_area :comment, rows:'10', placeholder: "コメントをここに" %>
-    <%= f.submit "送信する" %>
-  <% end %>
-  </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+
+
+    <div class="col-lg-8">
+      <div class="card-group">
+      <div class="card">
+        <div class="card-header">
+          商品について
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">タイトル：<%= @product.title %></h5>
+          <p class="card-text">説明：<%= simple_format(h(@product.body)) %></p>
+        </div>
+      </div>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">メリット／利点</div>
+            <div class="card-body">
+              <p class="card-text">
+                <% @product.merits.each do |merit| %>
+                  <%= simple_format(h(merit.advantage)) %>ー
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card">
+            <div class="card-header">デメリット／欠点</div>
+            <div class="card-body">
+              <p class="card-text">
+                <% @product.demerits.each do |demerit| %>
+                  <%= simple_format(h(demerit.disadvantage)) %>ー
+                <% end %>
+              </p>
+            </div>
+          </div>
+        </div>
+        
+    </div>
+    
+    </div>
+    
+    </div>
+    
+    </div>
+    <div id="post_comments">     <!--コメント機能'投稿'非同期通信2/5-->
+          <%= render 'post_comments/index', product: @product %>
+        </div>
+        
+        <div id="comments_error">        <!--コメント空白禁止2/5-->
+          <%= render 'layouts/errors', model: @post_comment %>
+        </div>
+        
+        <%= form_with model:[@product, @post_comment] do |f| %>     <!--コメント機能'投稿'非同期通信1/5(local: true消した)-->
+          <%= f.text_area :comment, rows:'3', placeholder: "コメントをここに", class: 'short-text-form' %><br>
+          <%= f.submit "コメントする", class: 'submit-btn' %>
+        <% end %>
+    </div>
+    </div>
+    

@@ -1,17 +1,17 @@
 
 <p class="notice"><%= notice %></p>
 
-  <h3 class="page-center"><%= @user.name %>さんのプロフィール</h3>
+  <h3 class="page-center">プロフィール</h3>
 <div class="container">
   <div class="row">
     <div class="col">
       <div class="card text-center">
-  <div class="card-header card-group">
-    <%= @user.name %>さんのプロフィール
+  <div class="card-header user-card-group">
+    <%= @user.name %>
   </div>
   <div class="card-body">
     <%= attachment_image_tag @user, :profile_image, fallback: 'no_image.png', size: '100x100' %>
-    <p class="card-text"><%= @user.profile %></p>
+    <p class="card-text"><%= simple_format(h(@user.profile)) %></p>
     <% if @user.id == current_user.id %>
   メールアドレス：<%= @user.email %><br>
   <div class="mt-2">
@@ -19,10 +19,10 @@
   </div>
 <% end %>
   </div>
-  <div class="card-footer text-muted  card-group">
+  <div class="card-footer user-card-group">
     <% if @user.id == current_user.id %>
-  <%= link_to 'いいね一覧へ', likes_path %><br>
-  <%= link_to 'ブックマーク一覧へ', bookmarks_path %>
+  <%= link_to 'いいね 一覧へ', likes_path %><br>
+  <%= link_to 'ブックマーク 一覧へ', bookmarks_path %>
 <% end %>
   </div>
 </div>
@@ -30,10 +30,12 @@
   </div>
 </div>
 
-
-<h3 class="page-center">
-<%= @user.name %>さんの投稿商品一覧
-</h3>
+<div class="page-center">
+"<%= @user.name %>"
+</div>
+<div class="page-center">
+さんの投稿商品一覧
+</div>
 
 <div class="container">
   <div class="row">
@@ -41,43 +43,11 @@
     <div class="card-group" style="width:23rem">
       <div class="card" >
         <div class="card-body">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <% if product.photos.present? %>
-                <% product.photos.each do |photo| %>
-                <div class="swiper-slide">
-                  <%= link_to product_path(product) do %>
-                  <%= attachment_image_tag photo, :image, class: 'card-img-top' %>
-                  <% end %>
-                </div>
-                <% end %>
-              <% else %>
-                <div class="swiper-slide">
-                  <%= link_to product_path(product) do %>
-                    <%= image_tag 'no_image.png', class: 'card-img-top' %>
-                  <% end %>
-                </div>
-              <% end %>
-            </div>
-            <div class="swiper-button-prev swiper-button-white"></div>
-            <div class="swiper-button-next swiper-button-white"></div>
-            <div class="swiper-pagination swiper-pagination-white"></div>
-          </div>
+          
+          <%= render 'products/swiper', product: product %>                                                           <!--product: productややこしかった-->
     
-          <h5 class="card-title mt-3">タイトル：<%= link_to product.title, product_path(product) %></h5>
-          <p class="card-text line-clamp">本文：<%= link_to product.body, product_path(product) %></p>
-        </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">コスト：￥<%= product.cost.to_i.to_s(:delimited) %></li>
-          <li class="list-group-item">
-            更新日：<%= product.updated_at.strftime("%Y/%m/%d") %>                                     <!--日本時間に設定1/2(strftime)-->
-          </li>
-          <li class="list-group-item">
-            <%= "コメント：#{product.post_comments.count}件" %>
-            <i class="fas fa-heart ml-5"></i><%= product.likes.count %>件
-          </li>
-          <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
-        </ul>
+          <%= render 'products/card', product: product %> 
+          
         <div class="card-body">
           <%= link_to "商品詳細", product_path(product) %>
           <% if @user.id == current_user.id %>

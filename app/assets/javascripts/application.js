@@ -93,3 +93,79 @@ $(function() {
 //     $(this).height(lineHeight * lines);
 //   });
 // });
+
+
+$(function() {                                                                          //enterキーでフォーム移動//
+    //最初のinputにfocusしてあげる気が利く系処理
+    $('input[type=text]:first').focus();
+    $('input').bind("keydown", function(e) {
+        var n = $("input").length;
+        //13=エンターkeyです
+        if (e.which == 13)
+        {
+            e.preventDefault();
+            var nextIndex = $('input').index(this) + 1;
+            if(nextIndex < n) {
+                //次のやつにfocus        
+                $('input')[nextIndex].focus();
+            } else {
+                //最後のやつなので#login-btnをクリック        
+                $('input')[nextIndex-1].blur();
+                $('#submit').click();
+            }
+        }
+    });
+});
+
+// currentFNo = 0;
+// function nextForm()
+// {
+// 	if (event.keyCode == 13)
+// 	{
+// 		currentFNo++;
+// 		currentFNo %= document.myFORM.elements.length;
+// 		document.myFORM[currentFNo].focus();
+// 	}
+// }
+// window.document.onkeydown = nextForm;
+
+
+            // function next_text( idx )
+            // {
+            //     if( window.event.keyCode == 13 ){        // 13は0x0d(CRキー)
+            //         // 次のテキストボックスへ飛ばす処理をここにかく
+            //         document.mainForm.text1[ idx ].focus() ; 
+            //         return false ;
+            //     }
+            //     return true ;
+            // }
+
+
+// $(function() {
+//     $('input').on("keydown", function(e) {
+//         var n = $("input").length;
+//         if (e.which == 13) {
+//             e.preventDefault();
+//             var Index = $('input').index(this);            // 現在の要素
+//             var nextIndex = $('input').index(this) + 1;    // 次の要素
+//             var hogeIindex = $('input').index($("#hoge")); // 特定要素
+//             if (Index === hogeIndex) {
+//                 $('input')[Index].blur();         // #hogeではフォーカスを外す
+//             } else if (nextIndex < n) {
+//                 $('input')[nextIndex].focus();    // 次の要素へフォーカスを移動
+//             } else {
+//                 $('input')[Index].blur();         // 最後の要素ではフォーカスを外す
+//             }
+//         }
+//     });
+// });
+
+
+// function keydown(e){
+//   if(e.keyCode === 13){
+//     var obj = document.activeElement;
+//     obj.nextElementSibling.focus();
+//   }
+// }
+ 
+// window.onkeydown = keydown;

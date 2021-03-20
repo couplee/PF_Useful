@@ -11,7 +11,7 @@ class User < ApplicationRecord
 
   attachment :profile_image
   
-  validates :name, presence: true, uniqueness: true
+  validates :name, presence: true, uniqueness: true, length: { maximum: 16 }
 
   def self.guest       #ゲストユーザー実装3/4
     find_or_create_by!(email: 'guest@example.com') do |user|

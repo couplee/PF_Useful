@@ -1,9 +1,5 @@
 <% if product.bookmarked_by?(current_user) %>            <!--非同期通信2/5-->
-      <p><%= link_to product_bookmarks_path(product), method: :delete, remote: true do %>
-      <%= product.bookmarks.count %>ブックマーク
-      <% end %></p>
+      <i class="fas fa-bookmark"></i><%= link_to 'ブックマーク済み', product_bookmarks_path(product), method: :delete, remote: true %>
     <% else %>
-      <p><%= link_to product_bookmarks_path(product), method: :post, remote: true do %>
-      ︎<%= product.bookmarks.count %>ブックマーク
-      <% end %></p>
+      <i class="far fa-bookmark"></i><%= link_to 'ブックマークする', product_bookmarks_path(product), method: :post, remote: true %>
     <% end %>

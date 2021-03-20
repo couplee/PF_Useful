@@ -1,62 +1,10 @@
 <h3 class="page-center">商品編集</h3>
 
-<% if @product.errors.any? %>
-<!--<div id="error_explanation">-->
-  <h2><%= pluralize(@product.errors.count, "error") %> prohibited this obj from being saved:</h2>     <!--pluralizeはエラー件数を判断して-->
-  <ul>
-    <% @product.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-  <!--</div>-->
-<% end %>
 
 
 <%= form_with model: @product, url: product_path(@product), local: true do |f| %>
-<%= f.label :タイトル %>
-<%= f.text_field :title %>
 
-<%= f.label :本文 %>
-<%= f.text_area :body %>
 
-<div class='merits'>
-  <%= f.fields_for :merits do |merit| %>
-  <%= render 'merit_fields', f: merit %>
-  <% end %>
-  <div class='links'>
-  <%= link_to_add_association 'フォーム追加', f, :merits %>
-  </div>
-</div>
+<%= render 'products/post', product: @product, f: f %>
 
-<div class='demerits'>
-  <%= f.fields_for :demerits do |demerit| %>
-  <%= render 'demerit_fields', f: demerit %>
-  <% end %>
-  <div class='links'>
-  <%= link_to_add_association 'フォーム追加', f, :demerits %>
-  </div>
-</div>
-
-<%= f.label :タグ %>                                                                                 <!--タグ機能3*2/7?-->
-<%= f.text_field :tag_list, value: @product.tag_list.join(',') %>
-
-<% @product.photos.each do |photo| %>
-<%= image_tag attachment_url(photo, :image, :fill, 80, 80) %>
-<p><%= link_to '削除', photo_destroy_path(photo), method: :delete, data: { confirm: "写真を削除します"} %></p>
-<% end %>
-
-<%= f.label :商品画像 %>
-<%= f.attachment_field :photos_images, multiple: true %>
-<%# f.file_field :photo_images, multiple: true, name: "photo_images[image][]" %>
-
-<%= f.label :購入先／販売店 %>
-<%= f.text_field :seller %>
-
-<%= f.label :コスト %>
-<%= f.text_field :cost %>
-
-<%= f.label :使用開始年月 %>
-<%= f.date_select :since_when, {discard_day: true, use_month_numbers: true, start_year: 2010, end_year: Time.now.year, date_separator: '/'} %>
-
-<%= f.submit %>
 <% end %>

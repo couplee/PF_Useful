@@ -5,15 +5,13 @@ ja:
       user: ユーザー
       post_comment: コメント
     attributes:
-      product:
-        title: タイトル
-        body: 商品説明
-    attributes:
       user:
         name: お名前
         password: パスワード
         email: メールアドレス
-    attributes:
       post_comment:
         comment: コメント
+      product:
+        title: タイトル
+        body: 商品説明
         

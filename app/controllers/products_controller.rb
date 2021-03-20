@@ -67,7 +67,8 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
-    redirect_to products_path
+    redirect_to root_path
+    # redirect_back(fallback_location: root_path)                    #products_pathでもいける
   end
 
   def destroy_photo
