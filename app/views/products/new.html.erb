@@ -1,15 +1,4 @@
-
-
 <h3 class="page-center">新規投稿</h3>
-
-
-
-
-
-
 <%= form_with model: @product, url: products_path, local: true do |f| %>
-
-<%= render 'products/post', product: @product, f: f %>
-
+  <%= render 'products/post', product: @product, f: f %>
 <% end %>
-

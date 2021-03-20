@@ -12,7 +12,7 @@
           </div>
           <div class="card-body">
             <%= link_to user_path(user) do %>
-            <%= attachment_image_tag user, :profile_image, fallback: 'no_image.png', size: '100x100' %>
+            <%= attachment_image_tag user, :profile_image, fallback: 'no-image.png', size: '100x100' %>
             <% end %>
           </div>
           <div class="card-footer user-card-group">                                                                        <!-- card-group消したら中央寄せになった-->

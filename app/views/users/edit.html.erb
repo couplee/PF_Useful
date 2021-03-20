@@ -1,47 +1,33 @@
 <h3 class="page-center">プロフィール編集</h3>
-
-<% if @user.errors.any? %>
-<!--<div id="error_explanation">-->
-  <h2><%= pluralize(@user.errors.count, "error") %> prohibited this obj from being saved:</h2>     <!--pluralizeはエラー件数を判断して-->
-  <ul>
-    <% @user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-    <% end %>
-  </ul>
-  <!--</div>-->
-<% end %>
-
+<%= render 'products/error', product: @user %>
 <div class="container">
   <div class="row">
     <div class="col-12">
       <%= form_with model:@user, local:true do |f| %>
-
-<div class="page-center">
-<%= f.label :お名前（最大入力文字数：16文字） %><br>
-<%= f.text_field :name, maxlength: "16", size: '32' %>
-</div>
-
-<div class="page-center">
-<%= f.label :メールアドレス %><br>
-<%= f.text_field :email, class: 'middle-text-form' %>
-</div>
-
-<div class="page-center">
-<%= f.label :プロフィール %><br>
-<%= f.text_area :profile, rows: '3', class: 'text-form' %>
-</div>
-
-<div class="page-center">
-<%= f.label :プロフィール写真 %><br>
-<%= f.attachment_field :profile_image %>
-</div>
-
-<div class="page-center mt-5">
-<%= f.submit 'プロフィール更新', class: 'submit-btn' %>
-</div>
-
-
-<% end %>
+        <div class="page-center">
+          <%= f.label :お名前（最大入力文字数：16文字） %><br>
+          <%= f.text_field :name, maxlength: "16", size: '32' %>
+        </div>
+        
+        <div class="page-center">
+          <%= f.label :メールアドレス %><br>
+          <%= f.text_field :email, class: 'middle-text-form' %>
+        </div>
+        
+        <div class="page-center">
+          <%= f.label :プロフィール %><br>
+          <%= f.text_area :profile, rows: '3', class: 'text-form' %>
+        </div>
+        
+        <div class="page-center">
+          <%= f.label :プロフィール写真 %><br>
+          <%= f.attachment_field :profile_image %>
+        </div>
+        
+        <div class="page-center mt-5">
+          <%= f.submit 'プロフィール更新', class: 'submit-btn' %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

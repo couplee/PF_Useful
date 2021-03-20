@@ -1,35 +1,24 @@
 <h3 class="page-center">投稿便利商品</h3>
-
-
-
-
 <div class='container'>
-        <p><%= sort_link(@search, :updated_at, '更新日', default_order: :desc) %></p>
-      <p><%= sort_link(@search, :cost, 'コスト', default_order: :desc) %></p>
-      <p><%= sort_link(@search, :likes_count, 'いいね', default_order: :desc) %></p>
+  <p><%= sort_link(@search, :updated_at, '更新日', default_order: :desc) %></p>
+  <p><%= sort_link(@search, :cost, 'コスト', default_order: :desc) %></p>
+  <p><%= sort_link(@search, :likes_count, 'いいね', default_order: :desc) %></p>
   <div class='row'>
-
-
-      <% @search_products.each do |sp| %>
+    <% @search_products.each do |sp| %>
       <div class="card-group" style="width:23rem">
-<div class="card" >
-  <div class="card-body">
-
-          <%= render 'products/swiper', product: sp %>
-
-<%= render 'products/card', product: sp %>
-<%= render 'products/card_body', product: sp %>
-
-    
-  
-</div>
-</div>
-
-  <% end %>
-</div>
-<div class="text-center mt-3 mb-3 ">
-<%= paginate @products %>
-</div>
+        <div class="card">
+          <div class="card-body">
+            <%= render 'products/swiper', product: sp %>
+            <%= render 'products/card', product: sp %>
+            <%= render 'products/card_body', product: sp %>
+          </div>
+        </div>
+        
+    <% end %>
+  </div>
+  <div class="text-center mt-3 mb-3 ">
+    <%= paginate @products %>
+  </div>
 </div>
 
 

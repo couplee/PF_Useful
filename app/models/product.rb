@@ -11,12 +11,12 @@ class Product < ApplicationRecord
   accepts_nested_attributes_for :demerits, allow_destroy: true                 #cocoonで'デメリット'機能実装1/6┛
   acts_as_taggable                                                         #タグ機能1/7?
   
-  with_options presence: true do     #空白投稿禁止1/2
+  with_options presence: true do                                               #空白投稿禁止1/2
     validates :title, length: { maximum: 30 }
     validates :body
   end
   
-  def liked_by?(user)          #いいね済みかどうか
+  def liked_by?(user)                                                        #いいね済みかどうか
     likes.where(user_id: user.id).exists?
   end
   
@@ -28,4 +28,5 @@ class Product < ApplicationRecord
     query = '(SELECT COUNT(likes.product_id) FROM likes where likes.product_id = products.id GROUP BY likes.product_id)'
     Arel.sql(query)
   end
+  
 end

@@ -1,6 +1,5 @@
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
 <div class="container">
   <!--<div class="justify-content-center">                  <!--centerにするため(d-flex align-items-center消したら横幅が指定できるようになった、、)-->
   <div class="row">
@@ -8,40 +7,33 @@
       <%= link_to root_path, class: 'nav-link' do %>
         <h1 class='page-center application_name fas fa-horse-head'>USEFUL<i class="fas fa-horse-head fa-flip-horizontal"></i></h1>
       <% end %>
-  
       <%= link_to new_user_registration_path, class: 'nav-link top-btn' do %>
         <i class="fas fa-file-signature"></i>新規登録
       <% end %><br>
       <%= link_to new_user_session_path, class: 'nav-link top-btn' do %>
-      <i class="fas fa-sign-in-alt"></i>ログイン
+        <i class="fas fa-sign-in-alt"></i>ログイン
       <% end %><br>
       <%= link_to users_guest_sign_in_path, method: :post, class: 'nav-link top-btn' do %>
-      <i class="fas fa-crown"></i>ゲストログイン
+        <i class="fas fa-crown"></i>ゲストログイン
       <% end %>
     </div>
-
     <div class='col-12 mt-5'>
       <h3 class="fas fa-cart-arrow-down">新着便利グッズ</h3>
     </div>
-    
-
     <% @products.each do |product| %>
     <!--<div class="col-md-6 col-lg-3 mt-5 mb-5">-->
-    
-    <div class="card-group mt-2" style="width:23rem">
-    <div class="card">
-      
-      <div class="card-body">
-        <%= render 'products/swiper', product: product %>  
-
-    <%= link_to product_path(product) do %>
-      <p class="card-text mt-3">タ<%= product.title %></p>
-    <% end %>
-    </div>
-    </div>
-    </div>
+      <div class="card-group mt-2" style="width:23rem">
+        <div class="card">
+          <div class="card-body">
+            <%= render 'products/swiper', product: product %>
+            <%= link_to product_path(product) do %>
+              <p class="card-text mt-3">タ<%= product.title %></p>
+            <% end %>
+          </div>
+        </div>
+      </div>
     <!--</div>-->
     <% end %>
-    </div>
-    <!--</div>-->
-    </div>
+  </div>
+  <!--</div>-->
+</div>

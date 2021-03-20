@@ -1,71 +1,53 @@
-
-
 <div class="container">
   <div class="row">
     <div class="col-6">
-<!--#検索機能2/3ここから-->
-<%= search_form_for @search do |f| %>      <!--, url: products_path-->
-  <%= f.label :tilte, 'タイトル／本文' %><br>
-  <%= f.search_field :title_or_body_cont, class: 'search-form' %>
-  <%= f.submit '検索', class: 'search-submit-btn' %>
-<% end %>
-<!--#検索機能2/3ここまで-->
-</div>
-<div class="col-6 text-right">
-  <p>並べ替え</p>
-    <p><%= sort_link(@search, :updated_at, '更新日(昇順)') %></p>
-<p><%= sort_link(@search, :cost, 'コスト(安い順)') %></p>
-<p><%= sort_link(@search, :likes_count, 'いいね(多い順)', default_order: :desc) %></p>
-</div>
+      <!--#検索機能2/3ここから-->
+      <%= search_form_for @search do |f| %>                                     <!--, url: products_path-->
+        <%= f.label :tilte, 'タイトル／本文' %><br>
+        <%= f.search_field :title_or_body_cont, class: 'search-form' %>
+        <%= f.submit '検索', class: 'search-submit-btn' %>
+      <% end %>
+      <!--#検索機能2/3ここまで-->
+    </div>
+    <div class="col-6 text-right">
+      <p>並べ替え</p>
+      <p><%= sort_link(@search, :updated_at, '更新日(昇順)') %></p>
+      <p><%= sort_link(@search, :cost, 'コスト(安い順)') %></p>
+      <p><%= sort_link(@search, :likes_count, 'いいね(多い順)', default_order: :desc) %></p>
+    </div>
+  </div>
+  
 
 </div>
-</div>
 
-</div>
 
 <p class="alert"><%= alert %></p>
-
-
 <h3 class="page-center">便利商品一覧</h3>
 <div class='container'>
-    <!--<div class="card-deck">-->
-    <div class="text-center">
-<%= paginate @products %>
-</div>
-
+  <div class="text-center">
+    <%= paginate @products %>
+  </div>
   <div class='row'>
     <!--<div class='col-4'>-->
-
-
-      <% @products.each do |product| %>
-
+    <% @products.each do |product| %>
       <div class="card-group" style="width:23rem">                   <!--card-groupでBootstrapのcardを横並び(これで画面縮めてもcardが縮まらない)-->
-<div class="card" >
-
+        <div class="card" >
   <!--<div class="column flex-direction:row">               cardが縦に並んでしまう-->
-  <div class="card-body">
-
-        <%= render 'products/swiper', product: product %>
-
-    <%= render 'products/card', product: product %>
-  <%= render 'products/card_body', product: product %>
-
+          <div class="card-body">
+            <%= render 'products/swiper', product: product %>
+            <%= render 'products/card', product: product %>
+            <%= render 'products/card_body', product: product %>
   <!--</div>-->
-
-</div>
-</div>
-
-
-
-  <% end %>
-
-  <!--</div>-->
-</div>
-<div class="text-center mt-3 mb-3 ">
-<div class='p-top__paginate'><%= paginate @products %></div>
-</div>
+          </div>
+        </div>
+        
+    <% end %>
+  </div>
+  <div class="text-center mt-3 mb-3 ">
+    <div class='p-top__paginate'><%= paginate @products %></div>
+  </div>
 <!--</div>-->
-</div>
+  </div>
 
 
 

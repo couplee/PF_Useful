@@ -1,7 +1,5 @@
 <p class="notice"><%= notice %></p>
-
 <h3 class="page-center">商品詳細</h3>
-
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
@@ -28,9 +26,8 @@
                   <%= render partial: 'bookmarks/bookmark', locals: { product: @product} %>
                 </li>
                 <%= render 'products/card_body', product: @product %>
-
-              </li>
-                              <% end %>
+                </li>
+              <% end %>
             </ul>
           </div>
         </div>

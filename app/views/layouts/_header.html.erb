@@ -1,51 +1,50 @@
 <header>
-      <nav class="navbar navbar-expand-lg pt-2 pb-2">             <!--pt-3 pb-3ヘッダーの高さ-->
-  <%= link_to root_path, class: 'nav-link' do %>
-        <h1 class="fas fa-republican">USEFUL<i class="fas fa-democrat"></i></h1>
-      <% end %>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
-          <% if user_signed_in? %>
-      <li class="nav-item ml-auto">
-        <%= link_to "商品一覧", products_path, class: 'nav-link fas fa-paper-plane' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "新規投稿", new_product_path, class: 'nav-link fas fa-edit' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "ユーザー一覧", users_path, class: 'nav-link fas fa-users' %>
-      </li>
-
-      <li class="nav-item ml-auto">
-        <%= link_to "マイページ", user_path(current_user), class: 'nav-link fas fa-user' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link fas fa-sign-out-alt' %>
-      </li>
-      <% else %>
-      <li class="nav-item ml-auto">
-        <%= link_to "About", home_about_path, class: 'nav-link fas fa-info-circle' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "商品一覧", products_path, class: 'nav-link fas fa-paper-plane' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "ユーザー一覧", users_path, class: 'nav-link fas fa-users' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "新規登録", new_user_registration_path, class: 'nav-link fas fa-file-signature' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "ログイン", new_user_session_path, class: 'nav-link fas fa-sign-in-alt' %>
-      </li>
-      <li class="nav-item ml-auto">
-        <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link fas fa-crown' %>          <!--ゲストユーザー実装4/4-->
-      </li>
-      <% end %>
-    </ul>
-  </div>
-</nav>
-    </header>
+  <nav class="navbar navbar-expand-lg pt-2 pb-2 mb-4">             <!--pt-3 pb-3ヘッダーの高さ-->
+    <%= link_to root_path, class: 'nav-link' do %>
+      <h1 class="fas fa-republican">USEFUL<i class="fas fa-democrat"></i></h1>
+    <% end %>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <% if user_signed_in? %>
+          <li class="nav-item ml-auto">
+            <%= link_to "商品一覧", products_path, class: 'nav-link fas fa-paper-plane' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "新規投稿", new_product_path, class: 'nav-link fas fa-edit' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "ユーザー一覧", users_path, class: 'nav-link fas fa-users' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "マイページ", user_path(current_user), class: 'nav-link fas fa-user' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'nav-link fas fa-sign-out-alt' %>
+          </li>
+        <% else %>
+          <li class="nav-item ml-auto">
+            <%= link_to "About", home_about_path, class: 'nav-link fas fa-info-circle' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "商品一覧", products_path, class: 'nav-link fas fa-paper-plane' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "ユーザー一覧", users_path, class: 'nav-link fas fa-users' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "新規登録", new_user_registration_path, class: 'nav-link fas fa-file-signature' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "ログイン", new_user_session_path, class: 'nav-link fas fa-sign-in-alt' %>
+          </li>
+          <li class="nav-item ml-auto">
+            <%= link_to "ゲストログイン", users_guest_sign_in_path, method: :post, class: 'nav-link fas fa-crown' %>          <!--ゲストユーザー実装4/4-->
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </nav>
+</header>

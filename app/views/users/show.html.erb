@@ -1,66 +1,60 @@
-
 <p class="notice"><%= notice %></p>
-
-  <h3 class="page-center">プロフィール</h3>
+<h3 class="page-center">プロフィール</h3>
 <div class="container">
   <div class="row">
     <div class="col">
       <div class="card text-center">
-  <div class="card-header user-card-group">
-    <%= @user.name %>
-  </div>
-  <div class="card-body">
-    <%= attachment_image_tag @user, :profile_image, fallback: 'no_image.png', size: '100x100' %>
-    <p class="card-text"><%= simple_format(h(@user.profile)) %></p>
-    <% if @user.id == current_user.id %>
-  メールアドレス：<%= @user.email %><br>
-  <div class="mt-2">
-  <%= link_to "プロフィール編集", edit_user_path(@user) %>
-  </div>
-<% end %>
-  </div>
-  <div class="card-footer user-card-group">
-    <% if @user.id == current_user.id %>
-  <%= link_to 'いいね 一覧へ', likes_path %><br>
-  <%= link_to 'ブックマーク 一覧へ', bookmarks_path %>
-<% end %>
-  </div>
-</div>
+        <div class="card-header user-card-group">
+          <%= @user.name %>
+        </div>
+        <div class="card-body">
+          <%= attachment_image_tag @user, :profile_image, fallback: 'no-image.png', size: '100x100' %>
+          <p class="card-text"><%= simple_format(h(@user.profile)) %></p>
+          <% if @user.id == current_user.id %>
+            メールアドレス：<%= @user.email %><br>
+            <div class="mt-2">
+              <%= link_to "プロフィール編集", edit_user_path(@user) %>
+            </div>
+          <% end %>
+        </div>
+        <div class="card-footer user-card-group">
+          <% if @user.id == current_user.id %>
+            <%= link_to 'いいね 一覧へ', likes_path %><br>
+            <%= link_to 'ブックマーク 一覧へ', bookmarks_path %>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
 <div class="page-center">
-"<%= @user.name %>"
+  "<%= @user.name %>"
 </div>
 <div class="page-center">
-さんの投稿商品一覧
+  さんの投稿商品一覧
 </div>
 
 <div class="container">
   <div class="row">
     <% @user.products.each do |product| %>
-    <div class="card-group" style="width:23rem">
-      <div class="card" >
-        <div class="card-body">
-          
-          <%= render 'products/swiper', product: product %>                                                           <!--product: productややこしかった-->
-    
-          <%= render 'products/card', product: product %> 
-          
-        <div class="card-body">
-          <%= link_to "商品詳細", product_path(product) %>
-          <% if @user.id == current_user.id %>
-          <%= link_to "商品編集", edit_product_path(product) %>
-          <%= link_to "商品削除", product_path(product), method: :delete, "data-confirm" => "本当に消しますか？" %>
-          <% end %>
+      <div class="card-group" style="width:23rem">
+        <div class="card" >
+          <div class="card-body">
+            <%= render 'products/swiper', product: product %>                                                           <!--product: productややこしかった-->
+            <%= render 'products/card', product: product %>
+          <div class="card-body">
+            <%= link_to "商品詳細", product_path(product) %>
+            <% if @user.id == current_user.id %>
+              <%= link_to "商品編集", edit_product_path(product) %>
+              <%= link_to "商品削除", product_path(product), method: :delete, "data-confirm" => "本当に消しますか？" %>
+            <% end %>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   </div>
   <div class="page-center mt-3">
-    
-<%= paginate @products %>
-</div>
+    <%= paginate @products %>
+  </div>
 </div>

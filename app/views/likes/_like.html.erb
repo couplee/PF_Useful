@@ -1,9 +1,9 @@
 <% if product.liked_by?(current_user) %>            <!--非同期通信2/5-->
-      <%= link_to product_likes_path(product), method: :delete, remote: true do %>
-      <i class="fas fa-heart"></i>いいね済み
-      <% end %>　いいね：<%= product.likes.count %>件
-    <% else %>
-      <%= link_to product_likes_path(product), method: :post, remote: true do %>
-      <i class="far fa-heart"></i>いいねする
-      <% end %>　いいね：<%= product.likes.count %>件
-    <% end %>
+  <%= link_to product_likes_path(product), method: :delete, remote: true do %>
+    <i class="fas fa-heart"></i>いいね済み
+  <% end %>　いいね：<%= product.likes.count %>件
+<% else %>
+  <%= link_to product_likes_path(product), method: :post, remote: true do %>
+    <i class="far fa-heart"></i>いいねする
+  <% end %>　いいね：<%= product.likes.count %>件
+<% end %>

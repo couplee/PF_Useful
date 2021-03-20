@@ -1,10 +1,4 @@
 <h3 class="page-center">商品編集</h3>
-
-
-
 <%= form_with model: @product, url: product_path(@product), local: true do |f| %>
-
-
-<%= render 'products/post', product: @product, f: f %>
-
+  <%= render 'products/post', product: @product, f: f %>
 <% end %>

@@ -2,46 +2,46 @@
   <!--<div class="justify-content-center">-->
   <div class="row">
     <div class="col-12">
-<h2 class='page-center'>新規登録</h2>
+      <h2 class='page-center'>新規登録</h2>
 
-<%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+      <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field page-center">         <%# nameでログイン3/3 %>
-    <%= f.label :お名前（最大入力文字数：16文字） %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "16", size: '32' %>
+        <div class="field page-center">                                                                                 <%# nameでログイン3/3 %>
+          <%= f.label :お名前（最大入力文字数：16文字） %><br />
+          <%= f.text_field :name, autofocus: true, autocomplete: "name", maxlength: "16", size: '32' %>
+        </div>
+      
+        <div class="field page-center">
+          <%= f.label :メールアドレス %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+        </div>
+      
+        <div class="field page-center">
+          <%= f.label :パスワード %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 桁以上)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password" %>
+        </div>
+      
+        <div class="field page-center">
+          <%= f.label :パスワード再入力 %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+        </div>
+      
+        <div class="actions page-center">
+          <%= f.submit "新規登録", class: 'confirm-btn' %>
+        </div>
+      <% end %>
+      
+      <div class='page-center mt-5'>
+        <p>会員登録済みの方は</p>
+        <div class='confirm-btn page-center'>
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
   </div>
-
-  <div class="field page-center">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field page-center">
-    <%= f.label :パスワード %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> 桁以上)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field page-center">
-    <%= f.label :パスワード再入力 %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions page-center">
-    <%= f.submit "新規登録", class: 'confirm-btn' %>
-  </div>
-<% end %>
-
-<div class='page-center mt-5'>
-  <p>会員登録済みの方は</p>
-  <div class='confirm-btn page-center'>
-<%= render "devise/shared/links" %>
-</div>
-</div>
-</div>
-  </div>
-<!--</div>-->
+  <!--</div>-->
 </div>

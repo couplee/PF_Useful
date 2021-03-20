@@ -319,7 +319,7 @@ input[type="email"] {
 
 .card-img-top {                         /*cardの画像*/
     width: 100%;
-    height: 15vw;
+    height: 40vh;
     object-fit: cover;
 }
 
@@ -384,6 +384,11 @@ input[type="email"] {
 .pagination li a {
   border: none;     /*枠線をなくす*/
   color: #485876;   /*文字の色を変える*/
+}
+
+.page-item.active .page-link {
+    background-color: #FEF7EB;
+    color: #F28D8D;
 }
 
 /* 表示しているページ番号のデザイン */

@@ -1,27 +1,16 @@
-
 <h3 class="page-center">いいねした便利商品一覧</h3>
-
 <div class="container">
   <div class="row">
-      <% @likes.each do |like| %>
-    <div class="card-group" style="width:23rem">
-      <div class="card">
-        <div class="card-body">
+    <% @likes.each do |like| %>
+      <div class="card-group" style="width:23rem">
+        <div class="card">
+          <div class="card-body">
+            <%= render 'products/swiper', product: like.product %>
+            <%= render 'products/card', product: like.product %>
+            <%= render 'products/card_body', product: like.product %>
+          </div>
+        </div>
 
-
-
-
- <%= render 'products/swiper', product: like.product %>
- 
-<%= render 'products/card', product: like.product %>
-<%= render 'products/card_body', product: like.product %>
- 
-
-
-  </div>
-
-      </div>
-      <% end %>
-    </div>
+    <% end %>
   </div>
 </div>

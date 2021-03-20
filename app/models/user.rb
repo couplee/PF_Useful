@@ -13,10 +13,11 @@ class User < ApplicationRecord
   
   validates :name, presence: true, uniqueness: true, length: { maximum: 16 }
 
-  def self.guest       #ゲストユーザー実装3/4
+  def self.guest                                                                             #ゲストユーザー実装3/4
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = 'aaa'
       user.password = SecureRandom.urlsafe_base64
     end
   end
+  
 end
