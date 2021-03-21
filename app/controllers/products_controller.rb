@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all.order(created_at: :desc).page(params[:page]).per(9)
     #検索機能1/3ここから
+    # params[:q]['title_or_body_cont'] = params[:q]['title_or_body_cont'].split(/[\p{blank}\s]+/)
     @search = Product.ransack(params[:q])
     @search_products = @search.result.all.order(created_at: :desc).page(params[:page]).per(9)
     if params[:q].present?
@@ -13,9 +14,9 @@ class ProductsController < ApplicationController
     end
     #検索機能1/3ここまで
 
-    if params[:tag_name]
-      @products = Product.tagged_with("#{params[:tag_name]}")
-    end
+    # if params[:tag_name]
+    #   @products = Product.tagged_with("#{params[:tag_name]}")
+    # end
   end
 
   def show

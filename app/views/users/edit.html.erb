@@ -8,26 +8,33 @@
           <%= f.label :お名前（最大入力文字数：16文字） %><br>
           <%= f.text_field :name, maxlength: "16", size: '32' %>
         </div>
-        
+
         <div class="page-center">
           <%= f.label :メールアドレス %><br>
           <%= f.text_field :email, class: 'middle-text-form' %>
         </div>
-        
+
         <div class="page-center">
           <%= f.label :プロフィール %><br>
           <%= f.text_area :profile, rows: '3', class: 'text-form' %>
         </div>
-        
+
         <div class="page-center">
           <%= f.label :プロフィール写真 %><br>
           <%= f.attachment_field :profile_image %>
         </div>
-        
-        <div class="page-center mt-5">
+
+        <div class="page-center mt-3">
           <%= f.submit 'プロフィール更新', class: 'submit-btn' %>
         </div>
       <% end %>
+
+      <% if @user.id == current_user.id %>                                                                                                              <!--ユーザー論理削除3/6-->
+            <%= link_to users_withdraw_path(current_user.id), method: :put, 'data-confirm' => '退会しますか？', class: 'page-center mt-5' do %>
+              <i class="fas fa-mitten"></i>退会する
+            <% end %>
+          <% end %>
     </div>
+
   </div>
 </div>

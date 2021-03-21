@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_guest, only: [:update]                                       #ゲストユーザーは編集できない1/2
+  before_action :check_guest, only: [:update, :withdraw]                                       #ゲストユーザーは編集できない1/2
   before_action :authenticate_user!, except: [:index]
 
   def index
@@ -9,6 +9,19 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(6)
+  end
+
+  # def unsubscribe
+  #   @user = User.find(params[:id])
+  #   @user_id = current_user.id
+  # end
+
+  def withdraw                                                     #ユーザー論理削除1/6
+    @user = User.find(params[:id])
+    @user.update(is_valid: false)
+    reset_session
+    flash[:notice] = '退会しました'
+    redirect_to root_path
   end
 
   def edit
@@ -27,6 +40,8 @@ class UsersController < ApplicationController
     end
   end
 
+
+
   private
   def user_params
     params.require(:user).permit(:name, :email, :profile, :profile_image)
@@ -34,7 +49,7 @@ class UsersController < ApplicationController
 
   def check_guest                                                                  #ゲストユーザーは編集できない2/2
     if current_user.email == 'guest@example.com'
-      redirect_to users_path, alert: 'ゲストユーザーの編集はできません'
+      redirect_to users_path, alert: 'ゲストユーザーは変更できません'
     end
   end
 end

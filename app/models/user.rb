@@ -20,8 +20,9 @@ class User < ApplicationRecord
     end
   end
   
-  def remember_me
-    true
+  def active_for_authentication?                                                     #ユーザー論理削除4/6
+    super && (self.is_valid == true)
   end
+  
   
 end
