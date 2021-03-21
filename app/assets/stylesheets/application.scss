@@ -184,7 +184,7 @@ input[type="email"] {
 
 .nav-link {
     color: #F28D8D;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: border;
 }
 
@@ -211,8 +211,8 @@ input[type="email"] {
 
 .application_name {
     font-size: 60px;
-    // font-family: 'Caveat', cursive;
-// font-family: 'Kalam', cursive;
+    display: block;
+    text-align: center;
 }
 
 .page-center {
@@ -465,6 +465,7 @@ footer {
     bottom: 20px;
     right: 20px;
     font-size: 90%;
+    z-index: 10;
 }
 
 #page-top a {
@@ -659,5 +660,25 @@ footer {
     width: 100%;
     // max-width: 100%; /* 画像幅以上拡大しないようにする指定 */
     height: auto;
+  }
+}
+
+
+@media screen and (max-width: 576px) {
+  #page-top {
+    font-size: 40%;
+}
+
+  #page-top a {
+    width: 45px;
+    padding: 10px 0;
+  }
+  
+  .new-products {
+      text-align: center;
+  }
+  
+  .application_name {
+      font-size: 45px;
   }
 }
