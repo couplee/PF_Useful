@@ -24,5 +24,8 @@ class User < ApplicationRecord
     super && (self.is_valid == true)
   end
   
+  scope :active, -> { where(is_valid: true) }
+  scope :deleted, -> { where(is_valid: false) }
+  
   
 end

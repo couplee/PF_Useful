@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.all.order(created_at: :desc).page(params[:page]).per(8)
+    @users = User.active.order(created_at: :desc).page(params[:page]).per(8)
   end
 
   def show
@@ -11,16 +11,15 @@ class UsersController < ApplicationController
     @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(6)
   end
 
-  # def unsubscribe
-  #   @user = User.find(params[:id])
-  #   @user_id = current_user.id
+  # def unsubscribe                                       #ユーザー論理削除2/8
+  #   # @user = User.find(params[:id])
   # end
 
-  def withdraw                                                     #ユーザー論理削除1/6
+  def withdraw                                                     #ユーザー論理削除2/8
     @user = User.find(params[:id])
     @user.update(is_valid: false)
     reset_session
-    flash[:notice] = '退会しました'
+    flash[:notice] = '退会処理を実行致しました。'
     redirect_to root_path
   end
 

@@ -29,12 +29,11 @@
         </div>
       <% end %>
 
-      <% if @user.id == current_user.id %>                                                                                                              <!--ユーザー論理削除3/6-->
-            <%= link_to users_withdraw_path(current_user.id), method: :put, 'data-confirm' => '退会しますか？', class: 'page-center mt-5' do %>
-              <i class="fas fa-mitten"></i>退会する
-            <% end %>
-          <% end %>
+      <% if @user.id == current_user.id %>                                                                                                              <!--ユーザー論理削除3/8-->
+        <%= link_to unsubscribe_path(@user), class: 'page-center mt-5' do %>
+          <i class="fas fa-mitten"></i>退会する
+        <% end %>
+      <% end %>
     </div>
-
   </div>
 </div>
