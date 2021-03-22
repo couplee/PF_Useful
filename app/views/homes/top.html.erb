@@ -3,9 +3,7 @@
   <!--<div class="justify-content-center">                  <!--centerにするため(d-flex align-items-center消したら横幅が指定できるようになった、、)-->
   <div class="row">
     <div class="col-12 text-center fa-div">
-      <%= link_to root_path, class: 'nav-link' do %>
-        <h1 class='application_name'><i class="fas fa-horse-head"></i>USEFUL<i class="fas fa-horse-head fa-flip-horizontal"></i></h1>
-      <% end %>
+        <h1 class='application_name nav-link'><i class="fas fa-horse-head"></i>USEFUL<i class="fas fa-horse-head fa-flip-horizontal"></i></h1>
       <%= link_to new_user_registration_path, class: 'nav-link top-btn' do %>
         <i class="fas fa-file-signature"></i>新規登録
       <% end %><br>

@@ -5,12 +5,12 @@
       <!--#検索機能2/3ここから-->
       <%= search_form_for @search do |f| %>                                     <!--, url: products_path-->
         <%= f.label :tilte, 'タイトル／本文' %><br>
-        <%= f.search_field :title_or_body_cont, required: true, class: 'search-form ' %>
+        <%= f.search_field :title_or_body_cont_all, required: true, class: 'search-form ' %>
         <%= f.submit '検索', class: 'search-submit-btn' %>
       <% end %>
       <!--#検索機能2/3ここまで-->
     </div>
-    <div class="col-6 text-right">           
+    <div class="col-6 text-right">
       <p>並べ替え</p>
       <p><%= sort_link(@search, :updated_at, '更新日(昇順)') %></p>
       <p><%= sort_link(@search, :cost, 'コスト(安い順)') %></p>
@@ -33,9 +33,9 @@
             <%= render 'products/swiper', product: product %>
             <div class="card-body">
               <%= render 'products/card', product: product %>
-              
+
             <!--</div>-->
-            
+
             <%= render 'products/card_body', product: product %>
           </div>
         </div>

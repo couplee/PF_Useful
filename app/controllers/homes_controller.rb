@@ -18,7 +18,8 @@ class HomesController < ApplicationController
   # end
   
   def like
-    @likes = current_user.likes.all.order(created_at: :desc).page(params[:page]).per(9)
+    @users = User.where(is_valid: false)
+    @likes = current_user.likes.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)
   end
   
   def bookmark

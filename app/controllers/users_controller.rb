@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :check_guest, only: [:update, :withdraw]                                       #ゲストユーザーは編集できない1/2
+  before_action :check_guest, only: [:update, :withdraw]                                       #ゲストユーザーは編集できない1/2(update)      #ユーザー論理削除/(withdraw)     
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.active.order(created_at: :desc).page(params[:page]).per(8)
+    @users = User.active.order(created_at: :desc).page(params[:page]).per(8)                                             #ユーザー論理削除8/(.all→.actice)
   end
 
   def show
@@ -11,15 +11,11 @@ class UsersController < ApplicationController
     @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(6)
   end
 
-  # def unsubscribe                                       #ユーザー論理削除2/8
-  #   # @user = User.find(params[:id])
-  # end
-
-  def withdraw                                                     #ユーザー論理削除2/8
+  def withdraw                                                                             #ユーザー論理削除2/
     @user = User.find(params[:id])
     @user.update(is_valid: false)
     reset_session
-    flash[:notice] = '退会処理を実行致しました。'
+    flash[:notice] = '退会処理を実行しました。'
     redirect_to root_path
   end
 

@@ -1,6 +1,8 @@
-<h3>本当に退会しますか？</h3>
+<h3 class="page-center">本当に退会しますか？</h3>
 
-<%= link_to '退会しない', user_path %>                                                                                        <!--ユーザー論理削除4/8-->
-<%= link_to '退会する', users_withdraw_path, method: :patch %>
-
-users_withdraw_path(current_user.id), method: :patch, 'data-confirm' => '退会しますか？'
+<div class="page-center submit-btn mt-">
+<%= link_to '退会しない', user_path %>
+</div>
+<div class="page-center submit-btn mt-3 mb-5">
+<%= link_to '退会する', users_withdraw_path, method: :patch %>                                                         <!--ユーザー論理削除4/-->
+</div>

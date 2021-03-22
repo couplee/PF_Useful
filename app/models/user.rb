@@ -20,12 +20,12 @@ class User < ApplicationRecord
     end
   end
   
-  def active_for_authentication?                                                     #ユーザー論理削除4/6
+  def active_for_authentication?                                                     #ユーザー論理削除5/
     super && (self.is_valid == true)
   end
   
-  scope :active, -> { where(is_valid: true) }
-  scope :deleted, -> { where(is_valid: false) }
+  scope :active, -> { where(is_valid: true) }                                                    #ユーザー論理削除7/┓
+  scope :deleted, -> { where(is_valid: false) }                                                  #ユーザー論理削除7/┛
   
   
 end

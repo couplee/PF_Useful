@@ -7,8 +7,8 @@ Rails.application.routes.draw do
     post '/users/guest_sign_in' => 'users/sessions#new_guest'
   end
   resources :users
-  get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'                                                     #ユーザー論理削除1/6┓
-  patch '/users/:id/withdraw' => 'users#withdraw', as: 'users_withdraw'                                                      #ユーザー論理削除1/8┛
+  get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'                                                     #ユーザー論理削除1/┓
+  patch '/users/:id/withdraw' => 'users#withdraw', as: 'users_withdraw'                                                      #ユーザー論理削除1/┛
   resources :products do
     resources :post_comments, only: [:create, :destroy]
     resource :likes, only: [:create, :destroy]
