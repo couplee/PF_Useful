@@ -4,8 +4,10 @@
     <% @likes.each do |like| %>
       <div class='col-md-6 col-lg-4  pt-3'>
         <div class="card-group h-100">
-          <div class="card">
-            <%= render 'products/swiper', product: like.product %>
+          <div class="card card-border-top">
+            <div class="card-swiper-between"> 
+              <%= render 'products/swiper', product: like.product %>
+            </div>
             <div class="card-body">
               <%= render 'products/card', product: like.product %>
               

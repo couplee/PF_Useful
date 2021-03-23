@@ -5,7 +5,7 @@
 <ul class="list-group list-group-flush">
   <li class="list-group-item">コスト：￥<%= product.cost.to_i.to_s(:delimited) %></li>
   <li class="list-group-item">
-    更新日：<%= product.updated_at.strftime("%Y/%m/%d") %>                                     <!--日本時間に設定1/2(strftime)-->
+    更新日：<%= l product.updated_at, format: :short %>                                     <!--日本時間に設定1/2(strftime)-->
   </li>
   <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: product.tag_list %></li>                                                       <!--タグ機能4*2/7?-->
   <li class="list-group-item">

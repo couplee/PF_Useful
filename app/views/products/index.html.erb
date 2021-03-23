@@ -27,11 +27,11 @@
   <div class='row'>
     <% @products.each do |product| %>
       <div class='col-md-6 col-lg-4 pt-3'>
-        <div class="card-group h-100">                   <!--card-groupでBootstrapのcardを横並び(これで画面縮めてもcardが縮まらない)/text-centerで画面縮めたとき右側に隙間ができない-->
-          <div class="card">
-            <div class="card-swiper-between">
+        <div class="card-group h-100">                   <!--card-groupでBootstrapのcardを横並び(これで画面縮めてもcardが縮まらない)/text-centerで画面縮めたとき右側に隙間ができない/h-100=カードの高さを合わせる-->
+          <div class="card card-border-top">
+            <div class="card-swiper-between">                                                   <!--隙間の空白を埋める-->
             <!--<div class="column flex-direction:row">-->                             <!--レイアウトが崩れる-->
-            <%= render 'products/swiper', product: product %>
+              <%= render 'products/swiper', product: product %>
             </div>
             <div class="card-body">
               <%= render 'products/card', product: product %>

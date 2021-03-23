@@ -333,9 +333,6 @@ input[type="email"] {
     color: #5B7EA9;
 }
 
-// .search-submit-btn:action {
-//     // border: blue;
-// }
 
 .card-group {
     background-color: #FBF8F8;
@@ -344,15 +341,16 @@ input[type="email"] {
     // margin: 5px;
 }
 
-.user-card-group{
+.user-card-group{                                  /*マイページのカード*/
     background-color: #FBF8F8;
 }
 
 
 .card {
     margin: 20px;
-    border-top: none;
 }
+
+
 
 .card-title {
     font-size: 20px;
@@ -381,6 +379,11 @@ input[type="email"] {
 .card-swiper-between {
     background: #FBF8F8;
 }
+
+.card-border-top {                                       /*隙間の空白を埋める*/
+    border-top: none;
+}
+
 
 // .field {
 //     border-top: 1px solid #C3C4C9;

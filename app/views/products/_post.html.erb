@@ -30,7 +30,8 @@
         </div>
       </div>
       <div class="page-center">
-        <%= f.label :タグ： %>                                                                                 <!--タグ機能3*2/7?-->
+        <%= f.label :タグ： %><br>                                                                                 <!--タグ機能3*2/7?-->
+        （複数記入の場合、半角コンマで区切ってください）<br>
         <%= f.text_field :tag_list, value: @product.tag_list.join(','), class: 'middle-text-form' %>
       </div>
       <div class="page-center">
@@ -46,8 +47,8 @@
         ￥ <%= f.text_field :cost, class: 'short-text-form' %>
       </div>
       <div class="page-center">
-        <%= f.label :使用開始年月 %>
-        <%= f.date_select :since_when, {discard_day: true, use_month_numbers: true, start_year: 1980, end_year: Time.now.year, date_separator: '/'} %>
+        <%= f.label :今までの使用期間：約 %>
+        <%= f.text_field :period_of_use, class: 'short-text-form' %>
       <!--%== sprintf(
        f.date_select(:birthday, :use_month_numbers=>true, :date_separator => '%s', :start_year=>1930, :end_year => Time.now.year, :default =>'1990-1-1'.to_date), '年','月') + '日生まれ' %-->
       </div>

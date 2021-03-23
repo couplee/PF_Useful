@@ -20,11 +20,13 @@
     <% @products.each do |product| %>
       <div class="col-md-6 col-lg-4">
         <div class="card-group text-center h-100">
-          <div class="card">
-            <%= render 'products/swiper', product: product %>
+          <div class="card card-border-top">
+            <div class="card-swiper-between"> 
+              <%= render 'products/swiper', product: product %>
+            </div>
             <div class="card-body">
               <%= link_to product_path(product) do %>
-                <p class="card-text mt-3">タ<%= product.title %></p>
+                <p class="card-text mt-3"><%= product.title %></p>
               <% end %>
             </div>
           </div>

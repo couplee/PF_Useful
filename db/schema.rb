@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_21_202429) do
+ActiveRecord::Schema.define(version: 2021_03_23_200612) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
@@ -64,13 +64,7 @@ ActiveRecord::Schema.define(version: 2021_03_21_202429) do
     t.date "since_when"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "remembers", force: :cascade do |t|
-    t.datetime "users"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string "period_of_use"
   end
 
   create_table "taggings", force: :cascade do |t|

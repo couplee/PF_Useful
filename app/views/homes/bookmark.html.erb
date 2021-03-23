@@ -3,9 +3,11 @@
   <div class="row">
     <% @bookmarks.each do |bookmark| %>
       <div class='col-md-6 col-lg-4 pt-3'>
-        <div class="card-group text-center h-100">
-          <div class="card">
-            <%= render 'products/swiper', product: bookmark.product %>
+        <div class="card-group text-center h-100">                         <!--text-center意味ない？-->
+          <div class="card card-border-top">
+            <div class="card-swiper-between">
+              <%= render 'products/swiper', product: bookmark.product %>
+            </div>
             <div class="card-body">
               <%= render 'products/card', product: bookmark.product %>
               

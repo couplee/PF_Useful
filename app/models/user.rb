@@ -15,7 +15,9 @@ class User < ApplicationRecord
 
   def self.guest                                                                             #ゲストユーザー実装3/4
     find_or_create_by!(email: 'guest@example.com') do |user|
-      user.name = 'ゲスト'
+      user.name = 'GUEST'
+      user.profile = 'ゲストユーザーです'
+      user.profile_image = File.open('./app/assets/images/profile/149597.jpg')
       user.password = SecureRandom.urlsafe_base64
     end
   end

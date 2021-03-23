@@ -38,8 +38,10 @@
     <% @products.each do |product| %>
       <div class='col-md-6 col-lg-4 pt-3'>
         <div class="card-group text-center h-100">
-          <div class="card" >
-            <%= render 'products/swiper', product: product %>
+          <div class="card card-border-top">
+            <div class="card-swiper-between">
+              <%= render 'products/swiper', product: product %>
+            </div>
             <div class="card-body">                                                          <!--product: productややこしかった-->
               <%= render 'products/card', product: product %>
 
