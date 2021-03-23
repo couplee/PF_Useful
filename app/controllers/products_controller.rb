@@ -3,11 +3,13 @@ class ProductsController < ApplicationController
 
   def index
     @users = User.where(is_valid: false)                                                                                             #ユーザー論理削除9/┓
-    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               #ユーザー論理削除9/(.all→.actice)
+    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               #ユーザー論理削除9/(.all→.where.not(user_id: @users)
     #検索機能1/3ここから
-    params[:q]['title_or_body_cont_all'] = params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/) if params[:q].present?
+    title_or_body_cont_all = params[:q]['title_or_body_cont_all'] if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+    params[:q]['title_or_body_cont_all'] = params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/) if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
     @search = Product.ransack(params[:q])
-    @search_products = @search.result.all.order(created_at: :desc).page(params[:page]).per(9)
+    @search_products = @search.result.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                          #ユーザー論理削除  (.all→.where.not(user_id: @users)
+    params[:q]['title_or_body_cont_all'] = title_or_body_cont_all if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
     if params[:q].present?
       render 'result'
     else

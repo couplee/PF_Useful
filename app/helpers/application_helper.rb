@@ -1,4 +1,4 @@
-module ApplicationHelper
+module ApplicationHelper                                                                   #テキスト内のURLに違うページで飛ぶ1/2
     require "uri"
    
   def text_url_to_link text

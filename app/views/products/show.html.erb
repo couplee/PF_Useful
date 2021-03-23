@@ -9,7 +9,7 @@
           <div class="card-body">
             <ul class="list-group list-group-flush">
               <li class="list-group-item">コスト：￥<%= @product.cost.to_i.to_s(:delimited) %></li>
-              <li class="list-group-item">購入先/販売店：<%= text_url_to_link(h(@product.seller)).html_safe %></li>
+              <li class="list-group-item">購入先/販売店：<%= text_url_to_link(h(@product.seller)).html_safe %></li>                                <!--テキスト内のURLに違うページで飛ぶ1/2-->
               <li class="list-group-item">使用開始年月：<%= @product.since_when.strftime("%Y/%m") %></li>                                           <!--年月だけ表示-->
               <li class="list-group-item">投稿更新日：<%= @product.updated_at.strftime("%Y/%m/%d") %></li>                                     <!--日本時間に設定1/2(strftime)-->
               <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: @product.tag_list %></li>                                                      <!--タグ機能4*2/7?-->

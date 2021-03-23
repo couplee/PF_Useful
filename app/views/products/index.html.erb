@@ -29,8 +29,10 @@
       <div class='col-md-6 col-lg-4 pt-3'>
         <div class="card-group h-100">                   <!--card-groupでBootstrapのcardを横並び(これで画面縮めてもcardが縮まらない)/text-centerで画面縮めたとき右側に隙間ができない-->
           <div class="card">
+            <div class="card-swiper-between">
             <!--<div class="column flex-direction:row">-->                             <!--レイアウトが崩れる-->
             <%= render 'products/swiper', product: product %>
+            </div>
             <div class="card-body">
               <%= render 'products/card', product: product %>
 
