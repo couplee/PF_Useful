@@ -23,8 +23,8 @@
 <br>
 ### 主な利用シーン
 便利グッズの情報が知りたい時や紹介したい時
-<br>
-<br>
+　　
+　　
 ## 設計書
 - [ER図](https://app.diagrams.net/#Hcouplee%2Fcake%2Fmain%2F%E5%90%8D%E7%A7%B0%E6%9C%AA%E8%A8%AD%E5%AE%9A%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB.drawio)  
 - [テーブル定義書](https://docs.google.com/spreadsheets/d/1scz83bFQcKkUUlAmRocficoJqmC6uZUIkUd_teMzENE/edit#gid=708687357)  
