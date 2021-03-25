@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_23_200612) do
+ActiveRecord::Schema.define(version: 2021_03_25_122241) do
 
   create_table "bookmarks", force: :cascade do |t|
     t.integer "user_id"
@@ -65,6 +65,8 @@ ActiveRecord::Schema.define(version: 2021_03_23_200612) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "period_of_use"
+    t.text "reference"
+    t.string "store_name"
   end
 
   create_table "taggings", force: :cascade do |t|

@@ -81,11 +81,11 @@ class ProductsController < ApplicationController
 
   private
   def product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :tag_list, photos_images: [], merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :period_of_use, :reference, :store_name, :tag_list, photos_images: [], merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
   end
 
   def edit_product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :tag_list, merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :period_of_use, :reference, :store_name, :tag_list, merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
   end
 end
 

@@ -1,4 +1,4 @@
-<%= render 'layouts/flashes' %> 
+<%= render 'layouts/flashes' %>
 <h3 class="page-center">商品詳細</h3>
 <div class="container-fluid">
   <div class="row">
@@ -10,8 +10,12 @@
           </div>
           <div class="card-body">
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">コスト：￥<%= @product.cost.to_i.to_s(:delimited) %></li>
-              <li class="list-group-item">購入先/販売店：<%= text_url_to_link(h(@product.seller)).html_safe %></li>                                <!--テキスト内のURLに違うページで飛ぶ1/2-->
+              <li class="list-group-item">参照：「
+              <%= link_to @product.reference do %>
+              <%= @product.store_name %>
+              <% end %>」</li>
+              <li class="list-group-item">価格：￥<%= @product.cost.to_i.to_s(:delimited) %></li>
+              <li class="list-group-item">購入先（店舗名やリンク先等）：<%= text_url_to_link(h(@product.seller)).html_safe %></li>                                <!--テキスト内のURLに違うページで飛ぶ1/2-->
               <li class="list-group-item">今までの使用期間：約<%= @product.period_of_use %></li>                                           <!--年月だけ表示-->
               <li class="list-group-item">投稿更新日：<%= l @product.updated_at, format: :short %></li>                                     <!--日本時間に設定1/2(strftime)-->
               <li class="list-group-item">タグ：<%= render 'products/tag_list', tag_list: @product.tag_list %></li>                                                      <!--タグ機能4*2/7?-->
@@ -43,8 +47,8 @@
             商品について
           </div>
           <div class="card-body">
-            <h5 class="card-title">タイトル：<%= @product.title %></h5>
-            <p class="card-text">説明：<%= simple_format(h(@product.body)) %></p>
+            <h6 class="card-title">タイトル：<br><h4><%= @product.title %></h4></h6>
+            <p class="card-text">説明：<br><%= simple_format(h(@product.body)) %></p>
           </div>
       </div>
     </div>

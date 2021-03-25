@@ -30,8 +30,8 @@
         </div>
       </div>
       <div class="page-center">
-        <%= f.label :タグ： %><br>                                                                                 <!--タグ機能3*2/7?-->
-        （複数記入の場合、半角コンマで区切ってください）<br>
+        <%= f.label :タグ %><br>                                                                                 <!--タグ機能3*2/7?-->
+        （複数記入の場合は半角コンマで区切ってください）<br>
         <%= f.text_field :tag_list, value: @product.tag_list.join(','), class: 'middle-text-form' %>
       </div>
       <div class="page-center">
@@ -43,7 +43,7 @@
         <%= f.text_field :seller, class: 'middle-text-form' %>
       </div>
       <div class="page-center">
-        <%= f.label :コスト： %>
+        <%= f.label :価格： %>
         ￥ <%= f.text_field :cost, class: 'short-text-form' %>
       </div>
       <div class="page-center">
