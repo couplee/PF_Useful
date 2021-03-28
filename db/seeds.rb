@@ -88,7 +88,7 @@ User.create!(
 )
 
 
-  Product.create!(
+Product.create!(
   [
     {
       user_id: 10,
@@ -111,8 +111,8 @@ User.create!(
       cost: '508',
       period_of_use: '2ヶ月',
       photos_images: [File.open('./app/assets/images/product/pipe/784146401.webp'),File.open('./app/assets/images/product/pipe/784146402.jpg')],
-      merits_attributes: [advantage: "カバーがずれなくなり、整える手間が省けました"],
-      demerits_attributes: [disadvantage: "パイプが時々外れます"],
+      merits_attributes: [advantage: "ソファーカバーがずれなくなり、整える手間が省けました"],
+      demerits_attributes: [disadvantage: "パイプが時々外れる"],
       reference: 'https://www.nitori-net.jp/ec/product/7841464s/',
       store_name: 'ニトリ',
       tag_list: "生活用品"
@@ -134,12 +134,12 @@ User.create!(
     {
       user_id: 10,
       title: 'ポリ袋エコホルダー',
-      body: "エコホルダーを広げ、ポリ袋を中に入れて、口部分を折り返して掛けるだけで即席卓上ゴミ箱にできる。\n 調理中のゴミ箱に最適だと思い購入しました。",
+      body: "エコホルダーを広げ、ポリ袋を中に入れた後、口部分を折り返して掛けるだけで即席卓上ゴミ箱ができる。\n 調理中のゴミ箱に最適だと思い購入しました。",
       seller: 'https://item.rakuten.co.jp/livingut/4903208067874/?s-id=ph_pc_itemname',
       cost: '972',
       period_of_use: '1年8ヶ月',
       photos_images: [File.open('./app/assets/images/product/holder/4903208067874_7.jpg'),File.open('./app/assets/images/product/holder/4903208067874_1.jpg'), File.open('./app/assets/images/product/holder/4903208067874_5.jpg')],
-      merits_attributes: [{advantage: "使わない時は折り畳めるから場所をとらない"}, {advantage: "汚れても水洗いできて洗いやすい"}, {advantage: "調理が終わった後、ポリ袋が閉めやすい"}],
+      merits_attributes: [{advantage: "使わない時は折り畳めるから場所をとらない"}, {advantage: "汚れても水洗いできて洗いやすい"}, {advantage: "ポリ袋が閉めやすくなる"}],
       reference: "https://item.rakuten.co.jp/livingut/4903208067874/?s-id=ph_pc_itemname",
       store_name: "楽天/クラスフィル株式会社",
       tag_list: "キッチン用品"
@@ -147,13 +147,12 @@ User.create!(
     {
       user_id: 6,
       title: 'スヌーズ＆ラジオ機能付き目覚まし時計',
-      body: "太陽の光を再現することができる目覚まし時計。\n 設定した起床時間に合わせ徐々に明るくなる『日の出モード』と就寝時間に合わせ徐々に暗くなる『日の入りモード』付きで、自然に体を起床・睡眠モードに切り替えていく。\n 
-光の種類や明るさを調整できるため購入しました。",
+      body: "太陽の光を再現することができる目覚まし時計。\n 設定した起床時間に合わせ徐々に明るくなる『日の出モード』と就寝時間に合わせ徐々に暗くなる『日の入りモード』付きで、自然に体を起床・睡眠モードに切り替えていく。\n 光の種類や明るさを調整できるため購入しました。",
       seller: 'https://www.amazon.co.jp/gp/product/B07KSQ1ZGP/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1',
       cost: '3999',
       period_of_use: '1年',
       photos_images: [File.open('./app/assets/images/product/clock/61xfa1UH1zL._AC_SL1500_.jpg'),File.open('./app/assets/images/product/clock/61NIo+oixHL._AC_SL1000_.jpg'), File.open('./app/assets/images/product/clock/61kGoq-tk+L._AC_SL1000_.jpg')],
-      merits_attributes: [{advantage: "好みの光りに調整できる"}, {advantage: "時間表示のところの明るさを調整することができるため、眩しくないぐらいの明るさに調節することができる上、夜中に時間を確認することができる"}],
+      merits_attributes: [{advantage: "好みの光りや明るさに調整できる"}, {advantage: "時間表示のところの明るさを調整できるため、眩しくないぐらいの明るさに調節することができ、夜中に時間を確認することができる"}],
       demerits_attributes: [{disadvantage: "多機能すぎてボタンが多く、操作方法が少しややこしい"}, {disadvantage: "アラーム音を徐々に大きくしていく機能がない"}],
       reference: "https://www.amazon.co.jp/gp/product/B07KSQ1ZGP/ref=ppx_yo_dt_b_asin_title_o01_s00?ie=UTF8&psc=1",
       store_name: "Amazon/YABAE",
@@ -162,13 +161,13 @@ User.create!(
     {
       user_id: 10,
       title: 'うぐいす型のレモン絞り',
-      body: "うぐいす型の卓上レモン絞り。\n 業務用製品で丈夫な作りになってる。\n レモンを1／6ほどの大きさに切り、1個ずつ中に入れ、挟んで絞る。\n そのまま置いとくだけでも可愛くて購入しました。",
+      body: "うぐいす型の卓上レモン絞り。\n 業務用製品のため、丈夫な作りになってる。\n レモンを1／6ほどの大きさに切り、1個ずつ中に入れ、挟んで絞る。\n そのまま置いとくだけでも可愛くて購入しました。",
       seller: 'https://www.amazon.co.jp/gp/product/B001UJNO8K/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1',
       cost: '675',
       period_of_use: '1年3ヶ月',
       photos_images: [File.open('./app/assets/images/product/lemon/61cupnCy55L._AC_SL1500_.jpg'),File.open('./app/assets/images/product/lemon/71wl2qqacML._AC_SL1500_.jpg'), File.open('./app/assets/images/product/lemon/21PN-8GsrPL._AC_.jpg')],
       merits_attributes: [{advantage: "うぐいす型で可愛い"}, {advantage: "意外と絞りやすい"}, {advantage: "洗いやすい"}],
-      demerits_attributes: [disadvantage: "大量に絞りたい時に小さく切って何回かに分けて絞らないといけないのに手間がかかる"],
+      demerits_attributes: [disadvantage: "レモンを大量に絞りたい時に、小さく切って何回かに分けて絞らないといけないのに手間がかかる"],
       reference: "https://www.amazon.co.jp/gp/product/B001UJNO8K/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&psc=1",
       store_name: "Amazon/赤川器物製作所",
       tag_list: "キッチン用品"
@@ -176,12 +175,12 @@ User.create!(
     {
       user_id: 8,
       title: 'お布団クリップ',
-      body: "敷布団と掛け布団の端同士をクリップで止めて固定するため掛け布団がずれ落ちない。",
+      body: "敷布団と掛け布団の端同士をクリップで止めて固定するため、掛け布団がずれ落ちない。",
       seller: 'https://item.rakuten.co.jp/yoimonohonpo/h0163/?s-id=ph_pc_itemname',
       cost: '1471',
       period_of_use: '3ヶ月',
       photos_images: [File.open('./app/assets/images/product/clip/oz1.webp'),File.open('./app/assets/images/product/clip/imgrc0069427761.jpg'), File.open('./app/assets/images/product/clip/imgrc0069427764.jpg')],
-      merits_attributes: [{advantage: "掛け布団がずれ落ちなくなった"}, {advantage: "クリップの強度が程よい強さで、布団を痛ませないぐらいの強度でちゃんと布団を挟んでくれる"}],
+      merits_attributes: [{advantage: "掛け布団がずれ落ちなくなった"}, {advantage: "クリップの強度が程よい強さなので、布団が痛まないうえ、ちゃんと布団を挟んでくれる"}],
       reference: "https://item.rakuten.co.jp/yoimonohonpo/h0163/?s-id=ph_pc_itemname",
       store_name: "楽天/良いもの本舗",
       tag_list: "生活用品"
@@ -189,12 +188,12 @@ User.create!(
     {
       user_id: 5,
       title: 'ゴミや埃が付きにくいキーボードカバー',
-      body: "自宅のパソコンのキーボードにあった大きさにカットして利用できるキーボードカバーで、その上埃が付着しづらい材質とのことで購入しました。",
+      body: "自宅のパソコンのキーボードに合った大きさにカットして利用するキーボードカバーで、その上埃が付着しづらい材質とのことで購入しました。",
       seller: 'https://item.rakuten.co.jp/casemania55/keymat2-k0001217929/?s-id=ph_pc_itemname',
       cost: '2395',
       period_of_use: '6ヶ月',
       photos_images: [File.open('./app/assets/images/product/cover/key_1.jpg'),File.open('./app/assets/images/product/cover/key_2.jpg'),File.open('./app/assets/images/product/cover/key_3.jpg'),File.open('./app/assets/images/product/cover/key_4.jpg')],
-      merits_attributes: [{advantage: "自宅のノートパソコンのキーボードに合ったカバーがなかなか見つからなかったため、合った大きさにカットするだけで使える"}, {advantage: "埃が付きづらい"}, {advantage: "キーボードの字が見えやすい"}, {advantage: "さらさらしているため字を打ってるときでも違和感がない"}],
+      merits_attributes: [{advantage: "自宅のノートパソコンのキーボードに合ったカバーがなかなか見つからなかったが、こちらの商品を大きさに合わせてカットするだけで使えました"}, {advantage: "埃が付着しづらい"}, {advantage: "キーボードの字が見えやすい"}, {advantage: "材質がさらさらしているため、キーボードを使用してるときでも違和感がない"}],
       reference: "https://item.rakuten.co.jp/casemania55/keymat2-k0001217929/?s-id=ph_pc_itemname",
       store_name: "楽天/株式会社メディアフューチャー",
       tag_list: "生活用品"
@@ -202,21 +201,20 @@ User.create!(
     {
       user_id: 9,
       title: 'タッチスクリーン式湿度計デジタル',
-      body: "温度計と湿度計が一緒になっているから
-現在の室温と湿度が見やすく表示され、同時に過去最高最低の温湿度値も表示される。\n 最高と最低のデータは24時間で自動リセットするか、リセットするまでの全ての期間での最高最低を表示するのかをボタンひとつで切り替えられる。",
+      body: "温度計と湿度計が一緒になっており、現在の室温と湿度が見やすく表示され、同時に過去最高と最低の温湿度値も表示される。\n 最高と最低のデータは24時間で自動リセットするか、リセットするまでの全ての期間での最高最低を表示するのかをボタンひとつで切り替えられる。",
       seller: 'https://www.amazon.co.jp/gp/product/B072Q1D86C/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&psc=1',
       cost: '1480',
       period_of_use: '1年8ヶ月',
       photos_images: [File.open('./app/assets/images/product/thermometer/61tl6vkqbPL._SL1500_.jpg'),File.open('./app/assets/images/product/thermometer/71OCiadPbDL._SL1000_.jpg'),File.open('./app/assets/images/product/thermometer/61sUzuTGc1L._SL1000_.jpg'),File.open('./app/assets/images/product/thermometer/61GSRe9P3IL._SL1000_.jpg')],
-      merits_attributes: [{advantage: "画面が大きめに設計されているため、少し離れた場所からでも温度と湿度の値を見ることができます"}, {advantage: "1日の室内の最高気温と最低気温を知ることができるため、室内で育ててる植物の管理がしやすくなった"}],
+      merits_attributes: [{advantage: "画面が大きめに設計されているため、少し離れた場所からでも温度と湿度の値を見ることができる"}, {advantage: "1日の室内の最高気温と最低気温を知ることができるため、室内で育ててる植物の管理がしやすくなった"}],
       reference: 'https://www.amazon.co.jp/gp/product/B072Q1D86C/ref=ppx_yo_dt_b_asin_title_o07_s00?ie=UTF8&psc=1',
       store_name: 'Amazon/ThermoPro',
       tag_list: "家電製品,生活用品"
     },
     {
-      user_id: 6,
+      user_id: 10,
       title: '室内用洗濯物干し',
-      body: "窓のすぐ内側に洗濯物が干せるから、室内に入ってくる日光を活用できるということで購入しました。\n 使用しない時はコンパクトに折り畳んで、カーテンの裏に隠せる。\n 伸縮棒を窓枠に取り付けるだけで簡単に組み立てることができる上、竿受け部は窓のサイズや洗濯物を干す位置に応じて高さを自由に変えれる。",
+      body: "窓のすぐ内側に洗濯物が干せるから、室内に入ってくる日光を活用できるということで購入しました。\n 使用しない時はコンパクトに折り畳んで、カーテンの裏に収納して隠せる。\n 伸縮棒を窓枠に取り付けるだけで簡単に組み立てることができる上、竿受け部は窓のサイズや洗濯物を干す位置に応じて高さを自由に変えれる。",
       seller: 'https://www.amazon.co.jp/gp/product/B00KV2DXKQ/ref=ppx_yo_dt_b_asin_title_o06_s00?ie=UTF8&psc=1',
       cost: '2791',
       period_of_use: '1年3ヶ月',
@@ -229,7 +227,7 @@ User.create!(
     {
       user_id: 10,
       title: 'ワンタッチ式電動コーヒーミル',
-      body: "ワンタッチでコーヒー豆を短時間で挽くことができ、コーヒー豆以外にも細かくて乾燥したものが挽けます。\n 自宅で挽き立てのコーヒー豆で淹れたコーヒーが飲みたくて購入しました。",
+      body: "ワンタッチでコーヒー豆を短時間で挽くことができ、コーヒー豆以外にも細かくて乾燥したものが挽けます。\n 挽き立てのコーヒー豆で淹れたコーヒーが飲みたくて購入しました。",
       seller: 'https://www.amazon.co.jp/gp/product/B07WC7W24G/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1',
       cost: '2272',
       period_of_use: '1年1ヶ月',
@@ -256,22 +254,22 @@ User.create!(
     {
       user_id: 10,
       title: '袋止めクリップ',
-      body: "食品の袋に差し込んで密封します。\n 入数が多く、お値段もお手頃だったので購入しました。",
+      body: "食品の袋に差し込んで密封します。\n 入数が多く、値段もお手頃だったので購入しました。",
       seller: 'https://www.amazon.co.jp/gp/product/B07C1G1TNH/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1',
       cost: '1388',
       period_of_use: '3年',
       photos_images: [File.open('./app/assets/images/product/stopper/61SD1sAbiDL._AC_SL1000_.jpg'),File.open('./app/assets/images/product/stopper/619aLpXYJ4L._AC_SL1500_.jpg'),File.open('./app/assets/images/product/stopper/710YoCddPCL._AC_SL1080_.jpg')],
-      merits_attributes: [advantage: "他の袋止めクリップに比べ、密封度が高い"],
-      demerits_attributes: [disadvantage: "分厚目の袋だと差し込みにくかったり差し込めない時がある"],
-      reference: "https://www.amazon.co.jp/gp/css/summary/edit.html/ref=dp_iou_view_this_order?ie=UTF8&orderID=250-4887049-5290206",
+      merits_attributes: [advantage: "他の袋止めクリップに比べて密封度が高い"],
+      demerits_attributes: [disadvantage: "分厚目の袋だと差し込みにくかったり、差し込めない時がある"],
+      reference: "https://www.amazon.co.jp/gp/product/B07C1G1TNH/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1",
       store_name: "Amazon/CUGBO",
       tag_list: "キッチン用品"
     },
     {
-      user_id: 10,
+      user_id: 6,
       title: 'Bluetoothトランスミッター',
       body: "Bluetoothトランスミッター(送信機)とレシーバー(受信機)ができる一台二役のBluetoothアダプター。\n 自宅ではテレビとBluetoothスピーカーに接続して使用してます。",
-      seller: 'https://www.amazon.co.jp/gp/product/61p5LgqXdkL._AC_SL1500_',
+      seller: 'https://www.amazon.co.jp/gp/product/B07DRGPH3K/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1',
       cost: '2690',
       period_of_use: '1年7ヶ月',
       photos_images: [File.open('./app/assets/images/product/transmitter/61p5LgqXdkL._AC_SL1500_.jpg'),File.open('./app/assets/images/product/transmitter/613133hmUiL._AC_SL1000_.jpg'),File.open('./app/assets/images/product/transmitter/61XLSIt1J1L._AC_SL1000_.jpg')],

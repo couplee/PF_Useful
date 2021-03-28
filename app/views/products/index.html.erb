@@ -1,20 +1,20 @@
-<%= render 'layouts/flashes' %>                                                  <!--flash特有の余白消す3/3-->
+<%= render 'layouts/flashes' %>                                                               <!--flash特有の余白消す3/3-->
 <div class="container-fluid">
   <div class="row">
     <div class="col-6">
-      <!--#検索機能2/3ここから-->
-      <%= search_form_for @search do |f| %>                                     <!--, url: products_path-->
+      <!--検索機能2/3ここから-->
+      <%= search_form_for @search do |f| %>
         <%= f.label :tilte, 'タイトル／本文' %><br>
         <%= f.search_field :title_or_body_cont_all, required: true, class: 'search-form ' %>
         <%= f.submit '検索', class: 'search-submit-btn' %>
       <% end %>
-      <!--#検索機能2/3ここまで-->
     </div>
     <div class="col-6 text-right">
       <p>並べ替え</p>
       <p><%= sort_link(@search, :updated_at, '更新日(昇順)') %></p>
       <p><%= sort_link(@search, :cost, 'コスト(安い順)') %></p>
       <p><%= sort_link(@search, :likes_count, 'いいね(多い順)', default_order: :desc) %></p>
+      <!--検索機能2/3ここまで-->
     </div>
   </div>
 </div>
@@ -27,12 +27,9 @@
   <div class='row'>
     <% @products.each do |product| %>
       <div class='col-md-6 col-lg-4 pt-3'>
-        <div class="card-group h-100">                   <!--card-groupでBootstrapのcardを横並び(これで画面縮めてもcardが縮まらない)/text-centerで画面縮めたとき右側に隙間ができない/h-100=カードの高さを合わせる-->
-          <div class="card card-border-top">
-            <div class="card-swiper-between">                                                   <!--隙間の空白を埋める-->
-            <!--<div class="column flex-direction:row">-->                             <!--レイアウトが崩れる-->
+        <div class="card-group h-100">                                                         <!--card-groupでBootstrapのcardを横並び(画面縮めてもcardが縮まらない)/h-100はカードの高さを合わせる-->
+          <div class="card">
               <%= render 'products/swiper', product: product %>
-            </div>
             <div class="card-body">
               <%= render 'products/card', product: product %>
 
@@ -44,8 +41,8 @@
       </div>
     <% end %>
   </div>
-  <div class="text-center mt-3 mb-3 ">
-    <div class='p-top__paginate'><%= paginate @products %></div>
+  <div class="text-center mt-3 mb-3">
+    <%= paginate @products %>
   </div>
 </div>
 

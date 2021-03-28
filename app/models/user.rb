@@ -13,7 +13,7 @@ class User < ApplicationRecord
   
   validates :name, presence: true, uniqueness: true, length: { maximum: 16 }
 
-  def self.guest                                                                             #ゲストユーザー実装3/4
+  def self.guest                                                                                                 #ゲストユーザー実装3/4
     find_or_create_by!(email: 'guest@example.com') do |user|
       user.name = 'GUEST'
       user.profile = 'ゲストユーザーです'
@@ -22,12 +22,11 @@ class User < ApplicationRecord
     end
   end
   
-  def active_for_authentication?                                                     #ユーザー論理削除5/
+  def active_for_authentication?                                                               #論理削除でユーザー退会7/17
     super && (self.is_valid == true)
   end
   
-  scope :active, -> { where(is_valid: true) }                                                    #ユーザー論理削除7/┓
-  scope :deleted, -> { where(is_valid: false) }                                                  #ユーザー論理削除7/┛
-  
+  scope :active, -> { where(is_valid: true) }                                                    #論理削除でユーザー退会10/17
+  scope :deleted, -> { where(is_valid: false) }                                                  #論理削除でユーザー退会11/17
   
 end

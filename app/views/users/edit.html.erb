@@ -29,7 +29,7 @@
         </div>
       <% end %>
 
-      <% if @user.id == current_user.id %>                                                                                                              <!--ユーザー論理削除3/-->
+      <% if @user.id == current_user.id %>                                                             <!--論理削除でユーザー退会5/17-->
         <%= link_to unsubscribe_path(@user), class: 'page-center mt-5' do %>
           <i class="fas fa-mitten"></i>退会する
         <% end %>

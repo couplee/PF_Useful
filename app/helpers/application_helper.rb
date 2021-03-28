@@ -1,4 +1,5 @@
-module ApplicationHelper                                                                   #テキスト内のURLに違うページで飛ぶ1/2
+module ApplicationHelper
+ #テキスト内のURLを違うタブで開く1/2ここから
     require "uri"
    
   def text_url_to_link text
@@ -12,8 +13,5 @@ module ApplicationHelper                                                        
    
     return text
   end
-  
-  def simple_time(time)
-    time.strftime("%Y/%m/%d")
-  end
+ #テキスト内のURLを違うタブで開く1/2ここまで
 end

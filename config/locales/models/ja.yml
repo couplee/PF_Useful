@@ -1,10 +1,10 @@
 ja:
-  time:
+  time:                                                                                              #日本時間に設定3/5
       formats:
         default: "%Y/%m/%d %H:%M:%S"
         short: "%Y/%m/%d"
         long:
-  activerecord:
+  activerecord:                                                                                  #バリデーションエラーメッセージ日本語化3/4
     models:
       product: 商品
       user: ユーザー

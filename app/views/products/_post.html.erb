@@ -1,18 +1,17 @@
 <div class="container">
-  <!--<div class="justify-content-center">                  <!--centerにするため(d-flex align-items-center消したら横幅が指定できるようになった、、)-->
   <%= render 'products/error', product: @product %>
   <div class="row">
     <div class="col-12">
       <div class="field page-center">
         <%= f.label :タイトル（最大入力文字数：30文字）※入力必須 %><br>
-        <%= f.text_field :title, maxlength: "30", class: 'text-form',size: '52' %>                           <!--maxlengthで最大文字数制限-->
+        <%= f.text_field :title, maxlength: "30", class: 'text-form',size: '52' %>                                 <!--maxlengthで最大文字数制限-->
       </div>
       <div class="field page-center">
         <%= f.label :商品説明（購入の決め手／快適になったこと）※入力必須%><br>
-        <%= f.text_area :body, rows: '3', class: 'long-text-form' %>                                       <!--, id: 'textarea'　は改行でフォームを大きくする、、(cssとjsにも記入してる)-->
+        <%= f.text_area :body, rows: '3', class: 'long-text-form' %>
       </div>
-      <div class='merits page-center'>              <!--cocoonで'メリット'機能実装5/6-->
-        <%= f.fields_for :merits do |merit| %>
+      <div class='merits page-center'>
+        <%= f.fields_for :merits do |merit| %>                                                                    <!--cocoonで'メリット'機能実装5/6-->
           <%= f.label :メリット／利点 %>
           <%= render 'merit_fields', f: merit %>
         <% end %>
@@ -20,8 +19,8 @@
           <%= link_to_add_association 'メリット用フォーム追加', f, :merits %>
         </div>
       </div>
-      <div class='demerits page-center mt-5'>              <!--cocoonで'デメリット'機能実装5/6-->
-        <%= f.fields_for :demerits do |demerit| %>
+      <div class='demerits page-center mt-5'>
+        <%= f.fields_for :demerits do |demerit| %>                                                            <!--cocoonで'デメリット'機能実装5/6-->
           <%= f.label :デメリット／欠点 %>
           <%= render 'demerit_fields', f: demerit %>
         <% end %>
@@ -30,13 +29,13 @@
         </div>
       </div>
       <div class="page-center">
-        <%= f.label :タグ %><br>                                                                                 <!--タグ機能3*2/7?-->
+        <%= f.label :タグ %><br>                                                                                            <!--タグ機能3/6-->
         （複数記入の場合は半角コンマで区切ってください）<br>
         <%= f.text_field :tag_list, value: @product.tag_list.join(','), class: 'middle-text-form' %>
       </div>
       <div class="page-center">
         <%= f.label :商品画像 %><br>
-        <%= f.attachment_field :photos_images, multiple: true %>
+        <%= f.attachment_field :photos_images, multiple: true %>                                                   <!--refileで(複数の)画像投稿5/7(multiple: true)-->
       </div>
       <div class="page-center">
         <%= f.label :購入先（店舗名やリンク先等）： %>
@@ -49,13 +48,10 @@
       <div class="page-center">
         <%= f.label :今までの使用期間：約 %>
         <%= f.text_field :period_of_use, class: 'short-text-form' %>
-      <!--%== sprintf(
-       f.date_select(:birthday, :use_month_numbers=>true, :date_separator => '%s', :start_year=>1930, :end_year => Time.now.year, :default =>'1990-1-1'.to_date), '年','月') + '日生まれ' %-->
       </div>
       <div class="page-center">
         <%= f.submit "投稿", class: 'submit-btn' %>
       </div>
     </div>
   </div>
-<!--</div>-->
 </div>

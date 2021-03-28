@@ -34,18 +34,10 @@ a {
     color: #91B3E0;
     // display: block;
 }
+
 a:hover {
     color: #5B7EA9;
 }
-// header {
-//     font-family: 'Kosugi Maru', sans-serif;
-// }
-// * {
-//     background-color: #C3C4C9;
-// }
-
-
-
 
 .notice {
     color: #ff4a4a;
@@ -124,11 +116,6 @@ a:hover {
     font-weight: 900;
     content: '\f75e';
 }
-// .fa-signature:before {
-//     font-family: "Font Awesome 5 Free";
-//     font-weight: 900;
-//     content: '\f5b7';
-// }
 
 .fa-play:before {
     font-family: "Font Awesome 5 Free";
@@ -136,15 +123,11 @@ a:hover {
     content: '\f04b';
 }
 
-// .fa-cart-arrow-down {
-//     font-family: 'Kosugi Maru', sans-serif;
-// }
-
 .link-color {
     color: #C7433C;
 }
 
-input[type="text"] {                                  /*他のtext_fieldにも適用されるからwidthとheightは個別に設定*/
+input[type="text"] {                                  //他のtext_fieldにも適用されるからwidthとheightは個別に設定
     padding: 10px;
     background-color: #FBF8F8;
     outline-color: #F28D8D;
@@ -179,9 +162,6 @@ input[type="email"] {
 
     font-size: 28px;
 }
-// .nav-item {
-//     color: #1D3A5E;
-// }
 
 .nav-link {
     color: #F28D8D;
@@ -189,25 +169,25 @@ input[type="email"] {
     font-weight: border;
 }
 
-.navbar-toggler {                               /*ハンバーガーメニュー枠線*/
+.navbar-toggler {                               //ハンバーガーメニュー枠線
     border-color: #F28D8D;
     border-width: 3px;
 }
 
-.navbar-toggler{                               /*ハンバーガーメニュー背景色*/
+.navbar-toggler{                               //ハンバーガーメニュー背景色
   background-color: #FEF7EB;
 }
 
-.navbar-toggler .navbar-toggler-icon {                               /*ハンバーガーメニュー三本線*/
+.navbar-toggler .navbar-toggler-icon {                       //ハンバーガーメニュー三本線(色変えた)
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgb(242,141,141)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .navbar-light .navbar-nav .nav-link {
-    color: rgb(242,141,141);
+    // color: rgb(242,141,141);
     // color: #F28D8D;
 }
 .navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: #5B7EA9;
+    // color: #5B7EA9;
 }
 
 .application_name {
@@ -216,16 +196,13 @@ input[type="email"] {
     text-align: center;
 }
 
-
 .logo {
     width: 70px;
 }
 
-
 .top-logo {
     width: 200px;
 }
-
 
 .page-center {
     display: block;
@@ -242,13 +219,13 @@ input[type="email"] {
     margin-top: 5px;
 }
 
-.confirm-btn {                                                      /*会員登録系*/
+.confirm-btn {                                        //会員登録系
     padding: 8px 0;
     color: #91B3E0;
     background-color: #E5E5E5;
     display: block;
     margin: 0 auto;
-    width: 100px;
+    width: 230px;
     border-radius: 5px;
     opacity: 0.8;
     border: none;
@@ -261,7 +238,7 @@ input[type="email"] {
 
 
 .submit-btn {
-    border: none;                                                     /*枠線消した*/
+    border: none;                                        //枠線消した
     color: #91B3E0;
     padding: 8px 24px;
     background-color: #E5E5E5;
@@ -275,11 +252,6 @@ input[type="email"] {
 .submit-btn:hover {
     color: #5B7EA9;
 }
-
-// .submit-btn:action {
-//     border: blue;
-// }
-
 
 .comment {
     background: #FBF8F8;
@@ -317,7 +289,7 @@ input[type="email"] {
 }
 
 .search-submit-btn {
-    border: none;                                                     /*枠線消した*/
+    border: none;                                                     //枠線消した
     color: #91B3E0;
     padding: 6px;
     background-color: #E5E5E5;
@@ -333,24 +305,20 @@ input[type="email"] {
     color: #5B7EA9;
 }
 
-
 .card-group {
     background-color: #FBF8F8;
-    padding: 10px 0;                   /*下のcardのbottomにもバックグラウンドカラー適用*/
+    padding: 15px 0;                             //cardのbottomのために
     text-align: center;
     // margin: 5px;
 }
 
-.user-card-group{                                  /*マイページのカード*/
+.user-card-group{                                  //マイページのカード
     background-color: #FBF8F8;
 }
-
 
 .card {
     margin: 20px;
 }
-
-
 
 .card-title {
     font-size: 20px;
@@ -360,35 +328,18 @@ input[type="email"] {
     font-size: 18px;
 }
 
-
-
-.line-clamp {                       /*テキスト省略*/
+.line-clamp {                                  //テキスト省略
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
-.card-img-top {                         /*cardの画像*/
+.card-img-top {                             //cardの画像
     width: 100%;
     height: 40vh;
     object-fit: cover;
 }
-
-
-.card-swiper-between {
-    background: #FBF8F8;
-}
-
-.card-border-top {                                       /*隙間の空白を埋める*/
-    border-top: none;
-}
-
-
-// .field {
-//     border-top: 1px solid #C3C4C9;
-//     width: 50%;
-// }
 
 .long-text-form {
     width: 80%;
@@ -426,26 +377,14 @@ input[type="email"] {
     outline-color: #F28D8D;
 }
 
-// .tag {
-//     border: 1px solid #485876;
-//     padding: 3px;
-// }
-
-// #textarea {                                                 改行でフォームを大きくする、、(htmlとjsにも記入してる)
-// //   width: 500px;
-// //   max-height: 200px;
-//   padding: 8px;
-//   line-height: 20px;
-// }
-
+//kaminariのレイアウトここから
 .pagination {
-    justify-content: center;
+    justify-content: center;                        //kaminariを真ん中に
 }
 
-/*ページネーション自体のデザイン*/
-.pagination li a {
-  border: none;     /*枠線をなくす*/
-  color: #485876;   /*文字の色を変える*/
+.pagination li a {                             //ページング自体のデザイン
+  border: none;
+  color: #485876;
 }
 
 .page-item.active .page-link {
@@ -453,18 +392,16 @@ input[type="email"] {
     color: #F28D8D;
 }
 
-/* 表示しているページ番号のデザイン */
-.pagination .active a {
-  background-color: black;     /*背景の色を変える*/
-  border-radius: 50%;     /*角を丸くする*/
+
+.pagination .active a {                          //表示しているページ番号のデザイン
+  border-radius: 50%;
 }
 
-/*ホバー時のデザイン*/
 .pagination li a:hover {
-  border-radius: 50%;    /*角を丸くする*/
+  border-radius: 50%;
   background-color: #FBF8F8;
 }
-
+//kaminariのレイアウトここまで
 
 .indent {
     text-align: center;
@@ -473,9 +410,6 @@ input[type="email"] {
 .indention {
     display: inline-block;
 }
-
-
-
 
 footer {
     background-color: #FEF7EB;
@@ -508,185 +442,56 @@ footer {
 }
 // スムーススクロール機能2/3 ここまで
 
+.swiper-container {
 
+    img {                                                           //画像が見切れないように
+      display: inline;
+      width: auto;
+      max-width: 100%;
+      max-height: 100%;
+      align-self: center;                                            //上下の中央揃え
+  }
 
+  .swiper-button-prev {
+    left: 0px;
+    color: #485876;
+  }
+  .swiper-button-next {
+    right: 0px;
+    color: #485876;
+  }
 
-/* 前ページ、次ページボタン共通のスタイル */
-// .swiper-button-prev,
-// .swiper-button-next {
-// 	background-image: none; /* デフォルトのボタン画像を消す */
-// 	width: 28px; /* ボタンの幅 */
-// 	height: 86px; /* ボタンの高さ */
-// 	margin-top: -43px; /* 縦中央配置用：ボタンの高さの半分のネガティブマージン（top:50%がすでに設定されている） */
-// }
-/* 前ページボタンのスタイル */
-.swiper-button-prev:after {                             /*:beforeやったら適応しなかった*/
-// 	font-family: "Font Awesome 5 Free";
-// 	content: "\f100"; /* angle-double-leftのUnicode */
-// 	font-size: 48px;
-	color: #485876;
-}
-/* 次ページボタンのスタイル */
-.swiper-button-next:after {
-// 	font-family: "Font Awesome 5 Free";
-// 	content: "\f101"; /* angle-double-rightのUnicode */
-// // 	font-size: 48px;
-// 	font-weight: 900;
-	color: #485876;
 }
 
-
-
-//slider使わんから消す予定。ここから
-.slider{
-    margin: 100px auto;
-    width: 60%;
-}
-.slider img{
-    height: auto;
-    width: 100%;
-}
-/*slick setting*/
-.slick-prev:before,
-.slick-next:before {
-    color: #000;
-}
-//slider使わんから消す予定。ここまで
-
-
-
-
-
-
-
-// /*左右の矢印の色を変える*/
-// .slick-prev:before,
-// .slick-next:before {
-//     color: red;
-// }
-// /*左右の矢印の位置を変える*/
-// .slick-next {
-//     right: 20px;
-//     z-index: 99;
-// }
-// .slick-prev {
-//      left: 15px;
-//     z-index: 100;
-// }
-// /*スライド数のドットの色を変える*/
-// .slick-dots li.slick-active button:before,
-// .slick-dots li button:before {
-//     color: #fff;
-// }
-// /*スライド画像の横幅可変*/
-// img {
-//     max-width: 100%;
-//      height: auto;
-// }
-
-
-
-
-//   .slider {
-//       width :  80%;                    /**/
-//       margin :  100px auto;
-//   }
-
-//   .slick-slide {
-//     margin :  0px 20px;
-//     height : auto;              /*レスポンシブの表示が崩れることがある*/
-//   }
-
-//   .slick-slide img {
-//     width :  100%;
-//   }
-
-
-
-
-//   .slick-slide {
-//     transition :  all ease-in-out .3s;
-//     opacity :  .2;
-//   }
-
-//   .slick-active {
-//     opacity :  .5;
-//   }
-
-//   .slick-current {
-//     opacity :  1;
-//   }
-
-
-
-// .sliderArea {
-//   max-width: 100%;
-//   margin: 0 auto;
-//   padding: 0 25px;
-// }
-// .sliderArea.w300 {
-//   max-width: 300px;
-// }
-// .slick-slide {
-//   margin: 0 5px;
-// }
-// .slick-slide img {
-//   width: 100%;
-//   height: auto;
-// }
-// .slick-prev, .slick-next {
-//   z-index: 1;
-// }
-// .slick-prev:before, .slick-next:before {
-//   color: red;
-// }
-// .slick-slide {
-//   transition: all ease-in-out .3s;
-//   opacity: .2;
-// }
-// .slick-active {
-//   opacity: 1;
-// }
-// .slick-current {
-//   opacity: 1;
-// }
-// .thumb {
-//   margin: 20px 0 0;
-// }
-// .thumb .slick-slide {
-//   cursor: pointer;
-// }
-// .thumb .slick-slide:hover {
-//   opacity: .7;
-// }
 
 @media screen and (max-width: 1024px) {
-  img {                                                                      /*about画面の画像*/
+  img {                                                                      //about画面の画像
     width: 100%;
-    // max-width: 100%; /* 画像幅以上拡大しないようにする指定 */
+    // max-width: 100%;                                                     //画像幅以上拡大しないようにする指定
     height: auto;
   }
 }
 
 @media screen and (max-width: 768px) {
-  img {                                                                      /*about画面の画像*/
+  img {                                                                      //about画面の画像
     width: 100%;
-    // max-width: 100%; /* 画像幅以上拡大しないようにする指定 */
+    // max-width: 100%;                                                     //画像幅以上拡大しないようにする指定
     height: auto;
   }
 }
 
 @media screen and (max-width: 576px) {
-  img {                                                                      /*about画面の画像*/
+  img {                                                                      //about画面の画像
     width: 100%;
-    // max-width: 100%; /* 画像幅以上拡大しないようにする指定 */
+    // max-width: 100%;                                                    //画像幅以上拡大しないようにする指定
     height: auto;
   }
-}
 
-
-@media screen and (max-width: 576px) {
-  #page-top {
+  .search-form {
+    width: 100px;
+  }
+  
+    #page-top {
     font-size: 40%;
 }
 
@@ -694,13 +499,9 @@ footer {
     width: 45px;
     padding: 10px 0;
   }
-  
+
   .new-products {
       text-align: center;
   }
-  
-//   .application_name {
-//       font-size: 45px;
-//   }
 }
 

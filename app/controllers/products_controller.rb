@@ -2,13 +2,13 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.where(is_valid: false)                                                                                             #ユーザー論理削除9/┓
-    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               #ユーザー論理削除9/(.all→.where.not(user_id: @users)
+    @users = User.where(is_valid: false)                                                                                             #論理削除でユーザー退会13/17┓
+    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               #論理削除でユーザー退会13/17┛(.all→.where.not(user_id: @users)
     #検索機能1/3ここから
     title_or_body_cont_all = params[:q]['title_or_body_cont_all'] if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
     params[:q]['title_or_body_cont_all'] = params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/) if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
     @search = Product.ransack(params[:q])
-    @search_products = @search.result.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                          #ユーザー論理削除  (.all→.where.not(user_id: @users)
+    @search_products = @search.result.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                          #論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
     params[:q]['title_or_body_cont_all'] = title_or_body_cont_all if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
     if params[:q].present?
       render 'result'
@@ -16,10 +16,6 @@ class ProductsController < ApplicationController
       render 'index'
     end
     #検索機能1/3ここまで
-
-    # if params[:tag_name]
-    #   @products = Product.tagged_with("#{params[:tag_name]}")
-    # end
   end
 
   def show
@@ -29,9 +25,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.photos.new
-    @product.merits.build                                                           #cocoonで'メリット'機能実装3/6
-    @product.demerits.build                                                        #cocoonで'デメリット'機能実装3/6
+    @product.photos.new                                                                             #refileで(複数の)画像投稿3/7
+    @product.merits.build                                                                             #cocoonで'メリット'機能実装3/6
+    @product.demerits.build                                                                             #cocoonで'デメリット'機能実装3/6
   end
 
   def create
@@ -54,11 +50,10 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(edit_product_params)
-      #pp product_params[:photos_images]
-      product_params[:photos_images].each do | img |
+      product_params[:photos_images].each do | img |                                                            #refileで(複数の)画像投稿7/7┓
         if img != "[]"
           pp img.tempfile
-          @product.photos.new(image: File.open(img.tempfile))
+          @product.photos.new(image: File.open(img.tempfile))                                                   #refileで(複数の)画像投稿7/7┛
           @product.save
         end
       end
@@ -71,7 +66,7 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
-    redirect_to user_path(current_user.id)                                    #マイページにリダイレクト
+    redirect_to user_path(current_user.id)                                                            #マイページにリダイレクト
   end
 
   def destroy_photo
@@ -90,6 +85,7 @@ class ProductsController < ApplicationController
 end
 
 # ストロングパラメーター内
+# photos_images: []                                                                         #refileで(複数の)画像投稿4/7
 # merits_attributes: [:id, :product_id, :advantage, :_destroy]                                   #cocoonで'メリット'機能実装4/6
 # demerits_attributes: [:id, :product_id, :disadvantage, :_destroy]                              #cocoonで'デメリット'機能実装4/6
-# :tag_list                                                                                     #タグ機能2/7?
+# :tag_list                                                                                     #タグ機能2/6

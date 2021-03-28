@@ -1,4 +1,4 @@
-ja:
+ja:                                                                                                                          #devise日本語化4/4
   devise:
     confirmations:
       confirmed: 'アカウントを登録しました。'

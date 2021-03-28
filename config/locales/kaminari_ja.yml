@@ -1,4 +1,4 @@
-ja:
+ja:                                                                                  #kaminariのデザイン
   views:
     pagination:
       first: <i class="fas fa-angle-double-left"></i>

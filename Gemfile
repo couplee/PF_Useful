@@ -72,8 +72,9 @@ gem 'cocoon'
 gem 'ransack'
 gem 'acts-as-taggable-on', '~> 6.0'
 gem 'bxslider-rails'
-gem 'rails-i18n'
-gem 'devise-i18n'
+gem 'rails-i18n'                                                       #バリデーションエラーメッセージ日本語化1/3           #devise日本語化1/4
+gem 'devise-i18n'                                                      #devise日本語化2/4
+gem 'data-confirm-modal'
 
 gem 'dotenv-rails'
 group :production do
