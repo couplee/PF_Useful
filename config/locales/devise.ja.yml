@@ -64,3 +64,23 @@ ja:                                                                             
       too_long: "は%{count}文字以下に設定して下さい。"
       invalid: "は有効でありません。"
       confirmation: "が内容とあっていません。"
+  activerecord:                                                                                  #バリデーションエラーメッセージ日本語化3/4
+    models:
+      product: 商品
+      user: ユーザー
+      post_comment: コメント
+    attributes:
+      user:
+        name: お名前
+        password: パスワード
+        email: メールアドレス
+      post_comment:
+        comment: コメント
+      product:
+        title: タイトル
+        body: 商品説明
+  time:                                                                                              #日本時間に設定3/5
+      formats:
+        default: "%Y/%m/%d %H:%M:%S"
+        short: "%Y/%m/%d"
+        long:

@@ -2,20 +2,28 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.where(is_valid: false)                                                                                             #論理削除でユーザー退会13/17┓
-    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               #論理削除でユーザー退会13/17┛(.all→.where.not(user_id: @users)
-    #検索機能1/3ここから
-    title_or_body_cont_all = params[:q]['title_or_body_cont_all'] if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
-    params[:q]['title_or_body_cont_all'] = params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/) if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+    @users = User.where(is_valid: false)                                                                                             # 論理削除でユーザー退会13/17┓
+    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               # 論理削除でユーザー退会13/17┛(.all→.where.not(user_id: @users)
+    # 検索機能1/3ここから
+    if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+      title_or_body_cont_all = params[:q]['title_or_body_cont_all']
+    end
+    if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+      params[:q]['title_or_body_cont_all'] =
+        params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/)
+    end
     @search = Product.ransack(params[:q])
-    @search_products = @search.result.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                          #論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
-    params[:q]['title_or_body_cont_all'] = title_or_body_cont_all if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+    @search_products = @search.result.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9) # 論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
+    if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+      params[:q]['title_or_body_cont_all'] =
+        title_or_body_cont_all
+    end
     if params[:q].present?
       render 'result'
     else
       render 'index'
     end
-    #検索機能1/3ここまで
+    # 検索機能1/3ここまで
   end
 
   def show
@@ -25,9 +33,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.photos.new                                                                             #refileで(複数の)画像投稿3/7
-    @product.merits.build                                                                             #cocoonで'メリット'機能実装3/6
-    @product.demerits.build                                                                             #cocoonで'デメリット'機能実装3/6
+    @product.photos.new # refileで(複数の)画像投稿3/7
+    @product.merits.build # cocoonで'メリット'機能実装3/6
+    @product.demerits.build # cocoonで'デメリット'機能実装3/6
   end
 
   def create
@@ -42,20 +50,18 @@ class ProductsController < ApplicationController
 
   def edit
     @product = Product.find(params[:id])
-    if @product.user != current_user
-      redirect_to products_path, alert: '不正なアクセスです'
-    end
+    redirect_to products_path, alert: '不正なアクセスです' if @product.user != current_user
   end
 
   def update
     @product = Product.find(params[:id])
     if @product.update(edit_product_params)
-      product_params[:photos_images].each do | img |                                                            #refileで(複数の)画像投稿7/7┓
-        if img != "[]"
-          pp img.tempfile
-          @product.photos.new(image: File.open(img.tempfile))                                                   #refileで(複数の)画像投稿7/7┛
-          @product.save
-        end
+      product_params[:photos_images].each do |img|                                                            # refileで(複数の)画像投稿7/7┓
+        next unless img != '[]'
+
+        pp img.tempfile
+        @product.photos.new(image: File.open(img.tempfile))                                                   # refileで(複数の)画像投稿7/7┛
+        @product.save
       end
       redirect_to product_path(@product), notice: '更新に成功しました'
     else
@@ -66,7 +72,7 @@ class ProductsController < ApplicationController
   def destroy
     product = Product.find(params[:id])
     product.destroy
-    redirect_to user_path(current_user.id)                                                            #マイページにリダイレクト
+    redirect_to user_path(current_user.id) # マイページにリダイレクト
   end
 
   def destroy_photo
@@ -75,12 +81,15 @@ class ProductsController < ApplicationController
   end
 
   private
+
   def product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :period_of_use, :reference, :store_name, :tag_list, photos_images: [], merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :period_of_use, :reference,
+                                    :store_name, :tag_list, photos_images: [], merits_attributes: %i[id product_id advantage _destroy], demerits_attributes: %i[id product_id disadvantage _destroy])
   end
 
   def edit_product_params
-    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :period_of_use, :reference, :store_name, :tag_list, merits_attributes: [:id, :product_id, :advantage, :_destroy], demerits_attributes: [:id, :product_id, :disadvantage, :_destroy])
+    params.require(:product).permit(:title, :body, :seller, :cost, :since_when, :period_of_use, :reference,
+                                    :store_name, :tag_list, merits_attributes: %i[id product_id advantage _destroy], demerits_attributes: %i[id product_id disadvantage _destroy])
   end
 end
 

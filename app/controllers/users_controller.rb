@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
-  before_action :check_guest, only: [:update, :withdraw]                                       #ゲストユーザーは編集できない1/2(update)      #論理削除でユーザー退会17/17(ゲストユーザーは退会させないからwithdraw追記)     
+  before_action :check_guest, only: %i[update withdraw]                                       # ゲストユーザーは編集できない1/2(update)      #論理削除でユーザー退会17/17(ゲストユーザーは退会させないからwithdraw追記)
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.active.order(created_at: :desc).page(params[:page]).per(8)                                             #論理削除でユーザー退会12/17(.all→.actice)
+    @users = User.active.order(created_at: :desc).page(params[:page]).per(8) # 論理削除でユーザー退会12/17(.all→.actice)
   end
 
   def show
@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @products = @user.products.all.order(created_at: :desc).page(params[:page]).per(6)
   end
 
-  def withdraw                                                                                                    #論理削除でユーザー退会2/17
+  # 論理削除でユーザー退会2/17
+  def withdraw
     @user = User.find(params[:id])
     @user.update(is_valid: false)
     reset_session
@@ -21,9 +22,7 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
-    if @user != current_user
-      redirect_to users_path, alert: '不正なアクセスです'
-    end
+    redirect_to users_path, alert: '不正なアクセスです' if @user != current_user
   end
 
   def update
@@ -36,13 +35,13 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:name, :email, :profile, :profile_image)
   end
 
-  def check_guest                                                                                         #ゲストユーザーは編集できない2/2
-    if current_user.email == 'guest@example.com'
-      redirect_to users_path, alert: 'ゲストユーザーは変更できません'
-    end
+  # ゲストユーザーは編集できない2/2
+  def check_guest
+    redirect_to users_path, alert: 'ゲストユーザーは変更できません' if current_user.email == 'guest@example.com'
   end
 end

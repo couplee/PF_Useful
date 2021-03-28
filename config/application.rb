@@ -15,7 +15,7 @@ module USEFUL
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
-    config.time_zone = 'Tokyo'                                                                    #日本時間に設定1/5
-    config.i18n.default_locale = :ja                                                              #日本時間に設定2/5→   #バリデーションエラーメッセージ日本語化2/3→       #devise日本語化3/3
+    config.time_zone = 'Tokyo'                                                                    # 日本時間に設定1/5
+    config.i18n.default_locale = :ja                                                              # 日本時間に設定2/5→   #バリデーションエラーメッセージ日本語化2/3→       #devise日本語化3/3
   end
 end

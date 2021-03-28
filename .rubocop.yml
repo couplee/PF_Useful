@@ -1,0 +1,55 @@
+inherit_from: .rubocop_todo.yml
+
+# 外国語のコメントを許可(日本語のコメント記入したいから)
+Style/AsciiComments:
+  Enabled: false
+  
+# ドキュメントの無い public class を許可する
+Style/Documentation:
+  Enabled: false
+  
+Style/FrozenStringLiteralComment:
+  Enabled: false
+  
+Style/MixinUsage:
+  Exclude:
+    - "bin/setup"
+    - "bin/update"
+
+Metrics/AbcSize:
+  Max: 59
+  
+Metrics/BlockLength:
+  Max: 91
+  
+Metrics/CyclomaticComplexity:
+  Max: 8
+  
+Metrics/MethodLength:
+  Max: 20
+  
+Metrics/PerceivedComplexity:
+  Max: 9
+  
+Style/ClassAndModuleChildren:
+  Exclude:
+    - 'app/controllers/users/sessions_controller.rb'
+    - 'test/test_helper.rb'
+    
+Style/GuardClause:
+  Exclude:
+    - 'app/controllers/post_comments_controller.rb'
+    - 'db/migrate/20210307132836_change_collation_for_tag_names.acts_as_taggable_on_engine.rb'
+    
+Style/HashLikeCase:
+  Exclude:
+    - 'app/helpers/devise_helper.rb'
+    
+Style/IfUnlessModifier:
+  Exclude:
+    - 'app/controllers/products_controller.rb'
+    - 'db/migrate/20210307132836_change_collation_for_tag_names.acts_as_taggable_on_engine.rb'
+    - 'db/migrate/20210307132837_add_missing_indexes_on_taggings.acts_as_taggable_on_engine.rb'
+    
+Layout/LineLength:
+  Max: 259
