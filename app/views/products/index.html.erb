@@ -13,7 +13,7 @@
       <p>並べ替え</p>
       <p><%= sort_link(@search, :updated_at, '更新日(昇順)') %></p>
       <p><%= sort_link(@search, :cost, 'コスト(安い順)') %></p>
-      <p><%= sort_link(@search, :likes_count, 'いいね(多い順)', default_order: :desc) %></p>
+      <p><%= sort_link(@search, :likes_count, 'いいね(多い順)', default_order: :desc) %></p>                               <!--ransack子モデル(like)の検索3/4(likes_count)-->
       <!--検索機能2/3ここまで-->
     </div>
   </div>

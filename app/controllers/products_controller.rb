@@ -13,7 +13,7 @@ class ProductsController < ApplicationController
         params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/)
     end
     @search = Product.ransack(params[:q])
-    @search_products = @search.result.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9) # 論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
+    @search_products = @search.result(distinct: true).where.not(user_id: @users).page(params[:page]).per(9)       # ransack子モデル(like)の検索1/4(distinct: true(重複防止))→   # 論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
     if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
       params[:q]['title_or_body_cont_all'] =
         title_or_body_cont_all

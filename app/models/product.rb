@@ -10,6 +10,7 @@ class Product < ApplicationRecord
   has_many :demerits                                                                                           # cocoonで'デメリット'機能実装1/6┓
   accepts_nested_attributes_for :demerits, allow_destroy: true                                                 # cocoonで'デメリット'機能実装1/6┛
   acts_as_taggable # タグ機能1/6
+  
 
   with_options presence: true do
     validates :title, length: { maximum: 30 }
@@ -24,5 +25,11 @@ class Product < ApplicationRecord
   # ブックマーク済みかどうか
   def bookmarked_by?(user)
     bookmarks.where(user_id: user.id).exists?
+  end
+  
+  ransacker :likes_count do                         # ransack子モデル(like)の検索2/4
+    #productごとにいいねされた数を算出する
+    query = '(SELECT COUNT(likes.product_id) FROM likes where likes.product_id = products.id GROUP BY likes.product_id)'
+    Arel.sql(query)
   end
 end
