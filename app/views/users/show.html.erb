@@ -49,7 +49,7 @@
               <%= link_to "商品詳細", product_path(product) %>
               <% if @user.id == current_user.id %>
                 <%= link_to "商品編集", edit_product_path(product) %>
-                <%= link_to "商品削除", product_path(product), method: :delete, "data-confirm" => "本当に消しますか？" %>
+                <%= link_to "商品削除", product_path(product), method: :delete, data: {confirm: "本当に削除しますか？", cancel: "やめる", commit: "削除する"}, title: "削除確認" %>
               <% end %>
             </div>
           </div>
