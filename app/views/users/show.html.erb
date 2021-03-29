@@ -43,9 +43,8 @@
             </div>
             <div class="card-body">
               <%= render 'products/card', product: product %>
-
-            <!--</div>-->
-
+            </div>
+            <%= render 'products/card_list', product: product %>
             <div class="card-body">
               <%= link_to "商品詳細", product_path(product) %>
               <% if @user.id == current_user.id %>

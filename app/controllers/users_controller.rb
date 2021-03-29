@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_guest, only: %i[update withdraw]                                       # ゲストユーザーは編集できない1/2(update)      #論理削除でユーザー退会17/17(ゲストユーザーは退会させないからwithdraw追記)
+  before_action :check_guest, only: %i[update withdraw]                                       # ゲストユーザーは編集できない1/2(update)→      #論理削除でユーザー退会17/17(ゲストユーザーは退会させないからwithdraw追記)
   before_action :authenticate_user!, except: [:index]
 
   def index

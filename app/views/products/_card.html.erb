@@ -1,19 +1,2 @@
-<!--<div class="card-body">-->
-  <h5 class="card-title">タイトル：<%= link_to product.title, product_path(product) %></h5>
-  <p class="card-text line-clamp">商品説明：<%= link_to product.body, product_path(product) %></p>
-</div>
-<ul class="list-group list-group-flush">
-  <li class="list-group-item">
-    価格：￥<%= product.cost.to_i.to_s(:delimited) %>
-  </li>
-  <li class="list-group-item">
-    更新日：<%= l product.updated_at, format: :short %>                                                                 <!--日本時間に設定4/5(l と format: :short)-->
-  </li>
-  <li class="list-group-item">
-    タグ：<%= render 'products/tag_list', tag_list: product.tag_list %>                                               <!--タグ機能4/6-->
-  </li>
-  <li class="list-group-item">
-    <%= "コメント：#{product.post_comments.count}件" %>
-    <i class="fas fa-heart ml-5"></i><%= product.likes.count %>件
-  </li>
-</ul>
+<h5 class="card-title">タイトル：<%= link_to product.title, product_path(product) %></h5>
+<p class="card-text line-clamp">商品説明：<%= link_to product.body, product_path(product) %></p>
