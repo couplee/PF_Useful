@@ -1,9 +1,9 @@
-<h3 class="page-center">投稿便利商品</h3>                                                                            <!--検索機能3/3-->
 <div class='container-fluid'>
   <p>並び替え</p>
-  <p><%= sort_link(@search, :updated_at, '更新日', default_order: :desc) %></p>
+  <p><%= sort_link(@search, :updated_at, '更新日', default_order: :desc) %></p>                                             <!--検索機能3/3-->
   <p><%= sort_link(@search, :cost, 'コスト', default_order: :desc) %></p>
   <p><%= sort_link(@search, :likes_count, 'いいね', default_order: :desc) %></p>                               <!--ransack子モデル(like)の検索4/4(likes_count)-->
+  <h3 class="page-center">投稿便利商品</h3>
   <div class='row'>
     <% @search_products.each do |sp| %>
       <div class='col-md-6 col-lg-4 pt-3'>

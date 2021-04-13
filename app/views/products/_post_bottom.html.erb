@@ -1,0 +1,19 @@
+<div class="page-center">
+  <%= f.label :商品画像を追加 %><br>
+  <%= f.attachment_field :photos_images, multiple: true %>                                                   <!--refileで(複数の)画像投稿5/7(multiple: true)-->
+</div>
+<div class="page-center">
+  <%= f.label :購入先（店舗名やリンク先等）： %>
+  <%= f.text_field :seller, class: 'middle-text-form' %>
+</div>
+<div class="page-center">
+  <%= f.label :価格： %>
+  ￥ <%= f.text_field :cost, class: 'short-text-form' %>
+</div>
+<div class="page-center">
+  <%= f.label :今までの使用期間：約 %>
+  <%= f.text_field :period_of_use, class: 'short-text-form' %>
+</div>
+<div class="page-center">
+  <%= f.submit "投稿", class: 'submit-btn' %>
+</div>

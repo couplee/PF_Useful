@@ -9,7 +9,7 @@
 User.create!(
   name: 'たみ',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/Sneko210DSC03413.jpg'),
+  profile_image: File.open('./app/assets/images/profile/tami.jpg'),
   email: 'akai@gmail.com',
   password: '123qwe'
 )
@@ -17,7 +17,7 @@ User.create!(
 User.create!(
   name: 'けんと',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/KAZ19112B001.jpg'),
+  profile_image: File.open('./app/assets/images/profile/kento.jpg'),
   email: 'nishimura@gmail.com',
   password: '123qwe'
 )
@@ -25,7 +25,7 @@ User.create!(
 User.create!(
   name: 'みか',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/tomcat1580.jpg'),
+  profile_image: File.open('./app/assets/images/profile/mika.jpg'),
   email: 'mizutani@gmail.com',
   password: '123qwe'
 )
@@ -33,7 +33,7 @@ User.create!(
 User.create!(
   name: 'まゆこ',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/tomneko1215C1332.jpg'),
+  profile_image: File.open('./app/assets/images/profile/mayuko.jpg'),
   email: 'ozuku@gmail.com',
   password: '123qwe'
 )
@@ -41,7 +41,7 @@ User.create!(
 User.create!(
   name: 'さとる',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/tomcat1583.jpg'),
+  profile_image: File.open('./app/assets/images/profile/satoru.jpg'),
   email: 'ota@gmail.com',
   password: '123qwe'
 )
@@ -49,7 +49,7 @@ User.create!(
 User.create!(
   name: 'りゅう',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/KAZU20140504-P5040311.jpg'),
+  profile_image: File.open('./app/assets/images/profile/ryu.jpg'),
   email: 'ryu@gmail.com',
   password: '123qwe'
 )
@@ -57,7 +57,7 @@ User.create!(
 User.create!(
   name: 'さつき',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/HIRAnekotower.jpg'),
+  profile_image: File.open('./app/assets/images/profile/satsuki.jpg'),
   email: 'suto@gmail.com',
   password: '123qwe'
 )
@@ -65,7 +65,7 @@ User.create!(
 User.create!(
   name: 'うぶ',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/tomcat1576.jpg'),
+  profile_image: File.open('./app/assets/images/profile/ubu.jpg'),
   email: 'kitano@gmail.com',
   password: '123qwe'
 )
@@ -73,7 +73,7 @@ User.create!(
 User.create!(
   name: 'さやか',
   profile: '',
-  profile_image: File.open('./app/assets/images/profile/tomucaat17102701.jpg'),
+  profile_image: File.open('./app/assets/images/profile/sayaka.jpg'),
   email: 'honda@gmail.com',
   password: '123qwe'
 )
@@ -81,7 +81,7 @@ User.create!(
 User.create!(
   name: 'あやか',
   profile: '普段から便利グッズを利用してます。',
-  profile_image: File.open('./app/assets/images/profile/CAT9V9A9039.jpg'),
+  profile_image: File.open('./app/assets/images/profile/ayaka.jpg'),
   email: 'kanda@gmail.com',
   password: '123qwe'
 )

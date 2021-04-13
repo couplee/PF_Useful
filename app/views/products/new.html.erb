@@ -1,4 +1,12 @@
 <h3 class="page-center">新規投稿</h3>
 <%= form_with model: @product, url: products_path, local: true do |f| %>
-  <%= render 'products/post', product: @product, f: f %>
+  <div class="container">
+    <%= render 'products/error', product: @product %>
+    <div class="row">
+      <div class="col-12">
+        <%= render 'products/post_top', product: @product, f: f %>
+        <%= render 'products/post_bottom', product: @product, f: f %>
+      </div>
+    </div>
+  </div>
 <% end %>

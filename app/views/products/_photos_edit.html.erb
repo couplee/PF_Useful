@@ -1,0 +1,5 @@
+<%= f.label :投稿した商品画像 %><br>
+<% product.photos.each do |photo| %>
+  <%= image_tag attachment_url(photo, :image, :fill, 200, 200) %>
+  <p><%= link_to '削除する', photo_destroy_path(photo), method: :delete, data: { confirm: "画像を削除しますか？", cancel: "やめる", commit: "削除する"}, title: "画像削除の確認" %></p>
+<% end %>

@@ -8,7 +8,7 @@
           <%= @user.name %>
         </div>
         <div class="card-body">
-          <%= attachment_image_tag @user, :profile_image, fallback: 'no-image.png', size: '100x100' %>
+          <%= attachment_image_tag @user, :profile_image, fallback: 'no-image.png', size: '200x200' %>
           <p class="card-text"><%= simple_format(h(@user.profile)) %></p>
           <% if @user.id == current_user.id %>
             メールアドレス：<%= @user.email %><br>

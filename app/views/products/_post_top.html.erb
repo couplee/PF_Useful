@@ -1,0 +1,31 @@
+<div class="field page-center">
+  <%= f.label :タイトル（最大入力文字数：30文字）※入力必須 %><br>
+  <%= f.text_field :title, maxlength: "30", class: 'text-form',size: '52' %>                                 <!--maxlengthで最大文字数制限-->
+</div>
+<div class="field page-center">
+  <%= f.label :商品説明（購入の決め手／快適になったこと）※入力必須%><br>
+  <%= f.text_area :body, rows: '3', class: 'long-text-form' %>
+</div>
+<div class='merits page-center'>
+  <%= f.fields_for :merits do |merit| %>                                                                    <!--cocoonで'メリット'機能実装5/6-->
+    <%= f.label :メリット／利点 %>
+    <%= render 'merit_fields', f: merit %>
+  <% end %>
+  <div class='links'>
+    <%= link_to_add_association 'メリット用フォーム追加', f, :merits %>
+  </div>
+</div>
+<div class='demerits page-center mt-5'>
+  <%= f.fields_for :demerits do |demerit| %>                                                            <!--cocoonで'デメリット'機能実装5/6-->
+    <%= f.label :デメリット／欠点 %>
+    <%= render 'demerit_fields', f: demerit %>
+  <% end %>
+  <div class='links'>
+    <%= link_to_add_association 'デメリット用フォーム追加', f, :demerits %>
+  </div>
+</div>
+<div class="page-center">
+  <%= f.label :タグ %><br>                                                                                            <!--タグ機能3/6-->
+  （複数記入の場合は半角コンマで区切ってください）<br>
+  <%= f.text_field :tag_list, value: @product.tag_list.join(','), class: 'middle-text-form' %>
+</div>

@@ -2,22 +2,14 @@ class ProductsController < ApplicationController
   before_action :authenticate_user!, except: [:index]
 
   def index
-    @users = User.where(is_valid: false)                                                                                             # 論理削除でユーザー退会13/17┓
-    @products = Product.where.not(user_id: @users).order(created_at: :desc).page(params[:page]).per(9)                               # 論理削除でユーザー退会13/17┛(.all→.where.not(user_id: @users)
+    users = User.deleted                                                                                                            # 論理削除でユーザー退会13/17┓
+    @products = Product.where.not(user_id: users).order(created_at: :desc).page(params[:page]).per(9)                               # 論理削除でユーザー退会13/17┛(.all→.where.not(user_id: @users)
     # 検索機能1/3ここから
-    if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
-      title_or_body_cont_all = params[:q]['title_or_body_cont_all']
-    end
-    if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
-      params[:q]['title_or_body_cont_all'] =
-        params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/)
-    end
+    title_or_body_cont_all = params[:q]['title_or_body_cont_all'] if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
+    params[:q]['title_or_body_cont_all'] = params[:q]['title_or_body_cont_all'].split(/[\p{blank}\s]+/) if params[:q].present? && params[:q]['title_or_body_cont_all'].present?   # ransackのAND検索
     @search = Product.ransack(params[:q])
-    @search_products = @search.result(distinct: true).where.not(user_id: @users).page(params[:page]).per(9)       # ransack子モデル(like)の検索1/4(distinct: true(重複防止))→   # 論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
-    if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
-      params[:q]['title_or_body_cont_all'] =
-        title_or_body_cont_all
-    end
+    @search_products = @search.result(distinct: true).where.not(user_id: @users).page(params[:page]).per(9)         # ransack子モデル(like)の検索1/4(distinct: true(重複防止))→  # 論理削除でユーザー退会16/17(.all→.where.not(user_id: @users)
+    params[:q]['title_or_body_cont_all'] = title_or_body_cont_all if params[:q].present? && params[:q]['title_or_body_cont_all'].present?
     if params[:q].present?
       render 'result'
     else
@@ -33,9 +25,9 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
-    @product.photos.new # refileで(複数の)画像投稿3/7
-    @product.merits.build # cocoonで'メリット'機能実装3/6
-    @product.demerits.build # cocoonで'デメリット'機能実装3/6
+    @product.photos.new       # refileで(複数の)画像投稿3/7
+    @product.merits.build        # cocoonで'メリット'機能実装3/6
+    @product.demerits.build         # cocoonで'デメリット'機能実装3/6
   end
 
   def create
@@ -56,12 +48,11 @@ class ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update(edit_product_params)
-      product_params[:photos_images].each do |img|                                                            # refileで(複数の)画像投稿7/7┓
-        next unless img != '[]'
-
-        pp img.tempfile
-        @product.photos.new(image: File.open(img.tempfile))                                                   # refileで(複数の)画像投稿7/7┛
+      product_params[:photos_images].each do |img|                                                            # refileで(複数の)画像投稿7/7┓→    # 以前に投稿した画像を表示させる
+        if img != "[]"
+        @product.photos.new(image: File.open(img.tempfile))                                                   # refileで(複数の)画像投稿7/7┛→    # (image: File.open(img.tempfile))は以前に投稿した画像を表示させる
         @product.save
+        end
       end
       redirect_to product_path(@product), notice: '更新に成功しました'
     else
