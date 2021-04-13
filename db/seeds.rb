@@ -7,83 +7,78 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create!(
-  name: 'たみ',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/tami.jpg'),
-  email: 'akai@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'けんと',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/kento.jpg'),
-  email: 'nishimura@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'みか',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/mika.jpg'),
-  email: 'mizutani@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'まゆこ',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/mayuko.jpg'),
-  email: 'ozuku@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'さとる',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/satoru.jpg'),
-  email: 'ota@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'りゅう',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/ryu.jpg'),
-  email: 'ryu@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'さつき',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/satsuki.jpg'),
-  email: 'suto@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'うぶ',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/ubu.jpg'),
-  email: 'kitano@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'さやか',
-  profile: '',
-  profile_image: File.open('./app/assets/images/profile/sayaka.jpg'),
-  email: 'honda@gmail.com',
-  password: '123qwe'
-)
-
-User.create!(
-  name: 'あやか',
-  profile: '普段から便利グッズを利用してます。',
-  profile_image: File.open('./app/assets/images/profile/ayaka.jpg'),
-  email: 'kanda@gmail.com',
-  password: '123qwe'
+  [
+    {
+      name: 'たみ',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/tami.jpg'),
+      email: 'akai@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'けんと',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/kento.jpg'),
+      email: 'nishimura@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'みか',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/mika.jpg'),
+      email: 'mizutani@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'まゆこ',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/mayuko.jpg'),
+      email: 'ozuku@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'さとる',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/satoru.jpg'),
+      email: 'ota@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'りゅう',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/ryu.jpg'),
+      email: 'ryu@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'さつき',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/satsuki.jpg'),
+      email: 'suto@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'うぶ',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/ubu.jpg'),
+      email: 'kitano@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'さやか',
+      profile: '',
+      profile_image: File.open('./app/assets/images/profile/sayaka.jpg'),
+      email: 'honda@gmail.com',
+      password: '123qwe'
+    },
+    {
+      name: 'あやか',
+      profile: '普段から便利グッズを利用してます。',
+      profile_image: File.open('./app/assets/images/profile/ayaka.jpg'),
+      email: 'kanda@gmail.com',
+      password: '123qwe'
+    }
+  ]
 )
 
 Product.create!(
